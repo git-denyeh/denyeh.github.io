@@ -28,116 +28,68 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
-    /* GRAIN */
     body::after {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 999;
-      opacity: 0.5;
+      pointer-events: none; z-index: 999; opacity: 0.5;
     }
-
-    /* EMBER GLOW */
     .ember-glow {
-      position: fixed;
-      bottom: -120px;
-      left: 50%;
+      position: fixed; bottom: -120px; left: 50%;
       transform: translateX(-50%);
-      width: 700px;
-      height: 350px;
+      width: 700px; height: 350px;
       background: radial-gradient(ellipse, rgba(200,121,65,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(13,11,9,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       justify-content: space-between;
       height: 58px;
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
+      font-size: 1.25rem; color: var(--accent);
+      text-decoration: none; letter-spacing: 0.04em;
+      display: flex; align-items: baseline; gap: 0.6rem;
     }
     .nav-logo span {
-      color: var(--muted);
-      font-size: 0.65rem;
-      font-family: 'Barlow', sans-serif;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      color: var(--muted); font-size: 0.65rem;
+      font-family: 'Barlow', sans-serif; font-weight: 400;
+      letter-spacing: 0.14em; text-transform: uppercase;
     }
-    .nav-links {
-      display: flex;
-      gap: 0.1rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 0.1rem; list-style: none; }
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
+      color: var(--muted); text-decoration: none;
       font-family: 'Barlow', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.65rem;
-      border-radius: 3px;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 0.65rem; border-radius: 3px;
       transition: color 0.2s, background 0.2s;
     }
     .nav-links a:hover { color: var(--accent3); background: var(--bg3); }
-
-    /* HAMBURGER */
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
     }
-    .hamburger span {
-      display: block; width: 22px; height: 1px;
-      background: var(--muted); transition: all 0.3s;
-    }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--muted); }
     .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-      padding: 1.25rem 2rem;
-      gap: 0.25rem;
-      position: relative;
-      z-index: 99;
+      display: none; flex-direction: column;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem; gap: 0.25rem;
+      position: relative; z-index: 99;
     }
     .mobile-menu a {
-      color: var(--muted);
-      text-decoration: none;
-      font-family: 'Barlow', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--border);
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif; font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
       transition: color 0.2s;
     }
     .mobile-menu a:hover { color: var(--accent3); }
@@ -146,152 +98,120 @@
 
     /* HERO */
     .hero {
-      position: relative;
-      z-index: 1;
-      padding: 6rem 2rem 4rem;
-      max-width: 760px;
-      margin: 0 auto;
+      position: relative; z-index: 1;
+      padding: 4rem 2rem 2.5rem;
+      max-width: 760px; margin: 0 auto;
       text-align: center;
     }
     .hero-rule {
       width: 36px; height: 1px;
       background: var(--accent2);
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2rem;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 9vw, 5.5rem);
-      font-weight: 400;
-      line-height: 1.05;
-      color: var(--text);
-      margin-bottom: 0.75rem;
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      font-weight: 400; line-height: 1.05;
+      color: var(--text); margin-bottom: 0.75rem;
       animation: fadeUp 0.9s ease both;
     }
     .hero h1 em { font-style: italic; color: var(--accent); }
     .hero-tagline {
       font-family: 'Barlow', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      margin-bottom: 3.5rem;
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 2.5rem;
       animation: fadeUp 0.9s ease 0.1s both;
     }
-
-    /* ABOUT */
     .about {
-      max-width: 560px;
-      margin: 0 auto 4.5rem;
+      max-width: 560px; margin: 0 auto 3rem;
       animation: fadeUp 0.9s ease 0.2s both;
     }
-    .about p {
-      font-size: 1.18rem;
-      line-height: 1.95;
-      color: #afa89a;
-    }
-    .about p + p { margin-top: 1.1em; }
+    .about p { font-size: 1.1rem; line-height: 1.9; color: #afa89a; }
+    .about p + p { margin-top: 1em; }
     .about em { color: var(--accent3); font-style: italic; }
 
     /* DIVIDER */
     .divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      max-width: 960px;
-      margin: 0 auto 0;
-      padding: 0 2rem;
-      position: relative;
-      z-index: 1;
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 860px; margin: 0 auto;
+      padding: 0 2rem; position: relative; z-index: 1;
+      margin-bottom: 1.75rem;
     }
     .divider::before, .divider::after {
       content: ''; flex: 1; height: 1px; background: var(--border);
     }
     .divider span {
       font-family: 'Barlow', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      white-space: nowrap;
+      font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent2); white-space: nowrap;
     }
 
-    /* TOPIC GRID */
+    /* TOPIC GRID — 2 columns, icon left, title right, no numbers */
     .topics {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 2rem 8rem;
-      position: relative;
-      z-index: 1;
+      max-width: 860px; margin: 0 auto;
+      padding: 0 2rem 4rem;
+      position: relative; z-index: 1;
     }
     .topic-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      margin-top: 0;
     }
     .topic-card {
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2rem 1.75rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.1rem;
+      padding: 1.3rem 1.5rem;
       background: var(--bg2);
       text-decoration: none;
-      min-height: 200px;
       transition: background 0.25s;
     }
     .topic-card:hover { background: var(--bg3); }
-    .topic-card:hover .topic-arrow { opacity: 1; transform: translate(3px,-3px); color: var(--accent); }
-    .topic-card:hover .topic-num { color: var(--accent); }
-    .topic-top { display: flex; justify-content: space-between; align-items: flex-start; }
-    .topic-num {
-      font-family: 'Barlow', sans-serif;
-      font-size: 0.6rem;
-      color: var(--accent2);
-      letter-spacing: 0.14em;
+    .topic-card:hover .topic-icon { color: var(--accent3); }
+    .topic-card:hover .topic-name { color: var(--accent3); }
+    .topic-icon {
+      flex-shrink: 0;
+      width: 38px; height: 38px;
+      color: var(--accent);
       transition: color 0.25s;
     }
-    .topic-arrow {
-      font-size: 1rem;
-      color: var(--muted);
-      opacity: 0;
-      transition: opacity 0.25s, transform 0.25s, color 0.25s;
-    }
+    .topic-icon svg { width: 38px; height: 38px; display: block; }
     .topic-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.25;
-      margin-top: auto;
-      padding-top: 2rem;
+      font-size: 1rem; font-weight: 400;
+      color: var(--text); line-height: 1.3;
+      transition: color 0.25s;
     }
     .topic-name em { font-style: italic; color: var(--accent3); }
 
     /* FOOTER */
     footer {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       border-top: 1px solid var(--border);
       padding: 1.75rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
     }
     .footer-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 0.88rem;
-      font-style: italic;
-      color: var(--accent2);
+      font-size: 0.9rem; font-style: italic; color: var(--accent2);
+    }
+    .footer-attribution {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      opacity: 0.7;
     }
     .footer-copy {
       font-family: 'Barlow', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 0.25rem;
     }
 
     @keyframes fadeUp {
@@ -302,13 +222,12 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero { padding: 4rem 1.5rem 3rem; }
-      .topics { padding: 0 1.5rem 5rem; }
-      .topic-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 3rem 1.5rem 2rem; }
+      .topics { padding: 0 1.5rem 3rem; }
+      .topic-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .topic-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      footer { gap: 0.4rem; }
       .nav-logo span { display: none; }
     }
   </style>
@@ -358,52 +277,104 @@
   <section class="topics">
     <div class="topic-grid">
 
+      <!-- 01 Bless Your Oblivious Heart — proper steering wheel -->
       <a href="topic1.html" class="topic-card">
-        <div class="topic-top">
-          <span class="topic-num">01</span>
-          <span class="topic-arrow">↗</span>
+        <div class="topic-icon">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- outer ring -->
+            <circle cx="19" cy="19" r="15" stroke="currentColor" stroke-width="2.5"/>
+            <!-- inner hub -->
+            <circle cx="19" cy="19" r="3.5" stroke="currentColor" stroke-width="2.2"/>
+            <circle cx="19" cy="19" r="1.2" fill="currentColor"/>
+            <!-- 3 spokes -->
+            <line x1="19" y1="15.5" x2="19" y2="4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="16.1" y1="21.6" x2="6.1" y2="27.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="21.9" y1="21.6" x2="31.9" y2="27.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
         </div>
-        <span class="topic-name">Bless Your<br><em>Oblivious</em> Heart</span>
+        <span class="topic-name">Bless Your <em>Oblivious</em> Heart</span>
       </a>
 
+      <!-- 02 Think for Yourself — lit lightbulb -->
       <a href="topic2.html" class="topic-card">
-        <div class="topic-top">
-          <span class="topic-num">02</span>
-          <span class="topic-arrow">↗</span>
+        <div class="topic-icon">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- bulb dome -->
+            <path d="M12 17 C12 11.5 15.1 7 19 7 C22.9 7 26 11.5 26 17 C26 20.5 24.2 23.5 22 25.5 L22 28 L16 28 L16 25.5 C13.8 23.5 12 20.5 12 17Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <!-- base bands -->
+            <line x1="16" y1="28" x2="22" y2="28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="16.5" y1="30.5" x2="21.5" y2="30.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- filament glow lines -->
+            <line x1="19" y1="13" x2="19" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="16" y1="15" x2="22" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          </svg>
         </div>
-        <span class="topic-name">Think for<br><em>Yourself</em></span>
+        <span class="topic-name">Think for <em>Yourself</em></span>
       </a>
 
+      <!-- 03 The Machine — two proper interlocking gears -->
       <a href="topic3.html" class="topic-card">
-        <div class="topic-top">
-          <span class="topic-num">03</span>
-          <span class="topic-arrow">↗</span>
+        <div class="topic-icon">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- large gear teeth (top-left) -->
+            <path d="M8 13.5 L9.5 11 L11.5 12 C12.5 11 13.7 10.3 15 9.9 L15.2 7.5 L18.2 7 L18.8 9.4 C20.1 9.7 21.3 10.3 22.3 11.2 L24.5 10.5 L26 13 L24.2 14.5 C24.4 15.3 24.5 16.1 24.5 17 C24.5 17.9 24.4 18.7 24.2 19.5 L26 21 L24.5 23.5 L22.3 22.8 C21.3 23.7 20.1 24.3 18.8 24.6 L18.2 27 L15.2 26.5 L15 24.1 C13.7 23.7 12.5 23 11.5 22 L9.5 23 L8 20.5 L9.8 19 C9.6 18.1 9.5 17.5 9.5 17 C9.5 16.5 9.6 15.9 9.8 15 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <!-- large gear hole -->
+            <circle cx="17" cy="17" r="3.5" stroke="currentColor" stroke-width="2"/>
+            <!-- small gear (bottom-right, interlocking) -->
+            <path d="M25 27 L25.8 25.5 L27.2 26.2 C27.8 25.6 28.5 25.2 29.3 25 L29.4 23.5 L31.2 23.2 L31.5 24.7 C32.3 24.9 33 25.3 33.6 25.9 L35 25.4 L35.8 26.9 L34.7 27.9 C34.8 28.4 34.9 28.9 34.9 29.4 C34.9 29.9 34.8 30.4 34.7 30.9 L35.8 31.9 L35 33.4 L33.6 32.9 C33 33.5 32.3 33.9 31.5 34.1 L31.2 35.6 L29.4 35.3 L29.3 33.8 C28.5 33.6 27.8 33.2 27.2 32.6 L25.8 33.3 L25 31.8 L26.1 30.8 C26 30.3 25.9 29.85 25.9 29.4 C25.9 28.95 26 28.5 26.1 28 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="30.4" cy="29.4" r="2.2" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
         </div>
-        <span class="topic-name">The<br><em>Machine</em></span>
+        <span class="topic-name">The <em>Machine</em></span>
       </a>
 
+      <!-- 04 Words Worth Keeping — quotation marks -->
       <a href="topic4.html" class="topic-card">
-        <div class="topic-top">
-          <span class="topic-num">04</span>
-          <span class="topic-arrow">↗</span>
+        <div class="topic-icon">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- left quote mark -->
+            <path d="M7 22 C7 17 9.5 13 13 11 L14.5 13.5 C12.5 14.8 11.5 16.5 11.5 18 L11.5 18.2 C12.2 18 13 18 13.8 18.3 C15.5 19 16.5 20.8 16 22.8 C15.5 24.8 13.5 26 11.5 25.5 C9 24.8 7 23.5 7 22 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/>
+            <!-- right quote mark -->
+            <path d="M21 22 C21 17 23.5 13 27 11 L28.5 13.5 C26.5 14.8 25.5 16.5 25.5 18 L25.5 18.2 C26.2 18 27 18 27.8 18.3 C29.5 19 30.5 20.8 30 22.8 C29.5 24.8 27.5 26 25.5 25.5 C23 24.8 21 23.5 21 22 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/>
+          </svg>
         </div>
-        <span class="topic-name">Words Worth<br><em>Keeping</em></span>
+        <span class="topic-name">Words Worth <em>Keeping</em></span>
       </a>
 
+      <!-- 05 Just Breathe — breath/wind wave -->
       <a href="topic5.html" class="topic-card">
-        <div class="topic-top">
-          <span class="topic-num">05</span>
-          <span class="topic-arrow">↗</span>
+        <div class="topic-icon">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- rising breath lines — three arcs suggesting inhale/exhale -->
+            <path d="M5 24 C8 24 8 16 13 16 C18 16 18 24 23 24 C28 24 28 16 33 16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 29 C11.5 29 11.5 24 15 24 C18.5 24 18.5 29 22 29 C25.5 29 25.5 24 29 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <!-- upward breath dot -->
+            <circle cx="19" cy="10" r="1.8" fill="currentColor" opacity="0.6"/>
+            <path d="M16.5 13 Q19 9.5 21.5 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.4"/>
+          </svg>
         </div>
-        <span class="topic-name">Just<br><em>Breathe</em></span>
+        <span class="topic-name">Just <em>Breathe</em></span>
       </a>
 
+      <!-- 06 Better Every Day — clean rising sun -->
       <a href="topic6.html" class="topic-card">
-        <div class="topic-top">
-          <span class="topic-num">06</span>
-          <span class="topic-arrow">↗</span>
+        <div class="topic-icon">
+          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- horizon line -->
+            <line x1="4" y1="28" x2="34" y2="28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- sun semicircle rising from horizon -->
+            <path d="M10 28 A9 9 0 0 1 28 28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- sun center dot -->
+            <circle cx="19" cy="28" r="2.2" fill="currentColor"/>
+            <!-- rays above horizon -->
+            <line x1="19" y1="15" x2="19" y2="12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="26.5" y1="17.5" x2="28.5" y2="15.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="11.5" y1="17.5" x2="9.5" y2="15.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="29.5" y1="23" x2="32" y2="22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="8.5" y1="23" x2="6" y2="22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
         </div>
-        <span class="topic-name">Better<br><em>Every Day</em></span>
+        <span class="topic-name">Better <em>Every Day</em></span>
       </a>
 
     </div>
@@ -411,6 +382,7 @@
 
   <footer>
     <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
+    <span class="footer-attribution">— Rumi</span>
     <span class="footer-copy">© denyeh.com</span>
   </footer>
 
