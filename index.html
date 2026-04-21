@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>denyeh.com — A Work in Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #0d0b09;
+      --bg2:    #131008;
+      --bg3:    #1a1510;
+      --border: #2e2620;
+      --text:   #e8e0d0;
+      --muted:  #7a6e60;
+      --accent: #c87941;
+      --accent2:#8a5a2a;
+      --accent3:#e8a060;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* GRAIN */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+    /* EMBER GLOW */
+    .ember-glow {
+      position: fixed;
+      bottom: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 350px;
+      background: radial-gradient(ellipse, rgba(200,121,65,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,11,9,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+    .nav-logo span {
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0.1rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.65rem;
+      border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent3); background: var(--bg3); }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1px;
+      background: var(--muted); transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      gap: 0.25rem;
+      position: relative;
+      z-index: 99;
+    }
+    .mobile-menu a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent3); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2rem 4rem;
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-rule {
+      width: 36px; height: 1px;
+      background: var(--accent2);
+      margin: 0 auto 2.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 9vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      animation: fadeUp 0.9s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-tagline {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 3.5rem;
+      animation: fadeUp 0.9s ease 0.1s both;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 560px;
+      margin: 0 auto 4.5rem;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+    .about p {
+      font-size: 1.18rem;
+      line-height: 1.95;
+      color: #afa89a;
+    }
+    .about p + p { margin-top: 1.1em; }
+    .about em { color: var(--accent3); font-style: italic; }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 960px;
+      margin: 0 auto 0;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .divider span {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      white-space: nowrap;
+    }
+
+    /* TOPIC GRID */
+    .topics {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+      position: relative;
+      z-index: 1;
+    }
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 0;
+    }
+    .topic-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 1.75rem;
+      background: var(--bg2);
+      text-decoration: none;
+      min-height: 200px;
+      transition: background 0.25s;
+    }
+    .topic-card:hover { background: var(--bg3); }
+    .topic-card:hover .topic-arrow { opacity: 1; transform: translate(3px,-3px); color: var(--accent); }
+    .topic-card:hover .topic-num { color: var(--accent); }
+    .topic-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .topic-num {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.6rem;
+      color: var(--accent2);
+      letter-spacing: 0.14em;
+      transition: color 0.25s;
+    }
+    .topic-arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      opacity: 0;
+      transition: opacity 0.25s, transform 0.25s, color 0.25s;
+    }
+    .topic-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.25;
+      margin-top: auto;
+      padding-top: 2rem;
+    }
+    .topic-name em { font-style: italic; color: var(--accent3); }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--accent2);
+    }
+    .footer-copy {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .topics { padding: 0 1.5rem 5rem; }
+      .topic-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .topic-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      .nav-logo span { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ember-glow"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      denyeh <span>a work in progress</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="topic1.html">Oblivious</a></li>
+      <li><a href="topic2.html">Think</a></li>
+      <li><a href="topic3.html">The Machine</a></li>
+      <li><a href="topic4.html">Words</a></li>
+      <li><a href="topic5.html">Breathe</a></li>
+      <li><a href="topic6.html">Better</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="topic1.html">Bless Your Oblivious Heart</a>
+    <a href="topic2.html">Think for Yourself</a>
+    <a href="topic3.html">The Machine</a>
+    <a href="topic4.html">Words Worth Keeping</a>
+    <a href="topic5.html">Just Breathe</a>
+    <a href="topic6.html">Better Every Day</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-rule"></div>
+    <h1>Mostly quiet.<br><em>Still burning.</em></h1>
+    <p class="hero-tagline">denyeh.com &nbsp;·&nbsp; a work in progress</p>
+    <div class="about">
+      <p>I'm a work in progress. Some days I'm grounded, grateful, and at peace with the universe. Other days, someone sits in the left lane doing 55 and I lose my mind.</p>
+      <p>This site is <em>both</em> of those people — and everything in between. Six topics. One honest voice. Pull up a chair.</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>Browse by topic</span></div>
+
+  <section class="topics">
+    <div class="topic-grid">
+
+      <a href="topic1.html" class="topic-card">
+        <div class="topic-top">
+          <span class="topic-num">01</span>
+          <span class="topic-arrow">↗</span>
+        </div>
+        <span class="topic-name">Bless Your<br><em>Oblivious</em> Heart</span>
+      </a>
+
+      <a href="topic2.html" class="topic-card">
+        <div class="topic-top">
+          <span class="topic-num">02</span>
+          <span class="topic-arrow">↗</span>
+        </div>
+        <span class="topic-name">Think for<br><em>Yourself</em></span>
+      </a>
+
+      <a href="topic3.html" class="topic-card">
+        <div class="topic-top">
+          <span class="topic-num">03</span>
+          <span class="topic-arrow">↗</span>
+        </div>
+        <span class="topic-name">The<br><em>Machine</em></span>
+      </a>
+
+      <a href="topic4.html" class="topic-card">
+        <div class="topic-top">
+          <span class="topic-num">04</span>
+          <span class="topic-arrow">↗</span>
+        </div>
+        <span class="topic-name">Words Worth<br><em>Keeping</em></span>
+      </a>
+
+      <a href="topic5.html" class="topic-card">
+        <div class="topic-top">
+          <span class="topic-num">05</span>
+          <span class="topic-arrow">↗</span>
+        </div>
+        <span class="topic-name">Just<br><em>Breathe</em></span>
+      </a>
+
+      <a href="topic6.html" class="topic-card">
+        <div class="topic-top">
+          <span class="topic-num">06</span>
+          <span class="topic-arrow">↗</span>
+        </div>
+        <span class="topic-name">Better<br><em>Every Day</em></span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
+    <span class="footer-copy">© denyeh.com</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
