@@ -190,18 +190,25 @@
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
       padding: 1.75rem 2rem;
-      display: flex; align-items: center;
-      justify-content: space-between;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
     }
     .footer-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 0.88rem; font-style: italic;
-      color: var(--accent2);
+      font-size: 0.9rem; font-style: italic; color: var(--accent2);
+    }
+    .footer-attribution {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      opacity: 0.7;
     }
     .footer-copy {
       font-family: 'Barlow', sans-serif;
       font-size: 0.62rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--muted);
+      margin-top: 0.25rem;
     }
 
     @media (max-width: 768px) {
@@ -211,7 +218,7 @@
       .feed { padding: 0 1.5rem 5rem; }
     }
     @media (max-width: 480px) {
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      footer { gap: 0.4rem; }
     }
   </style>
 </head>
@@ -257,36 +264,30 @@
 
   <main class="feed">
 
-    <!-- ✂ ─────────────────────────────────────────────────────────
-         TO ADD A NEW POST:
-         1. Copy everything from <article class="post"> to </article>
-         2. Paste it above this comment block (newest post at top)
-         3. Update: post-date, post-title, img src + alt, post-body text
-         4. Save the file and push to GitHub
-    ──────────────────────────────────────────────────────────── ✂ -->
-
     <article class="post">
-      <div class="post-meta">
-        <span class="post-date">April 21, 2026</span>
-      </div>
-      <h2 class="post-title">Your Post Title Goes Here</h2>
-      <img
-        class="post-img"
-        src="images/your-image.jpg"
-        alt="Brief description of your image"
-      />
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">Customer for life</h2>
       <div class="post-body">
-        <p>Your story, thought, or rant goes here. Write exactly how you talk. Each paragraph gets its own p tag.</p>
-        <p>Second paragraph if you need it. Keep going as long as it takes to say what needs saying — no more.</p>
+        <p>Someone wrote about showing up at college and finding almost every girl in the dorm already on an SSRI. Inside jokes about the prescriptions. Grateful for them.</p>
+        <p>Under that post, a reply said the quiet part. They want you sick and medicated. A customer for life. Medical spending is about a fifth of the whole economy.</p>
+        <p>Your doctor isn't the villain in that sentence. The business model is. A pill you stay on is a better product than a morning you don't need one.</p>
       </div>
     </article>
 
-    <!-- ✂ ─────────────────────────────────────────────────────── ✂ -->
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">He was 100</h2>
+      <div class="post-body">
+        <p>A biochemist named Fred Kummerow said in 1957 that the fat in margarine was turning up in the arteries of the dead. The government acted on it in 2015. He was 100.</p>
+        <p>That's not a conspiracy. That's a calendar. Fifty-eight years between a man looking at tissue and a rule catching up. Ask who needed those years. Then look at what's still on the shelf with a stamp of approval.</p>
+      </div>
+    </article>
 
   </main>
 
   <footer>
     <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
+    <span class="footer-attribution">— Rumi</span>
     <span class="footer-copy">© denyeh.com</span>
   </footer>
 
