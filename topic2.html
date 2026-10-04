@@ -190,18 +190,25 @@
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
       padding: 1.75rem 2rem;
-      display: flex; align-items: center;
-      justify-content: space-between;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
     }
     .footer-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 0.88rem; font-style: italic;
-      color: var(--accent2);
+      font-size: 0.9rem; font-style: italic; color: var(--accent2);
+    }
+    .footer-attribution {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      opacity: 0.7;
     }
     .footer-copy {
       font-family: 'Barlow', sans-serif;
       font-size: 0.62rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--muted);
+      margin-top: 0.25rem;
     }
 
     @media (max-width: 768px) {
@@ -211,7 +218,7 @@
       .feed { padding: 0 1.5rem 5rem; }
     }
     @media (max-width: 480px) {
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      footer { gap: 0.4rem; }
     }
   </style>
 </head>
@@ -256,36 +263,29 @@
 
   <main class="feed">
 
-    <!-- ✂ ─────────────────────────────────────────────────────────
-         TO ADD A NEW POST:
-         1. Copy everything from <article class="post"> to </article>
-         2. Paste it above this comment block (newest post at top)
-         3. Update: post-date, post-title, img src + alt, post-body text
-         4. Save the file and push to GitHub
-    ──────────────────────────────────────────────────────────── ✂ -->
-
     <article class="post">
-      <div class="post-meta">
-        <span class="post-date">April 21, 2026</span>
-      </div>
-      <h2 class="post-title">Your Post Title Goes Here</h2>
-      <img
-        class="post-img"
-        src="images/your-image.jpg"
-        alt="Brief description of your image"
-      />
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">Bless your heart, but make it think</h2>
       <div class="post-body">
-        <p>Your story, thought, or rant goes here. Write exactly how you talk. Each paragraph gets its own p tag.</p>
-        <p>Second paragraph if you need it. Keep going as long as it takes to say what needs saying — no more.</p>
+        <p>This week "think for yourself" is mostly an insult. People throw it the way a Southerner says bless your heart. It isn't an invitation. It's a door closing.</p>
+        <p>If the phrase only shows up when someone wants you quiet, it doesn't mean anything anymore. The practice is quieter than the slogan. Turn the noise down. Read the thing. Sit with it until you're uncomfortable. Then disagree, if you still disagree.</p>
       </div>
     </article>
 
-    <!-- ✂ ─────────────────────────────────────────────────────── ✂ -->
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">Who's watching</h2>
+      <div class="post-body">
+        <p>I read a line that stuck. If you can't think for yourself, you're probably watching the television. If you can, the system is probably watching you.</p>
+        <p>I don't know if that's clever or just true. The anchors aren't confused. The check clears. The question is still the same one. If they wanted you informed, why do you feel so lost after an hour of news?</p>
+      </div>
+    </article>
 
   </main>
 
   <footer>
     <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
+    <span class="footer-attribution">— Rumi</span>
     <span class="footer-copy">© denyeh.com</span>
   </footer>
 
