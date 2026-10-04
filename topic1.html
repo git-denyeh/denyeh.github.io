@@ -190,18 +190,25 @@
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
       padding: 1.75rem 2rem;
-      display: flex; align-items: center;
-      justify-content: space-between;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
     }
     .footer-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 0.88rem; font-style: italic;
-      color: var(--accent2);
+      font-size: 0.9rem; font-style: italic; color: var(--accent2);
+    }
+    .footer-attribution {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      opacity: 0.7;
     }
     .footer-copy {
       font-family: 'Barlow', sans-serif;
       font-size: 0.62rem; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--muted);
+      margin-top: 0.25rem;
     }
 
     @media (max-width: 768px) {
@@ -211,7 +218,7 @@
       .feed { padding: 0 1.5rem 5rem; }
     }
     @media (max-width: 480px) {
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+      footer { gap: 0.4rem; }
     }
   </style>
 </head>
@@ -256,21 +263,30 @@
 
   <main class="feed">
 
-    <!-- ✂ ─────────────────────────────────────────────────────────
-         TO ADD A NEW POST:
-         1. Copy everything from <article class="post"> to </article>
-         2. Paste it above this comment block (newest post at top)
-         3. Update: post-date, post-title, img src + alt, post-body text
-         4. Save the file and push to GitHub
-    ────────────────────────────────────────────────────────── ✂ -->
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">They had to pass a law</h2>
+      <div class="post-body">
+        <p>Connecticut put a left-lane camping law on the books for October 1. You can't sit in the left lane unless you're passing, taking an exit, or getting around something in the way.</p>
+        <p>They had to write that down. That's the part that gets me. The passing lane has been the passing lane my whole life. Somewhere along the way enough people decided it was their living room that a legislature had to remind them.</p>
+        <p>Oblivious isn't a personality. It's a traffic pattern.</p>
+      </div>
+    </article>
 
-
-    <!-- ✂ ─────────────────────────────────────────────────────── ✂ -->
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">The comments are the post</h2>
+      <div class="post-body">
+        <p>A Florida left-lane clip is going around. I don't even need the video. You already know it. Someone planted in the left lane, a line of cars behind them, and a comment section full of people who have lived this exact Tuesday.</p>
+        <p>The funny part isn't the driver. It's how many of us can describe them without watching.</p>
+      </div>
+    </article>
 
   </main>
 
   <footer>
     <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
+    <span class="footer-attribution">— Rumi</span>
     <span class="footer-copy">© denyeh.com</span>
   </footer>
 
