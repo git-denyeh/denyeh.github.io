@@ -146,6 +146,12 @@
     .post {
       padding: 3rem 0;
       border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .post:target {
+      border-left: 2px solid rgba(200,121,65,0.45);
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
     }
     .post-meta {
       display: flex; align-items: center;
@@ -263,7 +269,7 @@
 
   <main class="feed">
 
-    <article class="post">
+    <article class="post" id="aisle-officials">
       <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
       <h2 class="post-title">Aisle officials</h2>
       <div class="post-body">
@@ -275,7 +281,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="committee-in-aisle-seven">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">Committee in aisle seven</h2>
       <div class="post-body">
@@ -286,7 +292,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="yesterdays-bill">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">Yesterday's bill</h2>
       <div class="post-body">
@@ -296,7 +302,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="they-had-to-pass-a-law">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">They had to pass a law</h2>
       <div class="post-body">
@@ -306,7 +312,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="the-comments-are-the-post">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">The comments are the post</h2>
       <div class="post-body">
