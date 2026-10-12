@@ -146,6 +146,12 @@
     .post {
       padding: 3rem 0;
       border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .post:target {
+      border-left: 2px solid rgba(200,121,65,0.45);
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
     }
     .post-meta {
       display: flex; align-items: center;
@@ -264,7 +270,7 @@
 
   <main class="feed">
 
-    <article class="post">
+    <article class="post" id="approved-then-not">
       <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
       <h2 class="post-title">Approved, then not</h2>
       <div class="post-body">
@@ -276,7 +282,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="same-medicine-same-permission">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">Same medicine, same permission</h2>
       <div class="post-body">
@@ -287,7 +293,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="ten-years-in-one-envelope">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">Ten years in one envelope</h2>
       <div class="post-body">
@@ -297,7 +303,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="customer-for-life">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">Customer for life</h2>
       <div class="post-body">
@@ -307,7 +313,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="he-was-100">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">He was 100</h2>
       <div class="post-body">
