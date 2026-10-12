@@ -146,6 +146,12 @@
     .post {
       padding: 3rem 0;
       border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .post:target {
+      border-left: 2px solid rgba(200,121,65,0.45);
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
     }
     .post-meta {
       display: flex; align-items: center;
@@ -263,7 +269,7 @@
 
   <main class="feed">
 
-    <article class="post">
+    <article class="post" id="the-line-that-ends-the-talk">
       <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
       <h2 class="post-title">The line that ends the talk</h2>
       <div class="post-body">
@@ -276,7 +282,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="everybodys-thinking-for-themselves">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">Everybody's thinking for themselves</h2>
       <div class="post-body">
@@ -288,7 +294,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="tired-from-nothing">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">Tired from nothing</h2>
       <div class="post-body">
@@ -299,7 +305,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="bless-your-heart-but-make-it-think">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">Bless your heart, but make it think</h2>
       <div class="post-body">
@@ -308,7 +314,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="whos-watching">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">Who's watching</h2>
       <div class="post-body">
