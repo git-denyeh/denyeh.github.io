@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Think for Yourself — denyeh.com</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #0d0b09;
+      --bg2:    #131008;
+      --bg3:    #1a1510;
+      --border: #2e2620;
+      --text:   #e8e0d0;
+      --muted:  #7a6e60;
+      --accent: #c87941;
+      --accent2:#8a5a2a;
+      --accent3:#e8a060;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      font-size: 18px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+    .ember-glow {
+      position: fixed;
+      bottom: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 350px;
+      background: radial-gradient(ellipse, rgba(200,121,65,0.07) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,11,9,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--accent);
+      text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 0.1rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 0.65rem; border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent3); background: var(--bg3); }
+    .nav-links a.active { color: var(--accent); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--muted); }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem; gap: 0.25rem;
+      position: relative; z-index: 99;
+    }
+    .mobile-menu a {
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif; font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent3); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      padding: 4rem 2rem 3rem;
+      max-width: 800px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      font-weight: 400; color: var(--text); line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    /* TOPIC INTRO */
+    .topic-intro {
+      font-size: 1.2rem;
+      line-height: 1.95;
+      color: #afa89a;
+      max-width: 660px;
+    }
+    .topic-intro p { margin-bottom: 1em; }
+    .topic-intro p:last-child { margin-bottom: 0; }
+    .topic-intro em { color: var(--accent3); font-style: italic; }
+
+    /* FEED */
+    .feed {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ============================================================
+       POST BLOCK
+       To add a new post: copy everything between the scissor lines
+       and paste it ABOVE the previous post. Newest always at top.
+       Change: date, title, image src + alt, and body text.
+    ============================================================ */
+    .post {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-meta {
+      display: flex; align-items: center;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .post-date {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 400; color: var(--text);
+      line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .post-title em { font-style: italic; color: var(--accent3); }
+    .post-img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border);
+      filter: brightness(0.92) saturate(0.85);
+      transition: filter 0.3s;
+    }
+    .post-img:hover { filter: brightness(1) saturate(1); }
+    .post-body {
+      font-size: 1.15rem;
+      line-height: 1.95;
+      color: #afa89a;
+      max-width: 660px;
+    }
+    .post-body p { margin-bottom: 1em; }
+    .post-body p:last-child { margin-bottom: 0; }
+    /* ============================================================ */
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
+    }
+    .footer-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem; font-style: italic; color: var(--accent2);
+    }
+    .footer-attribution {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
+      opacity: 0.7;
+    }
+    .footer-copy {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-header { padding: 2.5rem 1.5rem 2rem; }
+      .feed { padding: 0 1.5rem 5rem; }
+    }
+    @media (max-width: 480px) {
+      footer { gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ember-glow"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">denyeh</a>
+    <ul class="nav-links">
+      <li><a href="oblivious.html">Oblivious</a></li>
+      <li><a href="think.html" class="active">Think</a></li>
+      <li><a href="machine.html">The Machine</a></li>
+      <li><a href="words.html">Words</a></li>
+      <li><a href="breathe.html">Breathe</a></li>
+      <li><a href="better.html">Better</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="oblivious.html">Bless Your Oblivious Heart</a>
+    <a href="think.html">Think for Yourself</a>
+    <a href="machine.html">The Machine</a>
+    <a href="words.html">Words Worth Keeping</a>
+    <a href="breathe.html">Just Breathe</a>
+    <a href="better.html">Better Every Day</a>
+  </div>
+
+  <header class="page-header">
+    <h1>Think for<br><em>Yourself</em></h1>
+    <div class="topic-intro">
+      <p>They're not lying to you. They're just not telling you everything. There's a difference — and they're counting on you not noticing.</p>
+      <p>The news isn't broken. It's working exactly as designed. The question is — designed for who? Not for you. For the people paying for the airtime, funding the narrative, and profiting from your confusion. Those anchors reading from teleprompters? Some of them make millions a year. Ask yourself who signs that check and what they expect in return.</p>
+      <p>The government doesn't think you're stupid. They just don't think you're paying attention. And honestly? Most people aren't. Not because they can't — but because nobody taught them to question what they're handed. Social media made it worse. Why think critically when someone will just tell you what to feel?</p>
+      <p>At some point you have to ask yourself — if they wanted you informed, why do you feel so confused?</p>
+      <p>This section isn't a conspiracy corner. There's no tinfoil here. Just observations from someone who turned off the noise, started doing their own research, and got uncomfortable with what they found. You're welcome to disagree. But please — <em>think for yourself</em> when you do.</p>
+    </div>
+  </header>
+
+  <main class="feed">
+
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
+      <h2 class="post-title">The line that ends the talk</h2>
+      <div class="post-body">
+        <p>There's a name for something I've noticed for years. A thought-terminating cliché. Robert Jay Lifton came up with the term. It's a ready-made line you say when you don't want to answer the point.</p>
+        <p>"It is what it is." "Do your own research." "Everything happens for a reason." "That's just how it's always been."</p>
+        <p>They sound like an answer. They're really a door closing. Nobody can argue with them, which is exactly the trouble. Nothing comes after them.</p>
+        <p>I've caught myself doing it. Somebody makes a point I can't knock down, and out comes a little saying that sounds wise and gets me off the hook. I nod like I settled something. I didn't. I left.</p>
+        <p>So I'm trying a new habit. When I hear one, from me or anybody else, I stop and ask what question it just shut down.</p>
+        <p>Usually that's the one worth going back to.</p>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
+      <h2 class="post-title">Everybody's thinking for themselves</h2>
+      <div class="post-body">
+        <p>I've noticed "think for yourself" is everywhere lately. Same three words, same order, same tone, typed out by a whole lot of people who all seem to have arrived at it at the same time.</p>
+        <p>Which is a little funny when you sit with it.</p>
+        <p>If a thousand people say the exact same independent thought, word for word, I start to wonder where it came from. A slogan doesn't stop being a slogan because it's about not following slogans.</p>
+        <p>And a big account saying something with a lot of confidence doesn't make it so, either. Loud and right are two different things. They just show up together sometimes.</p>
+        <p>Thinking for yourself, as best I can tell, mostly sounds like "huh, let me check." It's not a catchy line.</p>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
+      <h2 class="post-title">Tired from nothing</h2>
+      <div class="post-body">
+        <p>An hour of hard work and you feel fine. Sore, maybe, but fine. An hour of scrolling on your phone and you feel like somebody let the air out of you.</p>
+        <p>Seems backwards. One of those I did nothing at all.</p>
+        <p>I've seen folks say they deleted the apps and got their attention span back, like finding your keys in the coat you already checked. I believe it. Whatever that hour of scrolling is doing, it isn't rest. Rest doesn't leave you wanting to lie down after.</p>
+        <p>I'm not throwing my phone in the creek. But I've started noticing which kind of tired I am at the end of the day. The hard work kind is a lot better company.</p>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">Bless your heart, but make it think</h2>
+      <div class="post-body">
+        <p>This week "think for yourself" is mostly an insult. People throw it the way a Southerner says bless your heart. It isn't an invitation. It's a door closing.</p>
+        <p>If the phrase only shows up when someone wants you quiet, it doesn't mean anything anymore. The practice is quieter than the slogan. Turn the noise down. Read the thing. Sit with it until you're uncomfortable. Then disagree, if you still disagree.</p>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
+      <h2 class="post-title">Who's watching</h2>
+      <div class="post-body">
+        <p>I read a line that stuck. If you can't think for yourself, you're probably watching the television. If you can, the system is probably watching you.</p>
+        <p>I don't know if that's clever or just true. The anchors aren't confused. The check clears. The question is still the same one. If they wanted you informed, why do you feel so lost after an hour of news?</p>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
+    <span class="footer-attribution">— Rumi</span>
+    <span class="footer-copy">© denyeh.com</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
