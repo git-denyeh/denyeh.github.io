@@ -146,6 +146,12 @@
     .post {
       padding: 3rem 0;
       border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .post:target {
+      border-left: 2px solid rgba(200,121,65,0.45);
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
     }
     .post-meta {
       display: flex; align-items: center;
@@ -264,7 +270,7 @@
 
   <main class="feed">
 
-    <article class="post">
+    <article class="post" id="chicken-or-feather">
       <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
       <h2 class="post-title">Chicken or feather</h2>
       <div class="post-body">
@@ -277,7 +283,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="a-little-kinder">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">A little kinder</h2>
       <div class="post-body">
@@ -288,7 +294,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="he-needed-his-hands">
       <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
       <h2 class="post-title">He needed his hands</h2>
       <div class="post-body">
@@ -299,7 +305,7 @@
       </div>
     </article>
 
-    <article class="post">
+    <article class="post" id="someone-who-loves-you">
       <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
       <h2 class="post-title">Someone who loves you</h2>
       <div class="post-body">
