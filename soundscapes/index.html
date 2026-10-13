@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soundscapes</title>
+  <meta name="description" content="AI-generated soundscapes for sleep, focus and calm.">
+  <link rel="alternate" type="application/rss+xml" title="Soundscapes" href="/soundscapes/feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/soundscapes/soundscapes.css">
+</head>
+<body>
+  <div class="ember-glow"></div>
+
+  <nav>
+    <a href="/" class="nav-home">&larr; denyeh.com</a>
+  </nav>
+
+  <header class="page-header">
+    <h1><em>Soundscapes</em></h1>
+    <p class="topic-intro">Sound to sleep, focus, or just settle down to, made with AI and shaped by ear.</p>
+    <div class="actions">
+      <button type="button" id="playCalm" class="btn btn-primary">Play something calm</button>
+      <div class="timer" role="group" aria-label="Sleep timer">
+        <span class="label" id="timerLabel">Sleep timer</span>
+        <button type="button" class="chip" data-min="15" aria-pressed="false">15</button>
+        <button type="button" class="chip" data-min="30" aria-pressed="false">30</button>
+        <button type="button" class="chip" data-min="60" aria-pressed="false">60</button>
+        <button type="button" class="chip" data-min="90" aria-pressed="false">90</button>
+        <span class="label">min</span>
+        <span id="timerStatus" class="timer-status" aria-live="polite"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="feed">
+    <section class="filters" aria-label="Filters">
+      <div class="filter-row" role="group" aria-label="Use">
+        <span class="label">Use</span>
+        <button type="button" class="chip" data-use="sleep" aria-pressed="false">Sleep</button>
+        <button type="button" class="chip" data-use="focus" aria-pressed="false">Focus</button>
+        <button type="button" class="chip" data-use="calm" aria-pressed="false">Calm</button>
+        <button type="button" class="chip" data-use="meditate" aria-pressed="false">Meditate</button>
+        <button type="button" class="chip" data-use="energy" aria-pressed="false">Energy</button>
+        <button type="button" class="chip" data-use="nature" aria-pressed="false">Nature</button>
+        <button type="button" class="chip" data-use="noise" aria-pressed="false">Noise</button>
+      </div>
+      <div class="filter-row" role="group" aria-label="Listening system">
+        <span class="label">Listening</span>
+        <button type="button" class="chip" data-system="binaural" aria-pressed="false" title="Headphones required">Binaural</button>
+        <button type="button" class="chip" data-system="stereo" aria-pressed="false" title="Speakers">Stereo</button>
+        <button type="button" class="chip" data-system="5.1" aria-pressed="false" title="Download only, for home theater">5.1</button>
+        <button type="button" class="chip" id="noMusic" aria-pressed="false">No music</button>
+      </div>
+    </section>
+
+    <section id="newStrip" class="new-strip" aria-labelledby="newTitle" hidden>
+      <h2 id="newTitle" class="section-title">New this week</h2>
+      <div id="newList" class="strip-list"></div>
+    </section>
+
+    <section aria-labelledby="allTitle">
+      <h2 id="allTitle" class="section-title">All soundscapes</h2>
+      <p id="emptyState" class="empty" hidden>Soundscapes are coming soon. In the meantime, the pink and brown noise in the mixer below are ready whenever you are.</p>
+      <p id="noMatch" class="empty" hidden>Nothing matches those filters yet.</p>
+      <div id="grid" class="grid"></div>
+    </section>
+  </main>
+
+  <aside id="mixer" class="mixer" aria-label="Mixer">
+    <button type="button" id="mixToggle" class="mix-toggle" aria-expanded="false" aria-controls="mixBody">
+      Mixer <span id="mixCount">(0/3)</span>
+    </button>
+    <div id="mixBody" class="mix-body" hidden>
+      <div class="mix-add">
+        <button type="button" class="btn" data-addnoise="pink" aria-label="Add pink noise to mix">+ Pink noise</button>
+        <button type="button" class="btn" data-addnoise="brown" aria-label="Add brown noise to mix">+ Brown noise</button>
+        <button type="button" class="btn" id="mixPlay" aria-label="Play mix">Play mix</button>
+        <button type="button" class="btn" id="mixStop" aria-label="Stop all sound">Stop</button>
+        <button type="button" class="btn" id="mixShare" aria-label="Copy shareable mix link">Copy mix link</button>
+      </div>
+      <ul id="mixList" class="mix-list"></ul>
+      <p id="mixMsg" class="mix-msg" aria-live="polite"></p>
+    </div>
+  </aside>
+
+  <footer>
+    <span class="footer-copy-text">All soundscapes on this page are AI-generated and edited by Rick Desnoyers. Binaural tracks need headphones. For relaxation and focus, not medical treatment. Page structure inspired by the way sites like myNoise organize sound. Not affiliated with myNoise.</span>
+    <span class="footer-copy"><a href="/soundscapes/feed.xml">RSS feed</a> · <a href="/">denyeh.com</a></span>
+  </footer>
+
+  <script src="/soundscapes/soundscapes.js"></script>
+</body>
+</html>
