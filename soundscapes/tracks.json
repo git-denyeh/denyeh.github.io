@@ -1,1 +1,159 @@
-[]
+[
+  {
+    "id": "where-stillness-begins",
+    "title": "Where Stillness Begins, Binaural Meditation",
+    "scene": "Concentric ripples settling around a single quiet ember",
+    "use": [
+      "meditate",
+      "calm"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 3600,
+    "description": "A slow binaural meditation built on warm, sustained tones that drift gently between the ears. The beat settles into a calm, unhurried pulse with soft textures underneath, made for long sits and quiet breathing. Best on headphones.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/where-stillness-begins.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/where-stillness-begins.jpg"
+  },
+  {
+    "id": "moss-after-rain",
+    "title": "Moss After Rain, Forest Rain and Stream for Sleep",
+    "scene": "Soft rain on moss beside a small forest stream",
+    "use": [
+      "sleep",
+      "nature"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 3600,
+    "description": "Steady rain on leaves, a small stream, and a few distant birds, over a low, warm drone. A very subtle slow pulse sits underneath to help the mind settle. Mixed for speakers and made to fade into the background for a full night's sleep.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/moss-after-rain.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/moss-after-rain.jpg"
+  },
+  {
+    "id": "the-uncarved-way",
+    "title": "The Uncarved Way, Cosmic Drone Meditation",
+    "scene": "Ember dust drifting in a slow spiral through dark space",
+    "use": [
+      "meditate"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 3600,
+    "description": "A deep, slowly evolving cosmic drone with a low fundamental and soft shimmering partials. Nothing hurries and nothing interrupts; it is simply a wide, steady space to rest attention in. Works on speakers or headphones.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/the-uncarved-way.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/the-uncarved-way.jpg"
+  },
+  {
+    "id": "where-the-ember-sleeps",
+    "title": "Where the Ember Sleeps \u2014 Deep Delta Sleep Tones",
+    "scene": "Embers at night by a dark sea",
+    "use": [
+      "sleep"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1800,
+    "description": "A binaural beat that glides from 6 Hz theta down to 2 Hz delta over the first fifteen minutes, then holds there. It rests on a dark, warm just-intonation pad around 110 Hz with a soft 55 Hz undertone, slow ocean swells, and distant rain. There are no sudden or bright sounds; best on headphones.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/where-the-ember-sleeps.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/where-the-ember-sleeps.jpg"
+  },
+  {
+    "id": "clear-water-mind",
+    "title": "Clear Water Mind \u2014 40 Hz Focus with Brown Noise",
+    "scene": "Still water, clear mind",
+    "use": [
+      "focus"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1800,
+    "description": "A steady 40 Hz gamma binaural beat under soft brown noise and a neutral drone built from open fifths and fourths. The chords change only every few minutes, and the level stays even from start to finish, with no melody to pull your attention. Best on headphones.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/clear-water-mind.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/clear-water-mind.jpg"
+  },
+  {
+    "id": "tin-roof-slow-rain",
+    "title": "Tin Roof, Slow Rain \u2014 Rain for Sleep and Calm",
+    "scene": "Rain on a tin roof, thunder far away",
+    "use": [
+      "sleep",
+      "calm",
+      "nature"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1800,
+    "description": "Slow rain ringing on a tin roof, with gentle thunder rolling far off every few minutes. A soft low pad in D drifts underneath with a barely-there 4 Hz pulse, mixed for a pair of speakers.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/tin-roof-slow-rain.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/tin-roof-slow-rain.jpg"
+  },
+  {
+    "id": "low-ember-hum",
+    "title": "Low Ember Hum \u2014 Warm Brown Noise",
+    "scene": "A warm hum in a dark room",
+    "use": [
+      "noise",
+      "sleep"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1800,
+    "description": "Warm, low-passed brown noise drifting gently between the speakers. Under it sits a subtle harmonic drone on C whose overtones change slowly, so the bass stays round even on small speakers.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/low-ember-hum.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/low-ember-hum.jpg"
+  },
+  {
+    "id": "cabin-fire-first-snow",
+    "title": "Cabin Fire, First Snow \u2014 Cozy Fireside Ambience",
+    "scene": "A crackling fire in a cabin as the first snow falls",
+    "use": [
+      "calm"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1800,
+    "description": "A crackling fireplace with a low roar, soft wind and snow outside the window, and an occasional creak of old wood. A gentle, warm pad in F holds the room together, with a faint slow pulse beneath it.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-13",
+    "aiGenerated": true,
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/cabin-fire-first-snow.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/cabin-fire-first-snow.jpg"
+  }
+]
