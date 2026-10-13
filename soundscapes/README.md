@@ -1,6 +1,6 @@
 # Soundscapes
 
-Live at https://denyeh.com/soundscapes/. Files: `index.html`, `soundscapes.css`, `soundscapes.js`, `tracks.json`, `feed.xml`.
+Live at https://denyeh.com/soundscapes/. Files: `index.html`, `soundscapes.css`, `soundscapes.js`, `tracks.json`.
 
 ## tracks.json schema
 
@@ -26,7 +26,5 @@ Example:
 ```json
 [{"id":"rain-cabin","title":"Rain on the Cabin","scene":"Steady rain on a tin roof, woodstove ticking.","use":["sleep","nature"],"system":"stereo","noMusic":true,"length":1800,"file":"https://audio.example.com/rain-cabin.mp3","cover":"https://audio.example.com/rain-cabin.jpg","description":"Thirty minutes of rain.","added":"2026-10-20","aiGenerated":true}]
 ```
-
-When adding a track, also add an `<item>` to `feed.xml` (with `<enclosure url=… length=bytes type="audio/mpeg"/>`) and update `lastBuildDate`.
 
 Encoding: 128–160 kbps MP3 (or AAC .m4a), 44.1 kHz stereo; 30 min ≈ 29–36 MB.
