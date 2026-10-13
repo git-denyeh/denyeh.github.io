@@ -203,75 +203,136 @@
   function isPlaying() { return current && !current.audio.paused && current.card.classList.contains('playing'); }
   function toggle(t, card) { if (current && current.track === t && isPlaying()) pause(); else play(t, card); }
 
-  // ---------- Background noise (Web Audio) ----------
-  var noise = { ctx: null, gain: null, nodes: [], type: null, vol: 0.4, timer: null };
+  // ---------- Background layer (Web Audio) ----------
+  // Pink/brown are generated live in an AudioWorklet (no short looped buffers);
+  // rain is a decoded CC0 field recording looped gaplessly as an AudioBuffer.
+  var RAIN_URL = '/soundscapes/audio/layer-rain.mp3?v=1';
+  var RAMP = 0.03; // time constant for gain changes (~90ms to settle)
+  var noise = { ctx: null, gain: null, master: null, nodes: [], type: null, vol: 0.25, worklet: null, rainBuf: null, rainLoading: null, gen: 0 };
+  var WORKLET_SRC = [
+    'class DenyehNoise extends AudioWorkletProcessor {',
+    '  constructor(o){super();this.kind=(o.processorOptions||{}).kind||"pink";this.s=[];for(var c=0;c<2;c++)this.s.push({b0:0,b1:0,b2:0,b3:0,b4:0,b5:0,b6:0,last:0});}',
+    '  process(inputs,outputs){var out=outputs[0];for(var c=0;c<out.length;c++){var d=out[c],s=this.s[c]||this.s[0];',
+    '    for(var i=0;i<d.length;i++){var w=Math.random()*2-1;',
+    '      if(this.kind==="brown"){s.last=(s.last+0.02*w)/1.02;d[i]=s.last*3.5;}',
+    '      else{s.b0=0.99886*s.b0+w*0.0555179;s.b1=0.99332*s.b1+w*0.0750759;s.b2=0.969*s.b2+w*0.153852;',
+    '        s.b3=0.8665*s.b3+w*0.3104856;s.b4=0.55*s.b4+w*0.5329522;s.b5=-0.7616*s.b5-w*0.016898;',
+    '        d[i]=(s.b0+s.b1+s.b2+s.b3+s.b4+s.b5+s.b6+w*0.5362)*0.11;s.b6=w*0.115926;}}}return true;}',
+    '}',
+    'registerProcessor("denyeh-noise",DenyehNoise);'
+  ].join('\n');
   function ensureCtx() {
     if (!noise.ctx) {
       var AC = window.AudioContext || window.webkitAudioContext;
-      noise.ctx = new AC();
-      noise.gain = noise.ctx.createGain();
-      noise.gain.gain.value = 0;
-      noise.gain.connect(noise.ctx.destination);
+      var ctx = noise.ctx = new AC();
+      // layer gain -> master gain (0.85) -> limiter -> out, so summed layers can't clip
+      noise.gain = ctx.createGain(); noise.gain.gain.value = 0;
+      noise.master = ctx.createGain(); noise.master.gain.value = 0.85;
+      var lim = ctx.createDynamicsCompressor();
+      lim.threshold.value = -6; lim.knee.value = 3; lim.ratio.value = 20; lim.attack.value = 0.003; lim.release.value = 0.25;
+      noise.gain.connect(noise.master); noise.master.connect(lim); lim.connect(ctx.destination);
+      if (ctx.audioWorklet && window.Blob && window.URL) {
+        var url = URL.createObjectURL(new Blob([WORKLET_SRC], { type: 'application/javascript' }));
+        noise.worklet = ctx.audioWorklet.addModule(url).then(function () { return true; }, function () { return false; });
+      } else noise.worklet = Promise.resolve(false);
     }
     if (noise.ctx.state === 'suspended') noise.ctx.resume();
     return noise.ctx;
   }
+  // Fallback only: long (24s) buffers, started at a random offset.
   function noiseBuffer(ctx, kind) {
-    var len = ctx.sampleRate * 4, buf = ctx.createBuffer(2, len, ctx.sampleRate);
+    var len = ctx.sampleRate * 24, buf = ctx.createBuffer(2, len, ctx.sampleRate);
     for (var ch = 0; ch < 2; ch++) {
       var d = buf.getChannelData(ch), b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0, last = 0;
       for (var i = 0; i < len; i++) {
         var w = Math.random() * 2 - 1;
         if (kind === 'brown') { last = (last + 0.02 * w) / 1.02; d[i] = last * 3.5; }
-        else if (kind === 'pink') {
+        else {
           b0 = 0.99886 * b0 + w * 0.0555179; b1 = 0.99332 * b1 + w * 0.0750759; b2 = 0.969 * b2 + w * 0.153852;
           b3 = 0.8665 * b3 + w * 0.3104856; b4 = 0.55 * b4 + w * 0.5329522; b5 = -0.7616 * b5 - w * 0.016898;
           d[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + w * 0.5362) * 0.11; b6 = w * 0.115926;
-        } else d[i] = w * 0.5;
+        }
       }
+      // smooth the loop seam: short equal-power blend of the tail into the head
+      var m = 0, q = 0, j;
+      for (j = 0; j < len; j++) m += d[j];
+      m /= len;
+      for (j = 0; j < len; j++) { d[j] -= m; q += d[j] * d[j]; }
+      var k0 = 0.2 / Math.sqrt(q / len); // fixed RMS, matches the worklet output
+      for (j = 0; j < len; j++) d[j] *= k0;
+      var x = Math.floor(ctx.sampleRate * 0.05);
+      for (var k = 0; k < x; k++) { var t = k / x; d[k] = d[k] * Math.sin(t * Math.PI / 2) + d[len - x + k] * Math.cos(t * Math.PI / 2); }
     }
     return buf;
+  }
+  function loadRain(ctx) {
+    if (noise.rainBuf) return Promise.resolve(noise.rainBuf);
+    if (!noise.rainLoading) {
+      noise.rainLoading = fetch(RAIN_URL).then(function (r) { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+        .then(function (ab) { return new Promise(function (res, rej) { ctx.decodeAudioData(ab, res, rej); }); })
+        .then(function (b) { noise.rainBuf = b; return b; }, function (e) { noise.rainLoading = null; throw e; });
+    }
+    return noise.rainLoading;
   }
   function stopNoiseNodes() {
     noise.nodes.forEach(function (n) { try { n.stop && n.stop(); } catch (e) {} try { n.disconnect(); } catch (e) {} });
     noise.nodes = [];
-    if (noise.timer) { clearTimeout(noise.timer); noise.timer = null; }
+  }
+  function rampLayer(target, tc) {
+    var g = noise.gain.gain, now = noise.ctx.currentTime;
+    g.cancelScheduledValues(now); g.setValueAtTime(g.value, now); g.setTargetAtTime(target, now, tc || RAMP);
+  }
+  function fadeLayerOut(sec) {
+    var g = noise.gain.gain, now = noise.ctx.currentTime;
+    g.cancelScheduledValues(now); g.setValueAtTime(g.value, now); g.linearRampToValueAtTime(0, now + sec);
+  }
+  // Per-layer trim so every layer sits at about the same RMS (~0.08), plus a 20Hz highpass.
+  var TRIM = { pink: 0.4, brown: 0.4, rain: 1.1 };
+  function layerIn(ctx, type, nodes) {
+    var trim = ctx.createGain(); trim.gain.value = TRIM[type] || 0.4;
+    var hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 20; hp.Q.value = 0.7;
+    trim.connect(hp); hp.connect(noise.gain);
+    nodes.push(trim, hp);
+    return trim;
   }
   function startNoise(type) {
-    var ctx = ensureCtx();
-    stopNoiseNodes();
-    var src = ctx.createBufferSource();
-    src.buffer = noiseBuffer(ctx, type === 'rain' ? 'white' : type);
-    src.loop = true;
+    var ctx = ensureCtx(), gen = ++noise.gen;
+    fadeLayerOut(0.3);
+    var go = function (build) {
+      if (gen !== noise.gen) return;
+      stopNoiseNodes();
+      build();
+      var fadeIn = reduced ? 0.1 : (type === 'rain' ? 2 : 1);
+      var g = noise.gain.gain, now = ctx.currentTime;
+      g.cancelScheduledValues(now); g.setValueAtTime(0, now); g.linearRampToValueAtTime(noise.vol * masterVol, now + fadeIn);
+    };
+    var delay = new Promise(function (r) { setTimeout(r, 320); });
     if (type === 'rain') {
-      // Bed: band-limited noise. Droplets: random gain bumps on a brighter band.
-      var bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 1400; bp.Q.value = 0.6;
-      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 5000;
-      var bed = ctx.createGain(); bed.gain.value = 0.55;
-      src.connect(bp); bp.connect(lp); lp.connect(bed); bed.connect(noise.gain);
-      var src2 = ctx.createBufferSource(); src2.buffer = src.buffer; src2.loop = true;
-      var hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 2500;
-      var drops = ctx.createGain(); drops.gain.value = 0;
-      src2.connect(hp); hp.connect(drops); drops.connect(noise.gain);
-      src2.start();
-      noise.nodes.push(bp, lp, bed, src2, hp, drops);
-      (function drip() {
-        var now = ctx.currentTime, amp = 0.15 + Math.random() * 0.5;
-        drops.gain.cancelScheduledValues(now);
-        drops.gain.setValueAtTime(drops.gain.value, now);
-        drops.gain.linearRampToValueAtTime(amp, now + 0.004);
-        drops.gain.exponentialRampToValueAtTime(0.0001, now + 0.04 + Math.random() * 0.08);
-        bp.frequency.setTargetAtTime(1100 + Math.random() * 700, now, 0.5);
-        noise.timer = setTimeout(drip, 25 + Math.random() * 180);
-      })();
-    } else {
-      src.connect(noise.gain);
+      Promise.all([loadRain(ctx), delay]).then(function (r) {
+        go(function () {
+          var src = ctx.createBufferSource(); src.buffer = r[0]; src.loop = true;
+          src.connect(layerIn(ctx, 'rain', noise.nodes)); src.start(0, Math.random() * r[0].duration * 0.9);
+          noise.nodes.push(src);
+        });
+      }).catch(function () { if (gen === noise.gen && noise.type === 'rain') setNoise('rain'); });
+      return;
     }
-    src.start();
-    noise.nodes.push(src);
-    var g = noise.gain.gain, now = ctx.currentTime;
-    g.cancelScheduledValues(now); g.setValueAtTime(g.value, now);
-    g.linearRampToValueAtTime(noise.vol * masterVol, now + (reduced ? 0.05 : 1));
+    Promise.all([noise.worklet, delay]).then(function (r) {
+      go(function () {
+        var lp = ctx.createBiquadFilter(); lp.type = 'lowpass';
+        lp.frequency.value = type === 'brown' ? 650 : 7000; lp.Q.value = 0.5;
+        var src;
+        if (r[0]) {
+          src = new AudioWorkletNode(ctx, 'denyeh-noise', { numberOfInputs: 0, outputChannelCount: [2], processorOptions: { kind: type } });
+          src.connect(lp);
+        } else {
+          src = ctx.createBufferSource(); src.buffer = noiseBuffer(ctx, type); src.loop = true;
+          src.connect(lp); src.start(0, Math.random() * src.buffer.duration);
+        }
+        lp.connect(layerIn(ctx, type, noise.nodes));
+        noise.nodes.push(src, lp);
+      });
+    });
   }
   function setNoise(type) {
     if (noise.type === type) type = null;
@@ -280,9 +341,9 @@
     if (current) current.audio.loop = type !== null;
     if (type) startNoise(type);
     else if (noise.ctx) {
-      var g = noise.gain.gain, now = noise.ctx.currentTime;
-      g.cancelScheduledValues(now); g.setValueAtTime(g.value, now); g.linearRampToValueAtTime(0, now + 0.4);
-      setTimeout(function () { if (!noise.type) stopNoiseNodes(); }, 450);
+      noise.gen++;
+      fadeLayerOut(0.3);
+      setTimeout(function () { if (!noise.type) stopNoiseNodes(); }, 350);
     }
     updateMini();
   }
@@ -291,14 +352,14 @@
   });
   $('noiseVol').addEventListener('input', function () {
     noise.vol = this.value / 100;
-    if (noise.ctx && noise.type) noise.gain.gain.setTargetAtTime(noise.vol * masterVol, noise.ctx.currentTime, 0.05);
+    if (noise.ctx && noise.type) rampLayer(noise.vol * masterVol);
   });
 
   // ---------- Sleep timer ----------
   var sleep = { end: 0, tick: null, min: 0 };
   function applyMaster() {
     if (current && !current.audio._fade) current.audio.volume = masterVol;
-    if (noise.ctx && noise.type) noise.gain.gain.setTargetAtTime(noise.vol * masterVol, noise.ctx.currentTime, 0.1);
+    if (noise.ctx && noise.type) rampLayer(noise.vol * masterVol, 0.1);
   }
   function clearSleep() {
     clearInterval(sleep.tick); sleep.tick = null; sleep.end = 0; sleep.min = 0;
@@ -316,7 +377,7 @@
       sleep.tick = setInterval(function () {
         var left = (sleep.end - Date.now()) / 1000;
         $('timerStatus').textContent = left > 0 ? 'Stops in ' + fmt(Math.max(0, left)) : '';
-        if (left <= 30 && left > 0) { masterVol = left / 30; applyMaster(); }
+        if (left <= 45 && left > 0) { masterVol = left / 45; applyMaster(); }
         if (left <= 0) {
           masterVol = 0; applyMaster();
           if (current) { setCardState(current.card, false); current.audio.pause(); }
