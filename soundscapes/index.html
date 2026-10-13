@@ -14,8 +14,30 @@
   <div class="ember-glow"></div>
 
   <nav>
-    <a href="/" class="nav-home">&larr; denyeh.com</a>
+    <a href="/" class="nav-logo">denyeh</a>
+    <ul class="nav-links">
+      <li><a href="/oblivious.html">Oblivious</a></li>
+      <li><a href="/think.html">Think</a></li>
+      <li><a href="/machine.html">The Machine</a></li>
+      <li><a href="/words.html">Words</a></li>
+      <li><a href="/breathe.html">Breathe</a></li>
+      <li><a href="/better.html">Better</a></li>
+      <li><a href="/soundscapes/" class="active">Soundscapes</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/oblivious.html">Bless Your Oblivious Heart</a>
+    <a href="/think.html">Think for Yourself</a>
+    <a href="/machine.html">The Machine</a>
+    <a href="/words.html">Words Worth Keeping</a>
+    <a href="/breathe.html">Just Breathe</a>
+    <a href="/better.html">Better Every Day</a>
+    <a href="/soundscapes/">Soundscapes</a>
+  </div>
 
   <header class="page-header">
     <h1><em>Soundscapes</em></h1>
@@ -86,10 +108,15 @@
   </aside>
 
   <footer>
-    <span class="footer-copy-text">All soundscapes on this page are AI-generated and edited by Rick Desnoyers. Binaural tracks need headphones. For relaxation and focus, not medical treatment. Page structure inspired by the way sites like myNoise organize sound. Not affiliated with myNoise.</span>
+    <span class="footer-copy-text">All soundscapes on this page are AI-generated and edited by DENYEH. Binaural tracks need headphones. For relaxation and focus, not medical treatment. Page structure inspired by the way sites like myNoise organize sound. Not affiliated with myNoise.</span>
     <span class="footer-copy"><a href="/soundscapes/feed.xml">RSS feed</a> · <a href="/">denyeh.com</a></span>
   </footer>
 
   <script src="/soundscapes/soundscapes.js"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
