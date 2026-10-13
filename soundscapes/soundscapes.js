@@ -22,7 +22,7 @@
   var current = null; // { track, audio, card }
   var masterVol = 1; // sleep-timer fade multiplier
 
-  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&', '<': '<', '>': '>', '"': '"', "'": '&#39;' }[c]; }); }
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
   function fmt(sec) { sec = Math.round(sec || 0); return Math.floor(sec / 60) + ':' + ('0' + (sec % 60)).slice(-2); }
   function shortTitle(t) { return String(t.title || '').split(',')[0]; }
@@ -47,25 +47,53 @@
   }
 
   // ---------- Filters ----------
+  var SYSTEMS = ['binaural', 'stereo', '5.1'];
+  var SYS_LABEL = { binaural: 'Binaural', stereo: 'Stereo', '5.1': '5.1' };
+  function slug(v) { return String(v).toLowerCase().replace(/[^a-z0-9.]+/g, '-'); }
+  function readHash() {
+    filters.use = null; filters.system = null;
+    String(location.hash || '').replace(/^#/, '').split('+').forEach(function (p) {
+      p = decodeURIComponent(p).toLowerCase();
+      if (!p || p === 'all') return;
+      if (SYSTEMS.indexOf(p) > -1 || document.querySelector('#sysChips .chip[data-v="' + p + '"]')) filters.system = p;
+      else if (document.querySelector('#useChips .chip[data-v="' + p + '"]')) filters.use = p;
+    });
+  }
+  function writeHash() {
+    var parts = [filters.system, filters.use].filter(Boolean);
+    var h = parts.length ? '#' + parts.join('+') : '';
+    if (h !== (location.hash || '')) history.replaceState(null, '', h || location.pathname + location.search);
+  }
+  function syncChips() {
+    [['useChips', 'use'], ['sysChips', 'system']].forEach(function (r) {
+      $(r[0]).querySelectorAll('.chip').forEach(function (c) {
+        var on = (c.dataset.v || null) === (filters[r[1]] || null);
+        c.setAttribute('aria-pressed', String(on));
+        c.classList.toggle('is-active', on);
+      });
+    });
+  }
   function renderChips() {
-    var uses = {}, systems = {};
-    tracks.forEach(function (t) { (t.use || []).forEach(function (u) { uses[u.toLowerCase()] = 1; }); if (t.system) systems[t.system] = 1; });
-    function build(el, vals, key) {
-      Object.keys(vals).sort().forEach(function (v) {
+    var uses = {};
+    tracks.forEach(function (t) { (t.use || []).forEach(function (u) { uses[u.toLowerCase()] = 1; }); });
+    function build(el, vals, key, labels) {
+      ['' ].concat(vals).forEach(function (v) {
         var b = document.createElement('button');
-        b.type = 'button'; b.className = 'chip'; b.textContent = cap(v);
-        b.setAttribute('aria-pressed', 'false');
+        b.type = 'button'; b.className = 'chip';
+        b.textContent = v ? (labels && labels[v]) || cap(v) : 'All';
+        b.dataset.v = v;
+        b.setAttribute('aria-pressed', String(!v));
         if (v === 'binaural') b.title = 'Headphones required';
         b.addEventListener('click', function () {
-          filters[key] = filters[key] === v ? null : v;
-          el.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === b && filters[key] === v)); });
-          applyFilters();
+          filters[key] = v || null;
+          syncChips(); writeHash(); applyFilters();
         });
         el.appendChild(b);
       });
     }
-    build($('useChips'), uses, 'use');
-    build($('sysChips'), systems, 'system');
+    build($('sysChips'), SYSTEMS, 'system', SYS_LABEL);
+    build($('useChips'), Object.keys(uses).sort(), 'use');
+    window.addEventListener('hashchange', function () { readHash(); syncChips(); applyFilters(); });
   }
 
   function applyFilters() {
@@ -76,7 +104,12 @@
                (!filters.system || t.system === filters.system);
       c.hidden = !ok; if (ok) shown++;
     });
-    $('noMatch').hidden = shown > 0 || !tracks.length;
+    var nm = $('noMatch');
+    if (nm) {
+      var what = [filters.system && (SYS_LABEL[filters.system] || cap(filters.system)), filters.use && cap(filters.use)].filter(Boolean).join(' + ');
+      nm.textContent = 'No ' + (what ? what + ' ' : '') + 'soundscapes here yet. New ones are on the way; try All in the meantime.';
+      nm.hidden = shown > 0 || !tracks.length;
+    }
   }
 
   // ---------- Cards ----------
@@ -329,7 +362,7 @@
     tracks.forEach(function (t) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; });
     tracks.sort(function (a, b) { return String(b.added).localeCompare(String(a.added)); });
     if (!tracks.length) { $('emptyState').hidden = false; return; }
-    renderChips(); renderCards(); applyFilters();
+    renderChips(); renderCards(); readHash(); syncChips(); applyFilters();
     $('heroPlay').disabled = false;
   }).catch(function () { $('emptyState').hidden = false; });
 })();
