@@ -1,3 +1,4 @@
+[hidden]{display:none!important}
 :root{--bg:#0d0b09;--bg2:#131008;--bg3:#1a1510;--border:#2e2620;--text:#e8e0d0;--muted:#7a6e60;--accent:#c87941;--accent2:#8a5a2a;--accent3:#e8a060}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-weight:300;font-size:18px;min-height:100vh;overflow-x:hidden;padding-bottom:5.5rem}
