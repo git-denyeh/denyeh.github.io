@@ -136,7 +136,7 @@
     a.volume = 0;
     a.addEventListener('loadedmetadata', function () {
       var el = card && card.querySelector('.preview-len');
-      if (el && isFinite(a.duration)) el.textContent = fmt(a.duration) + ' preview';
+      if (el && !t.previewLength && isFinite(a.duration)) el.textContent = fmt(a.duration) + ' preview';
     });
     a.addEventListener('timeupdate', function () { if (a.duration) setRing(card, a.currentTime / a.duration); });
     a.addEventListener('ended', function () { if (current && current.audio === a) { setCardState(card, false); setRing(card, 0); updateMini(); } });
