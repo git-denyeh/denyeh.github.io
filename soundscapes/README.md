@@ -1,30 +1,30 @@
 # Soundscapes
 
-Live at https://denyeh.com/soundscapes/. Files: `index.html`, `soundscapes.css`, `soundscapes.js`, `tracks.json`.
+Live at https://denyeh.com/soundscapes/. Files: `index.html`, `soundscapes.css`, `soundscapes.js`, `tracks.json`, `audio/<id>.mp3` (short previews), `covers/<id>.jpg`.
+
+Hybrid page: short previews are hosted here; full tracks live on streaming stores via `links`.
 
 ## tracks.json schema
 
-A JSON array (starts as `[]`). Each track:
+A JSON array, newest first by `added`. Each track:
 
 | field | type | notes |
 |---|---|---|
-| `id` | string | unique, URL-safe (used in `?mix=id:70,brown:30`; `pink` and `brown` are reserved) |
+| `id` | string | unique, URL-safe |
 | `title` | string | |
-| `scene` | string | one-line scene description |
-| `use` | string[] | any of `sleep`, `focus`, `calm`, `meditate`, `energy`, `nature`, `noise` |
-| `system` | string | `binaural` (headphones), `stereo` (speakers), `5.1` (download only, no play button) |
-| `noMusic` | boolean | true if there is no musical content |
-| `length` | number | seconds |
-| `file` | string | absolute URL of the audio. Host must send `Access-Control-Allow-Origin` for mixing (Web Audio) |
-| `cover` | string | image URL |
+| `scene` | string | one-line subtitle |
+| `use` | string[] | e.g. `sleep`, `focus`, `calm`, `meditate`, `nature` |
+| `system` | string | `binaural` (headphones) or `stereo` |
+| `length` | number | full-track seconds |
+| `previewLength` | number | preview seconds (label falls back to audio duration) |
+| `file` | string | absolute URL of the preview MP3 (`https://denyeh.com/soundscapes/audio/<id>.mp3`) |
+| `cover` | string | absolute URL of the square cover |
 | `description` | string | |
-| `added` | string | `YYYY-MM-DD`; "New this week" = 7 days, "New" tag = 14 days |
+| `artist` | string | `Voice Without Words` |
+| `added` | string | `YYYY-MM-DD` |
 | `aiGenerated` | boolean | always `true` |
+| `links` | object | `{spotify, apple, youtubeMusic, amazon}`; empty shows "Coming soon to streaming" |
 
-Example:
+Artist follow links (hero) are in `ARTIST_LINKS` at the top of `soundscapes.js`; empty ones are hidden.
 
-```json
-[{"id":"rain-cabin","title":"Rain on the Cabin","scene":"Steady rain on a tin roof, woodstove ticking.","use":["sleep","nature"],"system":"stereo","noMusic":true,"length":1800,"file":"https://audio.example.com/rain-cabin.mp3","cover":"https://audio.example.com/rain-cabin.jpg","description":"Thirty minutes of rain.","added":"2026-10-20","aiGenerated":true}]
-```
-
-Encoding: 128–160 kbps MP3 (or AAC .m4a), 44.1 kHz stereo; 30 min ≈ 29–36 MB.
+The background layer (pink, brown, rain) is generated in the browser with Web Audio. No tracking scripts.
