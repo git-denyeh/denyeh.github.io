@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Words Worth Keeping — DENYEH.com</title>
+  <title>Words Worth Keeping — DENYEH</title>
+  <meta name="description" content="Lines worth holding onto, and why they stuck. Writing by DENYEH.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DENYEH">
+  <meta property="og:title" content="Words Worth Keeping — DENYEH">
+  <meta property="og:description" content="Lines worth holding onto, and why they stuck. Writing by DENYEH.">
+  <meta property="og:url" content="https://denyeh.com/words.html">
+  <meta property="og:image" content="https://denyeh.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DENYEH — Mostly quiet. Still burning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Words Worth Keeping — DENYEH">
+  <meta name="twitter:description" content="Lines worth holding onto, and why they stuck. Writing by DENYEH.">
+  <meta name="twitter:image" content="https://denyeh.com/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0b09">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -13,9 +32,9 @@
       --bg3:    #1a1510;
       --border: #2e2620;
       --text:   #e8e0d0;
-      --muted:  #7a6e60;
+      --muted:  #9a8c7a;
       --accent: #c87941;
-      --accent2:#8a5a2a;
+      --accent2:#b07a45;
       --accent3:#e8a060;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -121,9 +140,9 @@
     /* TOPIC INTRO */
     .topic-intro {
       font-size: 1.2rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
     .topic-intro p:last-child { margin-bottom: 0; }
@@ -183,10 +202,22 @@
     .post-img:hover { filter: brightness(1) saturate(1); }
     .post-body {
       font-size: 1.15rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,121,65,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
     .post-body p { margin-bottom: 1em; }
     .post-body p:last-child { margin-bottom: 0; }
     /* ============================================================ */
@@ -228,6 +259,10 @@
     @media (max-width: 480px) {
       footer { gap: 0.4rem; }
     }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -275,8 +310,8 @@
   <main class="feed">
 
     <article class="post" id="chicken-or-feather">
-      <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
-      <h2 class="post-title">Chicken or feather</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#chicken-or-feather" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#chicken-or-feather">Chicken or feather</a></h2>
       <div class="post-body">
         <p>There's an old saying, a grandmother kind of saying. Some days chicken, some days feather.</p>
         <p>I don't need anybody to explain it. Some days you get the whole bird. Some days all you get is what's left blowing around the yard. Both are part of the deal, and neither one lasts.</p>
@@ -288,8 +323,8 @@
     </article>
 
     <article class="post" id="a-little-kinder">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">A little kinder</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#a-little-kinder" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#a-little-kinder">A little kinder</a></h2>
       <div class="post-body">
         <p>Aldous Huxley spent some forty-five years studying people, and he said, roughly, that it was a bit embarrassing to have worked on the problem that long and find the best answer he had was to try to be a little kinder to each other.</p>
         <p>I like that he called it embarrassing. A smart man expects a smart answer.</p>
@@ -299,8 +334,8 @@
     </article>
 
     <article class="post" id="he-needed-his-hands">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">He needed his hands</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#he-needed-his-hands" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#he-needed-his-hands">He needed his hands</a></h2>
       <div class="post-body">
         <p>I came across a line I can't shake. A woman remembering that her grandpa couldn't hold her hand on a walk because he needed his hands to talk.</p>
         <p>I knew that man the second I read it. Every family down here seems to have one. The story doesn't come out right unless the hands are going. Point at the field, show how big the fish was, wave off the part he doesn't want to get into.</p>
@@ -310,8 +345,8 @@
     </article>
 
     <article class="post" id="someone-who-loves-you">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">Someone who loves you</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#someone-who-loves-you" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#someone-who-loves-you">Someone who loves you</a></h2>
       <div class="post-body">
         <p>There's a Rumi line already at the bottom of this site. I'm not going to pretend I found it this week. The one that stopped me is different.</p>
         <p>When you're happy, you go to the person you love. When you're sad, you go to someone who loves you.</p>
