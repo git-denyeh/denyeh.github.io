@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Just Breathe — DENYEH.com</title>
+  <title>Just Breathe — DENYEH</title>
+  <meta name="description" content="Small ways to slow down and come back to calm. Writing by DENYEH.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DENYEH">
+  <meta property="og:title" content="Just Breathe — DENYEH">
+  <meta property="og:description" content="Small ways to slow down and come back to calm. Writing by DENYEH.">
+  <meta property="og:url" content="https://denyeh.com/breathe.html">
+  <meta property="og:image" content="https://denyeh.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DENYEH — Mostly quiet. Still burning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Just Breathe — DENYEH">
+  <meta name="twitter:description" content="Small ways to slow down and come back to calm. Writing by DENYEH.">
+  <meta name="twitter:image" content="https://denyeh.com/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0b09">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -13,9 +32,9 @@
       --bg3:    #1a1510;
       --border: #2e2620;
       --text:   #e8e0d0;
-      --muted:  #7a6e60;
+      --muted:  #9a8c7a;
       --accent: #c87941;
-      --accent2:#8a5a2a;
+      --accent2:#b07a45;
       --accent3:#e8a060;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -121,9 +140,9 @@
     /* TOPIC INTRO */
     .topic-intro {
       font-size: 1.2rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
     .topic-intro p:last-child { margin-bottom: 0; }
@@ -183,10 +202,22 @@
     .post-img:hover { filter: brightness(1) saturate(1); }
     .post-body {
       font-size: 1.15rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,121,65,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
     .post-body p { margin-bottom: 1em; }
     .post-body p:last-child { margin-bottom: 0; }
     /* ============================================================ */
@@ -228,6 +259,10 @@
     @media (max-width: 480px) {
       footer { gap: 0.4rem; }
     }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -275,8 +310,8 @@
   <main class="feed">
 
     <article class="post" id="cold-water">
-      <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
-      <h2 class="post-title">Cold water</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#cold-water" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#cold-water">Cold water</a></h2>
       <div class="post-body">
         <p>I read that cold water on your face can calm you down in a few seconds. Meanwhile most of the advice out there wants ten quiet minutes of meditation.</p>
         <p>I'm not against meditation. Good for the folks who can do it. But when I'm really worked up, being told to sit still for ten minutes sounds like being told to hold my breath underwater. My mind isn't going anywhere quiet. It's pacing.</p>
@@ -287,8 +322,8 @@
     </article>
 
     <article class="post" id="cash-flow-and-calm">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Cash flow and calm</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#cash-flow-and-calm" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#cash-flow-and-calm">Cash flow and calm</a></h2>
       <div class="post-body">
         <p>I saw somebody say nothing regulates the nervous system like consistent cash flow. I laughed, and then I stopped laughing because it's just true.</p>
         <p>You can breathe in for four and out for eight all you want. If the electric bill is sitting on the counter and the account is thin, your shoulders are going to stay right up by your ears.</p>
@@ -298,8 +333,8 @@
     </article>
 
     <article class="post" id="take-a-deep-breath">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Take a deep breath</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#take-a-deep-breath" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#take-a-deep-breath">Take a deep breath</a></h2>
       <div class="post-body">
         <p>Somebody pointed out that telling a kid in a full meltdown to take a deep breath is like telling a man who's drowning to swim better. They'd do it if they could. That's the whole problem.</p>
         <p>I've been on the grown-up side of that. Probably on the kid side too, at fifty-something, more times than I'd admit.</p>
@@ -309,8 +344,8 @@
     </article>
 
     <article class="post" id="instead-of-the-cigarette">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">Instead of the cigarette</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#instead-of-the-cigarette" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#instead-of-the-cigarette">Instead of the cigarette</a></h2>
       <div class="post-body">
         <p>Someone had an anxiety attack and did box breathing instead of lighting a cigarette. That's the whole story, and it's enough. I'm not going to turn it into a lesson.</p>
         <p>Four counts in, four holding, four out, four holding. Or don't count at all. Just notice you reached for air instead of the thing that makes the next hour worse.</p>
