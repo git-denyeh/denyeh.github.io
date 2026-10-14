@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Think for Yourself — DENYEH.com</title>
+  <title>Think for Yourself — DENYEH</title>
+  <meta name="description" content="Notes on noise, news and the habit of checking for yourself. Writing by DENYEH.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DENYEH">
+  <meta property="og:title" content="Think for Yourself — DENYEH">
+  <meta property="og:description" content="Notes on noise, news and the habit of checking for yourself. Writing by DENYEH.">
+  <meta property="og:url" content="https://denyeh.com/think.html">
+  <meta property="og:image" content="https://denyeh.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DENYEH — Mostly quiet. Still burning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Think for Yourself — DENYEH">
+  <meta name="twitter:description" content="Notes on noise, news and the habit of checking for yourself. Writing by DENYEH.">
+  <meta name="twitter:image" content="https://denyeh.com/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0b09">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -13,9 +32,9 @@
       --bg3:    #1a1510;
       --border: #2e2620;
       --text:   #e8e0d0;
-      --muted:  #7a6e60;
+      --muted:  #9a8c7a;
       --accent: #c87941;
-      --accent2:#8a5a2a;
+      --accent2:#b07a45;
       --accent3:#e8a060;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -121,9 +140,9 @@
     /* TOPIC INTRO */
     .topic-intro {
       font-size: 1.2rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
     .topic-intro p:last-child { margin-bottom: 0; }
@@ -183,10 +202,22 @@
     .post-img:hover { filter: brightness(1) saturate(1); }
     .post-body {
       font-size: 1.15rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,121,65,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
     .post-body p { margin-bottom: 1em; }
     .post-body p:last-child { margin-bottom: 0; }
     /* ============================================================ */
@@ -228,6 +259,10 @@
     @media (max-width: 480px) {
       footer { gap: 0.4rem; }
     }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -274,8 +309,8 @@
   <main class="feed">
 
     <article class="post" id="the-line-that-ends-the-talk">
-      <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
-      <h2 class="post-title">The line that ends the talk</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#the-line-that-ends-the-talk" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#the-line-that-ends-the-talk">The line that ends the talk</a></h2>
       <div class="post-body">
         <p>There's a name for something I've noticed for years. A thought-terminating cliché. Robert Jay Lifton came up with the term. It's a ready-made line you say when you don't want to answer the point.</p>
         <p>"It is what it is." "Do your own research." "Everything happens for a reason." "That's just how it's always been."</p>
@@ -287,8 +322,8 @@
     </article>
 
     <article class="post" id="everybodys-thinking-for-themselves">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Everybody's thinking for themselves</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#everybodys-thinking-for-themselves" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#everybodys-thinking-for-themselves">Everybody's thinking for themselves</a></h2>
       <div class="post-body">
         <p>I've noticed "think for yourself" is everywhere lately. Same three words, same order, same tone, typed out by a whole lot of people who all seem to have arrived at it at the same time.</p>
         <p>Which is a little funny when you sit with it.</p>
@@ -299,8 +334,8 @@
     </article>
 
     <article class="post" id="tired-from-nothing">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Tired from nothing</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#tired-from-nothing" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#tired-from-nothing">Tired from nothing</a></h2>
       <div class="post-body">
         <p>An hour of hard work and you feel fine. Sore, maybe, but fine. An hour of scrolling on your phone and you feel like somebody let the air out of you.</p>
         <p>Seems backwards. One of those I did nothing at all.</p>
@@ -310,8 +345,8 @@
     </article>
 
     <article class="post" id="bless-your-heart-but-make-it-think">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">Bless your heart, but make it think</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#bless-your-heart-but-make-it-think" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#bless-your-heart-but-make-it-think">Bless your heart, but make it think</a></h2>
       <div class="post-body">
         <p>This week "think for yourself" is mostly an insult. People throw it the way a Southerner says bless your heart. It isn't an invitation. It's a door closing.</p>
         <p>If the phrase only shows up when someone wants you quiet, it doesn't mean anything anymore. The practice is quieter than the slogan. Turn the noise down. Read the thing. Sit with it until you're uncomfortable. Then disagree, if you still disagree.</p>
@@ -319,8 +354,8 @@
     </article>
 
     <article class="post" id="whos-watching">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">Who's watching</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#whos-watching" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#whos-watching">Who's watching</a></h2>
       <div class="post-body">
         <p>I read a line that stuck. If you can't think for yourself, you're probably watching the television. If you can, the system is probably watching you.</p>
         <p>I don't know if that's clever or just true. The anchors aren't confused. The check clears. The question is still the same one. If they wanted you informed, why do you feel so lost after an hour of news?</p>
