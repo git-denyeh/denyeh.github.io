@@ -1,5 +1,5 @@
 [hidden]{display:none!important}
-:root{--bg:#0d0b09;--bg2:#131008;--bg3:#1a1510;--border:#2e2620;--text:#e8e0d0;--muted:#7a6e60;--accent:#c87941;--accent2:#8a5a2a;--accent3:#e8a060}
+:root{--bg:#0d0b09;--bg2:#131008;--bg3:#1a1510;--border:#2e2620;--text:#e8e0d0;--muted:#9a8c7a;--accent:#c87941;--accent2:#b07a45;--accent3:#e8a060}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-weight:300;font-size:18px;min-height:100vh;overflow-x:hidden;padding-bottom:5.5rem}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.5}
