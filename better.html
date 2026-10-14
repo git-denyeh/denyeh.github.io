@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Better Every Day — DENYEH.com</title>
+  <title>Better Every Day — DENYEH</title>
+  <meta name="description" content="Small, honest steps toward a better day. Writing by DENYEH.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DENYEH">
+  <meta property="og:title" content="Better Every Day — DENYEH">
+  <meta property="og:description" content="Small, honest steps toward a better day. Writing by DENYEH.">
+  <meta property="og:url" content="https://denyeh.com/better.html">
+  <meta property="og:image" content="https://denyeh.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DENYEH — Mostly quiet. Still burning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Better Every Day — DENYEH">
+  <meta name="twitter:description" content="Small, honest steps toward a better day. Writing by DENYEH.">
+  <meta name="twitter:image" content="https://denyeh.com/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0b09">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -13,9 +32,9 @@
       --bg3:    #1a1510;
       --border: #2e2620;
       --text:   #e8e0d0;
-      --muted:  #7a6e60;
+      --muted:  #9a8c7a;
       --accent: #c87941;
-      --accent2:#8a5a2a;
+      --accent2:#b07a45;
       --accent3:#e8a060;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -121,9 +140,9 @@
     /* TOPIC INTRO */
     .topic-intro {
       font-size: 1.2rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
     .topic-intro p:last-child { margin-bottom: 0; }
@@ -183,10 +202,22 @@
     .post-img:hover { filter: brightness(1) saturate(1); }
     .post-body {
       font-size: 1.15rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,121,65,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
     .post-body p { margin-bottom: 1em; }
     .post-body p:last-child { margin-bottom: 0; }
     /* ============================================================ */
@@ -228,6 +259,10 @@
     @media (max-width: 480px) {
       footer { gap: 0.4rem; }
     }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -275,8 +310,8 @@
   <main class="feed">
 
     <article class="post" id="manage-expectations">
-      <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
-      <h2 class="post-title">Manage expectations</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#manage-expectations" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#manage-expectations">Manage expectations</a></h2>
       <div class="post-body">
         <p>I saw somebody announce they were taking a little walk after dinner. Very little, they said. Let's manage expectations.</p>
         <p>That's the most honest health plan I've heard in a while.</p>
@@ -288,8 +323,8 @@
     </article>
 
     <article class="post" id="sugar-in-the-coffee">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Sugar in the coffee</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#sugar-in-the-coffee" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#sugar-in-the-coffee">Sugar in the coffee</a></h2>
       <div class="post-body">
         <p>Everybody's talking about how much better you look once you cut out sugar. Clearer skin, less puffy, the whole before and after.</p>
         <p>I believe it. I also saw somebody take the sugar out of their coffee and report that it tasted awful. I believe that too.</p>
@@ -299,8 +334,8 @@
     </article>
 
     <article class="post" id="one-rule-would-do">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">One rule would do</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#one-rule-would-do" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#one-rule-would-do">One rule would do</a></h2>
       <div class="post-body">
         <p>I saw a list of twenty health rules for October. Twenty. For one month.</p>
         <p>I read about six of them before I lost track. Drink this, skip that, sleep at this hour, walk this many steps, stretch, journal, stand in the sun.</p>
@@ -310,8 +345,8 @@
     </article>
 
     <article class="post" id="bare-feet">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">Bare feet</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#bare-feet" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#bare-feet">Bare feet</a></h2>
       <div class="post-body">
         <p>The useful list is short and cheap. Sleep. Bone broth. One Brazil nut. Bare feet on grass. Morning sun on your face. None of that has a commercial. That's why it doesn't trend for long.</p>
         <p>I'm in my 50s and the bill for the other diet is already here. I'm not overhauling Tuesday. I'm putting my feet in the yard and calling that a win if I actually do it.</p>
@@ -319,8 +354,8 @@
     </article>
 
     <article class="post" id="the-restaurant">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">The restaurant</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#the-restaurant" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#the-restaurant">The restaurant</a></h2>
       <div class="post-body">
         <p>The hard part isn't the seed oil. It's the table. Most people are not going to tell their spouse they're skipping the new place because of what the kitchen fries in.</p>
         <p>I get it. I've been the person who doesn't want to be that person. Then you eat it anyway and spend the night negotiating with your own stomach.</p>
