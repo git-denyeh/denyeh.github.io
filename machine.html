@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Machine — DENYEH.com</title>
+  <title>The Machine — DENYEH</title>
+  <meta name="description" content="How the big systems really work, and who they work for. Writing by DENYEH.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DENYEH">
+  <meta property="og:title" content="The Machine — DENYEH">
+  <meta property="og:description" content="How the big systems really work, and who they work for. Writing by DENYEH.">
+  <meta property="og:url" content="https://denyeh.com/machine.html">
+  <meta property="og:image" content="https://denyeh.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DENYEH — Mostly quiet. Still burning.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Machine — DENYEH">
+  <meta name="twitter:description" content="How the big systems really work, and who they work for. Writing by DENYEH.">
+  <meta name="twitter:image" content="https://denyeh.com/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0b09">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -13,9 +32,9 @@
       --bg3:    #1a1510;
       --border: #2e2620;
       --text:   #e8e0d0;
-      --muted:  #7a6e60;
+      --muted:  #9a8c7a;
       --accent: #c87941;
-      --accent2:#8a5a2a;
+      --accent2:#b07a45;
       --accent3:#e8a060;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -121,9 +140,9 @@
     /* TOPIC INTRO */
     .topic-intro {
       font-size: 1.2rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
     .topic-intro p:last-child { margin-bottom: 0; }
@@ -183,10 +202,22 @@
     .post-img:hover { filter: brightness(1) saturate(1); }
     .post-body {
       font-size: 1.15rem;
-      line-height: 1.95;
+      line-height: 1.7;
       color: #afa89a;
-      max-width: 660px;
+      max-width: 65ch;
     }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,121,65,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
     .post-body p { margin-bottom: 1em; }
     .post-body p:last-child { margin-bottom: 0; }
     /* ============================================================ */
@@ -228,6 +259,10 @@
     @media (max-width: 480px) {
       footer { gap: 0.4rem; }
     }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -275,8 +310,8 @@
   <main class="feed">
 
     <article class="post" id="approved-then-not">
-      <div class="post-meta"><span class="post-date">October 12, 2026</span></div>
-      <h2 class="post-title">Approved, then not</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#approved-then-not" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#approved-then-not">Approved, then not</a></h2>
       <div class="post-body">
         <p>A state attorney general is looking into one of the big insurers. Part of it, reportedly, is a prior authorization that was approved and then taken back after the surgery was already done.</p>
         <p>Sit with that a second. The doctor asked permission. The company said yes. The patient went under, had the operation, woke up. Then the yes went away.</p>
@@ -287,8 +322,8 @@
     </article>
 
     <article class="post" id="same-medicine-same-permission">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Same medicine, same permission</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#same-medicine-same-permission" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#same-medicine-same-permission">Same medicine, same permission</a></h2>
       <div class="post-body">
         <p>Here's a thing I don't understand. A doctor looks at a patient, decides on a medicine, writes it down. The insurance company says it needs a prior authorization. Fine. They get it.</p>
         <p>Then, some months later, they want another one. Same patient. Same medicine. Same doctor. Same reason. Nothing changed but the calendar.</p>
@@ -298,8 +333,8 @@
     </article>
 
     <article class="post" id="ten-years-in-one-envelope">
-      <div class="post-meta"><span class="post-date">October 5, 2026</span></div>
-      <h2 class="post-title">Ten years in one envelope</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#ten-years-in-one-envelope" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#ten-years-in-one-envelope">Ten years in one envelope</a></h2>
       <div class="post-body">
         <p>It doesn't take much to undo a careful life in this country. One hospital stay will do it.</p>
         <p>You can spend ten years doing it right. Bring your lunch. Drive the old truck another year. Put a little back every month. Then one envelope shows up and all of it is gone, and you didn't do one thing wrong except get sick.</p>
@@ -308,8 +343,8 @@
     </article>
 
     <article class="post" id="customer-for-life">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">Customer for life</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#customer-for-life" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#customer-for-life">Customer for life</a></h2>
       <div class="post-body">
         <p>Someone wrote about showing up at college and finding almost every girl in the dorm already on an SSRI. Inside jokes about the prescriptions. Grateful for them.</p>
         <p>Under that post, a reply said the quiet part. They want you sick and medicated. A customer for life. Medical spending is about a fifth of the whole economy.</p>
@@ -318,8 +353,8 @@
     </article>
 
     <article class="post" id="he-was-100">
-      <div class="post-meta"><span class="post-date">October 3, 2026</span></div>
-      <h2 class="post-title">He was 100</h2>
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#he-was-100" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#he-was-100">He was 100</a></h2>
       <div class="post-body">
         <p>A biochemist named Fred Kummerow said in 1957 that the fat in margarine was turning up in the arteries of the dead. The government acted on it in 2015. He was 100.</p>
         <p>That's not a conspiracy. That's a calendar. Fifty-eight years between a man looking at tissue and a rule catching up. Ask who needed those years. Then look at what's still on the shelf with a stamp of approval.</p>
