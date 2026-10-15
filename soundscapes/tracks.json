@@ -1,5 +1,385 @@
 [
   {
+    "id": "fog-rising-off-the-smokies",
+    "title": "Fog Rising Off the Smokies",
+    "scene": "Mountain mist rolling off Smoky ridges over a slow, warm drone.",
+    "use": [
+      "calm"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Mountain mist rolling off Smoky ridges over a slow, warm drone.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/fog-rising-off-the-smokies.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/fog-rising-off-the-smokies.jpg"
+  },
+  {
+    "id": "grandmothers-porch-at-dusk",
+    "title": "Grandmother's Porch at Dusk",
+    "scene": "Crickets, a rocking chair slowing to a stop and a wind chime that plays a lullaby.",
+    "use": [
+      "sleep"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Crickets, a rocking chair slowing to a stop and a wind chime that plays a lullaby.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/grandmothers-porch-at-dusk.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/grandmothers-porch-at-dusk.jpg"
+  },
+  {
+    "id": "lantern-cabin-deep-snow",
+    "title": "Lantern Cabin Deep Snow",
+    "scene": "Lantern hiss, a ticking stove and snow hush in a cabin, drifting toward deep sleep.",
+    "use": [
+      "sleep"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Lantern hiss, a ticking stove and snow hush in a cabin, drifting toward deep sleep.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/lantern-cabin-deep-snow.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/lantern-cabin-deep-snow.jpg"
+  },
+  {
+    "id": "the-mycelium-network",
+    "title": "The Mycelium Network",
+    "scene": "Sinking below the forest floor, where trees trade soft pulses through fungal roots.",
+    "use": [
+      "meditate"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Sinking below the forest floor, where trees trade soft pulses through fungal roots.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/the-mycelium-network.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/the-mycelium-network.jpg"
+  },
+  {
+    "id": "firefly-meadow-in-cades-cove",
+    "title": "Firefly Meadow in Cades Cove",
+    "scene": "Summer-night crickets and frogs as 48 firefly tones slowly fall into sync.",
+    "use": [
+      "sleep"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Summer-night crickets and frogs as 48 firefly tones slowly fall into sync.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/firefly-meadow-in-cades-cove.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/firefly-meadow-in-cades-cove.jpg"
+  },
+  {
+    "id": "first-hold",
+    "title": "First Hold",
+    "scene": "A parent's slow heartbeat with a newborn's quicker one, under a music-box melody.",
+    "use": [
+      "calm"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "A parent's slow heartbeat with a newborn's quicker one, under a music-box melody.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/first-hold.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/first-hold.jpg"
+  },
+  {
+    "id": "the-hum-before-rain",
+    "title": "The Hum Before Rain",
+    "scene": "A falling-pressure drone, then rain arriving with warm chords and distant thunder.",
+    "use": [
+      "nature"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "A falling-pressure drone, then rain arriving with warm chords and distant thunder.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/the-hum-before-rain.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/the-hum-before-rain.jpg"
+  },
+  {
+    "id": "bioluminescent-bay-at-midnight",
+    "title": "Bioluminescent Bay at Midnight",
+    "scene": "Each paddle stroke sets off a trail of glowing sparkle in a warm night bay.",
+    "use": [
+      "nature"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Each paddle stroke sets off a trail of glowing sparkle in a warm night bay.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/bioluminescent-bay-at-midnight.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/bioluminescent-bay-at-midnight.jpg"
+  },
+  {
+    "id": "hall-of-blue-ice",
+    "title": "Hall of Blue Ice",
+    "scene": "Tuned drips and a deep ice hum inside a glacier cave.",
+    "use": [
+      "focus"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Tuned drips and a deep ice hum inside a glacier cave.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/hall-of-blue-ice.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/hall-of-blue-ice.jpg"
+  },
+  {
+    "id": "moon-over-the-tide-pool",
+    "title": "Moon Over the Tide Pool",
+    "scene": "Moonlit surges filling and draining a tide pool, with soft trickles and celesta.",
+    "use": [
+      "calm"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Moonlit surges filling and draining a tide pool, with soft trickles and celesta.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/moon-over-the-tide-pool.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/moon-over-the-tide-pool.jpg"
+  },
+  {
+    "id": "behind-the-waterfall",
+    "title": "Behind the Waterfall",
+    "scene": "A cave tone drawn out of falling water, guiding 4-4-4-4 box breathing.",
+    "use": [
+      "meditate"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "A cave tone drawn out of falling water, guiding 4-4-4-4 box breathing.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/behind-the-waterfall.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/behind-the-waterfall.jpg"
+  },
+  {
+    "id": "inside-the-old-redwood",
+    "title": "Inside the Old Redwood",
+    "scene": "Hollow wood resonance, trunk creaks and breathy flute inside an ancient redwood.",
+    "use": [
+      "calm"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Hollow wood resonance, trunk creaks and breathy flute inside an ancient redwood.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/inside-the-old-redwood.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/inside-the-old-redwood.jpg"
+  },
+  {
+    "id": "koi-pond-in-light-rain",
+    "title": "Koi Pond in Light Rain",
+    "scene": "Light rain on a koi pond, with a bamboo fountain and ripples that turn into notes.",
+    "use": [
+      "focus"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Light rain on a koi pond, with a bamboo fountain and ripples that turn into notes.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/koi-pond-in-light-rain.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/koi-pond-in-light-rain.jpg"
+  },
+  {
+    "id": "riding-saturns-rings",
+    "title": "Riding Saturn's Rings",
+    "scene": "Streaming ice grains and a low planet hum while gliding along Saturn's rings.",
+    "use": [
+      "focus"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Streaming ice grains and a low planet hum while gliding along Saturn's rings.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/riding-saturns-rings.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/riding-saturns-rings.jpg"
+  },
+  {
+    "id": "tellico-lake-at-sunrise",
+    "title": "Tellico Lake at Sunrise",
+    "scene": "Paced breathing on a misty dock as a flute traces the ridgeline at sunrise.",
+    "use": [
+      "meditate"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Paced breathing on a misty dock as a flute traces the ridgeline at sunrise.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/tellico-lake-at-sunrise.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/tellico-lake-at-sunrise.jpg"
+  },
+  {
+    "id": "whale-song-in-the-blue-deep",
+    "title": "Whale Song in the Blue Deep",
+    "scene": "Humpback-style song circling through deep blue water with rising bubbles.",
+    "use": [
+      "sleep"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Humpback-style song circling through deep blue water with rising bubbles.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/whale-song-in-the-blue-deep.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/whale-song-in-the-blue-deep.jpg"
+  },
+  {
+    "id": "starship-drifting-past-earth",
+    "title": "Starship Drifting Past Earth",
+    "scene": "A quiet engine hum and one orbital sunrise, drifting into delta sleep.",
+    "use": [
+      "sleep"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "A quiet engine hum and one orbital sunrise, drifting into delta sleep.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/starship-drifting-past-earth.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/starship-drifting-past-earth.jpg"
+  },
+  {
+    "id": "desert-stars-no-wind",
+    "title": "Desert Stars, No Wind",
+    "scene": "Still desert air and star tones overhead, with slow meteor sweeps.",
+    "use": [
+      "meditate"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Still desert air and star tones overhead, with slow meteor sweeps.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/desert-stars-no-wind.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/desert-stars-no-wind.jpg"
+  },
+  {
+    "id": "northern-lights-over-a-frozen-lake",
+    "title": "Northern Lights Over a Frozen Lake",
+    "scene": "Aurora shimmer overhead, with whistlers and singing ice below.",
+    "use": [
+      "sleep"
+    ],
+    "system": "binaural",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Aurora shimmer overhead, with whistlers and singing ice below.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/northern-lights-over-a-frozen-lake.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/northern-lights-over-a-frozen-lake.jpg"
+  },
+  {
+    "id": "the-planet-humming",
+    "title": "The Planet Humming",
+    "scene": "Earth's deep hum and starquake-like rumble as a slow low drone.",
+    "use": [
+      "noise"
+    ],
+    "system": "stereo",
+    "noMusic": false,
+    "length": 1030,
+    "description": "Earth's deep hum and starquake-like rumble as a slow low drone.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-15",
+    "aiGenerated": true,
+    "previewLength": 1030,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/the-planet-humming.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/the-planet-humming.jpg"
+  },
+  {
     "id": "where-stillness-begins",
     "title": "Where Stillness Begins, Binaural Meditation",
     "scene": "Concentric ripples settling around a single quiet ember",
@@ -60,7 +440,7 @@
   },
   {
     "id": "where-the-ember-sleeps",
-    "title": "Where the Ember Sleeps \u2014 Deep Delta Sleep Tones",
+    "title": "Where the Ember Sleeps — Deep Delta Sleep Tones",
     "scene": "Embers at night by a dark sea",
     "use": [
       "sleep"
@@ -79,7 +459,7 @@
   },
   {
     "id": "clear-water-mind",
-    "title": "Clear Water Mind \u2014 40 Hz Focus with Brown Noise",
+    "title": "Clear Water Mind — 40 Hz Focus with Brown Noise",
     "scene": "Still water, clear mind",
     "use": [
       "focus"
@@ -98,7 +478,7 @@
   },
   {
     "id": "tin-roof-slow-rain",
-    "title": "Tin Roof, Slow Rain \u2014 Rain for Sleep and Calm",
+    "title": "Tin Roof, Slow Rain — Rain for Sleep and Calm",
     "scene": "Rain on a tin roof, thunder far away",
     "use": [
       "sleep",
@@ -119,7 +499,7 @@
   },
   {
     "id": "low-ember-hum",
-    "title": "Low Ember Hum \u2014 Warm Brown Noise",
+    "title": "Low Ember Hum — Warm Brown Noise",
     "scene": "A warm hum in a dark room",
     "use": [
       "noise",
@@ -139,7 +519,7 @@
   },
   {
     "id": "cabin-fire-first-snow",
-    "title": "Cabin Fire, First Snow \u2014 Cozy Fireside Ambience",
+    "title": "Cabin Fire, First Snow — Cozy Fireside Ambience",
     "scene": "A crackling fire in a cabin as the first snow falls",
     "use": [
       "calm"
