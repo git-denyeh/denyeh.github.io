@@ -47,14 +47,16 @@
   }
 
   // ---------- Filters ----------
-  var SYSTEMS = ['binaural', 'stereo', '5.1'];
-  var SYS_LABEL = { binaural: 'Binaural', stereo: 'Stereo', '5.1': '5.1' };
+  var SYSTEMS = ['binaural', 'stereo'];
+  var SYS_LABEL = { binaural: 'Binaural', stereo: 'Stereo' };
   function slug(v) { return String(v).toLowerCase().replace(/[^a-z0-9.]+/g, '-'); }
   function readHash() {
     filters.use = null; filters.system = null;
     String(location.hash || '').replace(/^#/, '').split('+').forEach(function (p) {
       p = decodeURIComponent(p).toLowerCase();
       if (!p || p === 'all') return;
+      // The 5.1 filter is gone. Old #5.1 links show every track.
+      if (p === '5.1' || p === '5-1') return;
       if (SYSTEMS.indexOf(p) > -1 || document.querySelector('#sysChips .chip[data-v="' + p + '"]')) filters.system = p;
       else if (document.querySelector('#useChips .chip[data-v="' + p + '"]')) filters.use = p;
     });
@@ -461,10 +463,12 @@
 
   // ---------- Load ----------
   renderFollow();
-  fetch('/soundscapes/tracks.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+  fetch('/soundscapes/tracks.json?v=1', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
     tracks = (Array.isArray(data) ? data : []).filter(function (t) { return t && t.file; });
-    tracks.forEach(function (t) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; });
-    tracks.sort(function (a, b) { return String(b.added).localeCompare(String(a.added)); });
+    tracks.forEach(function (t, i) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; t._i = i; });
+    tracks.sort(function (a, b) {
+      return String(b.added).localeCompare(String(a.added)) || (a._i - b._i);
+    });
     if (!tracks.length) { $('emptyState').hidden = false; return; }
     renderChips(); renderCards(); applyHash();
     $('heroPlay').disabled = false;
