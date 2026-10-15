@@ -39,8 +39,10 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
 .eyebrow{font-size:.7rem;color:var(--accent2);margin-bottom:1rem}
 .hero h1{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(2.4rem,9vw,4.4rem);line-height:1.05;margin-bottom:1.5rem}
 .hero h1 em{color:var(--accent);font-style:italic}
-.rumi{font-size:clamp(1.15rem,3.6vw,1.45rem);color:#afa89a;font-style:italic;line-height:1.6;max-width:560px;margin:0 auto 2.4rem}
-.rumi cite{display:block;font-style:normal;font-family:'Barlow',sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
+.topic-intro{font-size:1.2rem;line-height:1.7;color:#afa89a;max-width:65ch;margin:0 auto 2.4rem}
+.topic-intro p{margin-bottom:1em}
+.topic-intro p:last-child{margin-bottom:0}
+.topic-intro em{color:var(--accent3);font-style:italic}
 .btn-hero{display:inline-flex;align-items:center;gap:.8rem;font-size:.82rem;padding:1.05rem 2rem 1.05rem 1.5rem;border-radius:999px;border:1px solid var(--accent);background:linear-gradient(180deg,rgba(200,121,65,.22),rgba(200,121,65,.08));color:var(--accent3);cursor:pointer;transition:box-shadow .3s,background .3s,transform .2s}
 .btn-hero svg{width:22px;height:22px;fill:currentColor}
 .btn-hero:hover:not(:disabled){box-shadow:0 0 34px rgba(200,121,65,.35);background:rgba(200,121,65,.26)}
