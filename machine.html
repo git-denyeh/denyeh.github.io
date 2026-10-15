@@ -259,6 +259,21 @@
     }
     .footer-support a { color: var(--accent); text-decoration: none; }
     .footer-support a:hover, .footer-support a:focus { text-decoration: underline; }
+    .footer-support .kofi-cup {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.4em;
+      line-height: 0;
+      vertical-align: middle;
+      text-decoration: none;
+    }
+    .footer-support .kofi-cup img {
+      height: 1.1em;
+      width: auto;
+      display: block;
+    }
+    .footer-support .kofi-cup:hover,
+    .footer-support .kofi-cup:focus { text-decoration: none; }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -374,7 +389,7 @@
   </main>
 
   <footer>
-    <span class="footer-support">If something here stayed with you, you can <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">support the writing</a>.</span>
+    <span class="footer-support">If something here stayed with you, you can <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">support the writing</a>.<a class="kofi-cup" href="https://ko-fi.com/denyeh" target="_blank" rel="noopener"><img src="/images/kofi-cup.png" alt="Ko-fi" width="161" height="130"></a></span>
     <span class="footer-quote">"There is a voice that doesn't use words. Listen."</span>
     <span class="footer-attribution">— Rumi</span>
     <span class="footer-copy">© 2026 <a href="/">DENYEH</a>. All rights reserved.</span>
