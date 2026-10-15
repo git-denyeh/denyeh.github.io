@@ -27,6 +27,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:1.
 .footer-support{font-family:'Barlow',sans-serif;font-size:.7rem;letter-spacing:.14em;line-height:1.6;color:#9a8c7a}
 .footer-support a{color:var(--accent);text-decoration:none}
 .footer-support a:hover,.footer-support a:focus{text-decoration:underline}
+.footer-support .kofi-cup{display:inline-flex;align-items:center;margin-left:.4em;line-height:0;vertical-align:middle;text-decoration:none}
+.footer-support .kofi-cup img{height:1.1em;width:auto;display:block}
+.footer-support .kofi-cup:hover,.footer-support .kofi-cup:focus{text-decoration:none}
 .skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--accent);color:var(--bg);padding:.5rem 1rem;font-family:'Barlow',sans-serif}
 .skip:focus{left:1rem;top:.5rem}
 :focus-visible{outline:2px solid var(--accent3);outline-offset:3px;border-radius:4px}
