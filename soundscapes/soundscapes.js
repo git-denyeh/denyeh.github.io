@@ -93,7 +93,7 @@
     }
     build($('sysChips'), SYSTEMS, 'system', SYS_LABEL);
     build($('useChips'), Object.keys(uses).sort(), 'use');
-    window.addEventListener('hashchange', function () { readHash(); syncChips(); applyFilters(); });
+    window.addEventListener('hashchange', applyHash);
   }
 
   function applyFilters() {
@@ -112,6 +112,31 @@
     }
   }
 
+  function trackSlugFromHash() {
+    var raw = String(location.hash || '').replace(/^#/, '');
+    try { raw = decodeURIComponent(raw); } catch (e) { return ''; }
+    if (!raw || raw.indexOf('+') !== -1 || raw.toLowerCase().indexOf('track-') !== 0) return '';
+    return raw.slice(6).toLowerCase();
+  }
+  function revealTrack() {
+    var card = document.getElementById('track-' + trackSlugFromHash());
+    if (!card) return;
+    card.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+    card.classList.remove('linked');
+    void card.offsetWidth;
+    card.classList.add('linked');
+    clearTimeout(revealTrack.timer);
+    revealTrack.timer = setTimeout(function () { card.classList.remove('linked'); }, 2200);
+  }
+  function applyHash() {
+    if (trackSlugFromHash()) {
+      filters.use = null; filters.system = null;
+      syncChips(); applyFilters(); revealTrack();
+      return;
+    }
+    readHash(); syncChips(); applyFilters();
+  }
+
   // ---------- Cards ----------
   var R = 29, CIRC = 2 * Math.PI * R;
   function renderCards() {
@@ -119,7 +144,7 @@
     grid.innerHTML = tracks.map(function (t, i) {
       var bin = t.system === 'binaural';
       var len = t.previewLength ? fmt(t.previewLength) + ' preview' : '';
-      return '<article class="card" data-i="' + i + '">' +
+      return '<article class="card" id="track-' + esc(t.id) + '" data-i="' + i + '">' +
         '<div class="art"><img src="' + esc(t.cover) + '" alt="Cover art for ' + esc(shortTitle(t)) + '" loading="lazy" decoding="async" width="600" height="600">' +
         '<button type="button" class="pp" aria-label="Play preview of ' + esc(shortTitle(t)) + '">' +
         '<svg class="ring" viewBox="0 0 62 62" aria-hidden="true"><circle class="bg" cx="31" cy="31" r="' + R + '"/><circle class="fg" cx="31" cy="31" r="' + R + '" stroke-dasharray="' + CIRC + '" stroke-dashoffset="' + CIRC + '"/></svg>' +
@@ -129,10 +154,28 @@
         '<div class="badges">' + (t.use || []).map(function (u) { return '<span class="badge">' + esc(u) + '</span>'; }).join('') +
         '<span class="badge sys">' + esc(t.system) + '</span><span class="preview-len">' + len + '</span></div>' +
         (bin ? '<p class="phones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3zM3 19a2 2 0 002 2h1v-6H3z"/></svg>Use headphones for the binaural effect</p>' : '') +
-        '<div class="listen">' + storeLinks(t.links) + '</div></article>';
+        '<div class="listen">' + storeLinks(t.links) + '</div>' +
+        '<button type="button" class="copy-link" data-id="' + esc(t.id) + '">Copy link</button></article>';
     }).join('');
     grid.querySelectorAll('.card').forEach(function (card) {
       card.querySelector('.pp').addEventListener('click', function () { toggle(tracks[+card.dataset.i], card); });
+      var copy = card.querySelector('.copy-link');
+      copy.addEventListener('click', function () {
+        var url = new URL('/soundscapes/', location.origin);
+        url.hash = 'track-' + copy.getAttribute('data-id');
+        var done = function () {
+          copy.textContent = 'Copied';
+          setTimeout(function () { copy.textContent = 'Copy link'; }, 1400);
+        };
+        var write = navigator.clipboard && navigator.clipboard.writeText;
+        (write ? navigator.clipboard.writeText(url.href) : Promise.reject()).then(done).catch(function () {
+          var ta = document.createElement('textarea');
+          ta.value = url.href; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.left = '-999px';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) {}
+          ta.remove();
+        });
+      });
     });
   }
 
@@ -423,7 +466,7 @@
     tracks.forEach(function (t) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; });
     tracks.sort(function (a, b) { return String(b.added).localeCompare(String(a.added)); });
     if (!tracks.length) { $('emptyState').hidden = false; return; }
-    renderChips(); renderCards(); readHash(); syncChips(); applyFilters();
+    renderChips(); renderCards(); applyHash();
     $('heroPlay').disabled = false;
   }).catch(function () { $('emptyState').hidden = false; });
 })();
