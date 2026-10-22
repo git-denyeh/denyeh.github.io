@@ -82,6 +82,7 @@
     var uses = {};
     tracks.forEach(function (t) { (t.use || []).forEach(function (u) { uses[u.toLowerCase()] = 1; }); });
     function build(el, vals, key, labels) {
+      Array.prototype.forEach.call(el.querySelectorAll('.chip'), function (c) { c.remove(); });
       ['' ].concat(vals).forEach(function (v) {
         var b = document.createElement('button');
         b.type = 'button'; b.className = 'chip';
@@ -98,7 +99,10 @@
     }
     build($('sysChips'), SYSTEMS, 'system', SYS_LABEL);
     build($('useChips'), Object.keys(uses).sort(), 'use');
-    window.addEventListener('hashchange', applyHash);
+    if (!renderChips.bound) {
+      renderChips.bound = true;
+      window.addEventListener('hashchange', applyHash);
+    }
   }
 
   function applyFilters() {
@@ -466,15 +470,74 @@
   });
 
   // ---------- Load ----------
-  renderFollow();
-  fetch('/soundscapes/tracks.json?v=2', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
-    tracks = (Array.isArray(data) ? data : []).filter(function (t) { return t && t.file; });
-    tracks.forEach(function (t, i) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; t._i = i; });
-    tracks.sort(function (a, b) {
+  // #tracksData is an inlined copy of tracks.json. In-app browsers often abort
+  // the fetch; that used to uncover #emptyState immediately. Retry the fetch
+  // once, and keep the paragraph hidden until loading has finished with nothing.
+  function readInline() {
+    var el = $('tracksData');
+    if (!el) return null;
+    try {
+      var data = JSON.parse(el.textContent);
+      return Array.isArray(data) ? data : null;
+    } catch (e) {
+      return null;
+    }
+  }
+  function requestTracks() {
+    try {
+      return fetch('/soundscapes/tracks.json?v=3', { cache: 'no-cache' }).then(function (r) {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      });
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  }
+  function normalize(data) {
+    var next = (Array.isArray(data) ? data : []).filter(function (t) { return t && t.file; });
+    next.forEach(function (t, i) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; t._i = i; });
+    next.sort(function (a, b) {
       return String(b.added).localeCompare(String(a.added)) || (a._i - b._i);
     });
-    if (!tracks.length) { $('emptyState').hidden = false; return; }
-    renderChips(); renderCards(); applyHash();
+    return next;
+  }
+  function trackSig(list) {
+    return list.map(function (t) {
+      return [t.id, t.added, t.title, t.scene, t.system, t.file, t.cover, t.previewLength, JSON.stringify(t.use || []), JSON.stringify(t.links || {})].join('\u0001');
+    }).join('\u0002');
+  }
+  var renderedSig = '';
+  function applyData(data) {
+    var next = normalize(data);
+    if (!next.length) return false;
+    var sig = trackSig(next);
+    $('emptyState').hidden = true;
     $('heroPlay').disabled = false;
-  }).catch(function () { $('emptyState').hidden = false; });
+    if (sig === renderedSig || current) return true;
+    tracks = next;
+    renderedSig = sig;
+    renderChips();
+    renderCards();
+    applyHash();
+    return true;
+  }
+  function showEmpty() {
+    if (!tracks.length) $('emptyState').hidden = false;
+  }
+  function refreshFromNetwork(attempt) {
+    $('emptyState').hidden = true;
+    requestTracks().then(function (data) {
+      if (applyData(data)) return;
+      if (attempt < 1) refreshFromNetwork(attempt + 1);
+      else showEmpty();
+    }).catch(function () {
+      if (attempt < 1) refreshFromNetwork(attempt + 1);
+      else showEmpty();
+    });
+  }
+  renderFollow();
+  $('emptyState').hidden = true;
+  var inline = readInline();
+  if (inline) applyData(inline);
+  refreshFromNetwork(0);
 })();
