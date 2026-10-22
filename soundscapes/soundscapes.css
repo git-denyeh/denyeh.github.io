@@ -91,6 +91,11 @@ input[type=range]{accent-color:var(--accent);width:150px}
 .phones{display:flex;align-items:center;gap:.4rem;color:var(--accent3);font-size:.92rem;margin-top:.6rem;font-style:italic}
 .phones svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
 .listen{display:flex;align-items:center;gap:.5rem;margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--border)}
+.listen-on{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .7rem;margin-top:.7rem;font-family:'Barlow',sans-serif;font-weight:400;font-size:.72rem;letter-spacing:.015em;line-height:1.45;color:var(--muted)}
+.listen-links{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:.4rem}
+.listen-on a,.mini-links a{color:var(--accent);text-decoration:none}
+.listen-on a:hover,.listen-on a:focus-visible,.mini-links a:hover,.mini-links a:focus-visible{color:var(--accent3)}
+.listen-sep{color:var(--muted)}
 .store{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;font-size:.6rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:999px;padding:.35rem .7rem;min-height:32px;transition:color .2s,border-color .2s,box-shadow .3s}
 .store svg{width:14px;height:14px;fill:currentColor}
 .store:hover{color:var(--accent3);border-color:var(--accent2);box-shadow:0 0 12px rgba(200,121,65,.2)}
@@ -106,7 +111,7 @@ input[type=range]{accent-color:var(--accent);width:150px}
 .mini-meta{display:flex;flex-direction:column;min-width:0;flex:1}
 .mini-title{font-family:'Playfair Display',serif;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mini-layer{font-size:.58rem;color:var(--muted)}
-.mini-links{display:none;align-items:center;gap:.4rem}
+.mini-links{display:none;align-items:center;gap:.4rem;font-family:'Barlow',sans-serif;font-weight:400;font-size:.68rem;letter-spacing:.015em;color:var(--muted)}
 @media(min-width:640px){.mini-links{display:flex}.mini{padding:.6rem 2rem}}
 @media (max-width:768px){nav{padding:0 1.5rem}.nav-links{display:none}.hamburger{display:flex}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.card:hover .art img{transform:none}}

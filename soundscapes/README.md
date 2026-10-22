@@ -23,7 +23,7 @@ A JSON array, newest first by `added`. Each track:
 | `artist` | string | `Voice Without Words` |
 | `added` | string | `YYYY-MM-DD` |
 | `aiGenerated` | boolean | always `true` |
-| `links` | object | `{spotify, apple, youtubeMusic, amazon}`; empty shows "Coming soon to streaming" |
+| `links` | object | `{spotify, apple, youtubeMusic, amazon}`; each present URL is a text link on one "Listen on" line. Empty shows nothing. |
 
 Artist follow links (hero) are in `ARTIST_LINKS` at the top of `soundscapes.js`; empty ones are hidden.
 

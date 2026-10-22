@@ -27,12 +27,15 @@
   function fmt(sec) { sec = Math.round(sec || 0); return Math.floor(sec / 60) + ':' + ('0' + (sec % 60)).slice(-2); }
   function shortTitle(t) { return String(t.title || '').split(',')[0]; }
 
-  function storeLinks(links, cls) {
+  // Text links only. STORE_ORDER keeps Spotify and Amazon on this same line later.
+  function storeLinks(links) {
     links = links || {};
-    var html = STORE_ORDER.filter(function (k) { return links[k]; }).map(function (k) {
-      return '<a class="store ' + (cls || '') + '" href="' + esc(links[k]) + '" target="_blank" rel="noopener" aria-label="Listen in full on ' + STORES[k].name + '" title="' + STORES[k].name + '">' + STORES[k].icon + '</a>';
-    }).join('');
-    return html ? '<span class="label">Listen in full</span>' + html : '<span class="soon">Coming soon to streaming</span>';
+    var parts = STORE_ORDER.filter(function (k) { return links[k]; }).map(function (k) {
+      return '<a href="' + esc(links[k]) + '" target="_blank" rel="noopener">' + esc(STORES[k].name) + '</a>';
+    });
+    if (!parts.length) return '';
+    return '<span class="listen-label">Listen on</span><span class="listen-links">' +
+      parts.join('<span class="listen-sep" aria-hidden="true">·</span>') + '</span>';
   }
 
   // ---------- Follow buttons ----------
@@ -146,6 +149,7 @@
     grid.innerHTML = tracks.map(function (t, i) {
       var bin = t.system === 'binaural';
       var len = t.previewLength ? fmt(t.previewLength) + ' preview' : '';
+      var listen = storeLinks(t.links);
       return '<article class="card" id="track-' + esc(t.id) + '" data-i="' + i + '">' +
         '<div class="art"><img src="' + esc(t.cover) + '" alt="Cover art for ' + esc(shortTitle(t)) + '" loading="lazy" decoding="async" width="600" height="600">' +
         '<button type="button" class="pp" aria-label="Play preview of ' + esc(shortTitle(t)) + '">' +
@@ -156,7 +160,7 @@
         '<div class="badges">' + (t.use || []).map(function (u) { return '<span class="badge">' + esc(u) + '</span>'; }).join('') +
         '<span class="badge sys">' + esc(t.system) + '</span><span class="preview-len">' + len + '</span></div>' +
         (bin ? '<p class="phones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3zM3 19a2 2 0 002 2h1v-6H3z"/></svg>Use headphones for the binaural effect</p>' : '') +
-        '<div class="listen">' + storeLinks(t.links) + '</div>' +
+        (listen ? '<div class="listen-on">' + listen + '</div>' : '') +
         '<button type="button" class="copy-link" data-id="' + esc(t.id) + '">Copy link</button></article>';
     }).join('');
     grid.querySelectorAll('.card').forEach(function (card) {
@@ -463,7 +467,7 @@
 
   // ---------- Load ----------
   renderFollow();
-  fetch('/soundscapes/tracks.json?v=1', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
+  fetch('/soundscapes/tracks.json?v=2', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (data) {
     tracks = (Array.isArray(data) ? data : []).filter(function (t) { return t && t.file; });
     tracks.forEach(function (t, i) { t.system = String(t.system || '').toLowerCase(); t.links = t.links || {}; t._i = i; });
     tracks.sort(function (a, b) {
