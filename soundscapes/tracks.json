@@ -1,5 +1,175 @@
 [
   {
+    "id": "cedar-hollow-at-first-light",
+    "title": "Cedar Hollow at First Light, Theta 6 Hz Deep Meditation",
+    "scene": "A pine forest at dawn with drifting wind and a distant stream",
+    "use": [
+      "Meditate",
+      "Calm"
+    ],
+    "system": "both",
+    "formats": {
+      "binaural": {
+        "file": "Binaural-Cedar-Hollow-at-First-Light.mp3",
+        "listen": "Headphones only",
+        "encoding": "MP3 320k stereo"
+      },
+      "5.1": {
+        "file": "5.1-Cedar-Hollow-at-First-Light.m4a",
+        "listen": "5.1 speakers",
+        "encoding": "AAC 384k 6ch, isochronic pulses"
+      }
+    },
+    "noMusic": false,
+    "length": 1560,
+    "description": "Dawn in a pine hollow: soft wind moves through the needles, leaves stir, a distant stream runs behind you to the left, and slow-swelling bowl tones rise over a warm G pad and a low 49 Hz drone. The pulse starts at 7 Hz and settles into a steady 6 Hz theta for most of the track, lifting gently to about 6.3 Hz in the closing minutes. It comes in two versions: the 5.1 surround file uses soft isochronic pulses and is meant for speakers, while the binaural file uses a slightly different tone in each ear and only works on headphones. Use it for a long, unhurried sit, deep meditation or quiet reflection. Research links theta-range rhythms to relaxed, inward states and slower breathing; this is a relaxation aid, not a treatment. Created by Voice Without Words / DENYEH.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-22",
+    "aiGenerated": true,
+    "preview": "preview.mp3",
+    "previewSource": "binaural",
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/cedar-hollow-at-first-light.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/cedar-hollow-at-first-light.jpg"
+  },
+  {
+    "id": "the-lake-keeps-the-day",
+    "title": "The Lake Keeps the Day, Theta and Alpha Wind-Down After Study",
+    "scene": "A still lake at dusk with gentle laps at the shore",
+    "use": [
+      "Calm",
+      "Study"
+    ],
+    "system": "both",
+    "formats": {
+      "binaural": {
+        "file": "Binaural-The-Lake-Keeps-the-Day.mp3",
+        "listen": "Headphones only",
+        "encoding": "MP3 320k stereo"
+      },
+      "5.1": {
+        "file": "5.1-The-Lake-Keeps-the-Day.m4a",
+        "listen": "5.1 speakers",
+        "encoding": "AAC 384k 6ch, isochronic pulses"
+      }
+    },
+    "noMusic": false,
+    "length": 1440,
+    "description": "A still lake at dusk: small waves lap at the shore in front of you, a light breeze passes, and a faint high air hangs over a warm A pad and a 55 Hz drone. The pulse begins at a 10 Hz alpha rate and glides down to about 6.8 Hz by the eight-minute mark, then rests between 6.2 and 6.8 Hz theta for the rest of the track. The 5.1 surround version uses soft isochronic pulses for speakers, and the binaural version is for headphones only. It is made for the time right after studying or focused work, to let the mind slow down while new material settles. Research associates alpha and theta states with relaxed attention and with memory and learning, but this is a calming backdrop, not a guaranteed study aid. Created by Voice Without Words / DENYEH.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-22",
+    "aiGenerated": true,
+    "preview": "preview.mp3",
+    "previewSource": "binaural",
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/the-lake-keeps-the-day.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/the-lake-keeps-the-day.jpg"
+  },
+  {
+    "id": "where-dreams-begin-to-drift",
+    "title": "Where Dreams Begin to Drift, Hypnagogic Theta for Creative Flow",
+    "scene": "Deep space with slow-circling shimmer and far solar wind",
+    "use": [
+      "Create",
+      "Meditate"
+    ],
+    "system": "both",
+    "formats": {
+      "binaural": {
+        "file": "Binaural-Where-Dreams-Begin-to-Drift.mp3",
+        "listen": "Headphones only",
+        "encoding": "MP3 320k stereo"
+      },
+      "5.1": {
+        "file": "5.1-Where-Dreams-Begin-to-Drift.m4a",
+        "listen": "5.1 speakers",
+        "encoding": "AAC 384k 6ch, isochronic pulses"
+      }
+    },
+    "noMusic": false,
+    "length": 1680,
+    "description": "A drift through deep space: high shimmering partials circle slowly around you, a deep E pad and a 41 Hz drone sit beneath a long, spacious reverb, and a far-off solar wind breathes in the distance. The pulse eases from 7 to 6 Hz, then wanders slowly between about 5 and 7 Hz in long, overlapping waves, like the loose edge of sleep. Play the 5.1 surround version (soft isochronic pulses) on speakers, or the binaural version on headphones only. It suits creative daydreaming, open-ended brainstorming, journaling, or simply letting ideas wander. Research links the drowsy hypnagogic theta state to loose, associative thinking; results vary and it is meant as a relaxed backdrop. Created by Voice Without Words / DENYEH.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-22",
+    "aiGenerated": true,
+    "preview": "preview.mp3",
+    "previewSource": "binaural",
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/where-dreams-begin-to-drift.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/where-dreams-begin-to-drift.jpg"
+  },
+  {
+    "id": "six-breaths-at-sunrise",
+    "title": "Six Breaths at Sunrise, Theta 6 Hz with Slow Breath Pacing",
+    "scene": "A meadow at sunrise with a brook and a breathing breeze",
+    "use": [
+      "Breathe",
+      "Calm"
+    ],
+    "system": "both",
+    "formats": {
+      "binaural": {
+        "file": "Binaural-Six-Breaths-at-Sunrise.mp3",
+        "listen": "Headphones only",
+        "encoding": "MP3 320k stereo"
+      },
+      "5.1": {
+        "file": "5.1-Six-Breaths-at-Sunrise.m4a",
+        "listen": "5.1 speakers",
+        "encoding": "AAC 384k 6ch, isochronic pulses"
+      }
+    },
+    "noMusic": false,
+    "length": 1320,
+    "description": "A meadow at sunrise: a warm D pad over a 73 Hz drone, a breeze through the grass and leaves, and a small brook behind you on the right, with no birdsong. From two minutes in until about eighteen minutes, the pad and breeze swell and fall six times a minute, so you can breathe in as the sound rises and out as it fades. Underneath, the pulse settles from 7 Hz to a steady 6 Hz theta. The 5.1 surround version uses soft isochronic pulses for speakers, and the binaural version is for headphones only. Use it for paced breathing, a restorative pause, or a calm start to the day. Research suggests slow breathing near six breaths per minute supports relaxation; it is not a medical treatment. Created by Voice Without Words / DENYEH.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-22",
+    "aiGenerated": true,
+    "preview": "preview.mp3",
+    "previewSource": "binaural",
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/six-breaths-at-sunrise.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/six-breaths-at-sunrise.jpg"
+  },
+  {
+    "id": "the-tide-goes-dark",
+    "title": "The Tide Goes Dark, Evening Theta Descent Toward Sleep",
+    "scene": "A night ocean with slowing swells all around",
+    "use": [
+      "Sleep",
+      "Calm"
+    ],
+    "system": "both",
+    "formats": {
+      "binaural": {
+        "file": "Binaural-The-Tide-Goes-Dark.mp3",
+        "listen": "Headphones only",
+        "encoding": "MP3 320k stereo"
+      },
+      "5.1": {
+        "file": "5.1-The-Tide-Goes-Dark.m4a",
+        "listen": "5.1 speakers",
+        "encoding": "AAC 384k 6ch, isochronic pulses"
+      }
+    },
+    "noMusic": false,
+    "length": 1620,
+    "description": "A night ocean: low surf surrounds you, and the swells slowly grow longer, from about fourteen to nearly eighteen seconds apart, over a dark F pad and a 44 Hz drone, softened so nothing bright cuts through. The pulse descends from 7 Hz to about 5.8 Hz at ten minutes, then to a slow 4.5 Hz theta from eighteen minutes to the end, with a faint 1.5 Hz low-delta swell added to the drone from fourteen minutes on. The 5.1 surround version uses soft isochronic pulses for speakers, and the binaural version is for headphones only. It is meant for the last part of the evening, to slow down before bed. Slower rhythms and calm sound are linked in research to easier relaxation before sleep, but this is not a sleep treatment. Created by Voice Without Words / DENYEH.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-22",
+    "aiGenerated": true,
+    "preview": "preview.mp3",
+    "previewSource": "binaural",
+    "previewLength": 150,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/the-tide-goes-dark.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/the-tide-goes-dark.jpg"
+  },
+  {
     "id": "fog-rising-off-the-smokies",
     "title": "Fog Rising Off the Smokies",
     "scene": "Mountain mist rolling off Smoky ridges over a slow, warm drone.",

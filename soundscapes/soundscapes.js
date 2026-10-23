@@ -105,12 +105,32 @@
     }
   }
 
+  // Use and system narrow together. Dual 5.1 + binaural tracks stay under Binaural.
+  function isDual(t) {
+    var f = t.formats || {};
+    return t.system === 'both' || !!(f.binaural && f['5.1']);
+  }
+  function matchesSystem(t, system) {
+    if (!system) return true;
+    if (t.system === system) return true;
+    if (system === 'binaural' && (t.system === 'both' || (t.formats && t.formats.binaural))) return true;
+    return false;
+  }
+  function descriptionHtml(t) {
+    var d = String(t.description || '').replace(/\s+/g, ' ').trim();
+    var scene = String(t.scene || '').replace(/\s+/g, ' ').trim();
+    if (!d || d === scene) return '';
+    if (d.length > 320) {
+      return '<details class="desc-fold" open><summary>Description</summary><p class="desc">' + esc(d) + '</p></details>';
+    }
+    return '<p class="desc">' + esc(d) + '</p>';
+  }
   function applyFilters() {
     var shown = 0;
     document.querySelectorAll('.card').forEach(function (c) {
       var t = tracks[+c.dataset.i];
       var ok = (!filters.use || (t.use || []).map(function (u) { return u.toLowerCase(); }).indexOf(filters.use) > -1) &&
-               (!filters.system || t.system === filters.system);
+               matchesSystem(t, filters.system);
       c.hidden = !ok; if (ok) shown++;
     });
     var nm = $('noMatch');
@@ -152,8 +172,18 @@
     var grid = $('grid');
     grid.innerHTML = tracks.map(function (t, i) {
       var bin = t.system === 'binaural';
+      var dual = isDual(t);
       var len = t.previewLength ? fmt(t.previewLength) + ' preview' : '';
       var listen = storeLinks(t.links);
+      var phonesIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3zM3 19a2 2 0 002 2h1v-6H3z"/></svg>';
+      var phones = '';
+      if (dual || t.previewSource === 'binaural') {
+        phones = '<p class="phones">' + phonesIcon + 'Preview: binaural, use headphones</p>';
+      } else if (bin) {
+        phones = '<p class="phones">' + phonesIcon + 'Use headphones for the binaural effect</p>';
+      }
+      var versions = dual ? '<p class="versions">Comes in two versions: 5.1 (speakers) and Binaural (headphones only).</p>' : '';
+      var sysBadge = dual ? '' : '<span class="badge sys">' + esc(t.system) + '</span>';
       return '<article class="card" id="track-' + esc(t.id) + '" data-i="' + i + '">' +
         '<div class="art"><img src="' + esc(t.cover) + '" alt="Cover art for ' + esc(shortTitle(t)) + '" loading="lazy" decoding="async" width="600" height="600">' +
         '<button type="button" class="pp" aria-label="Play preview of ' + esc(shortTitle(t)) + '">' +
@@ -162,8 +192,8 @@
         '<h3>' + esc(t.title) + '</h3>' +
         '<p class="scene">' + esc(t.scene) + '</p>' +
         '<div class="badges">' + (t.use || []).map(function (u) { return '<span class="badge">' + esc(u) + '</span>'; }).join('') +
-        '<span class="badge sys">' + esc(t.system) + '</span><span class="preview-len">' + len + '</span></div>' +
-        (bin ? '<p class="phones"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1v-6h3zM3 19a2 2 0 002 2h1v-6H3z"/></svg>Use headphones for the binaural effect</p>' : '') +
+        sysBadge + '<span class="preview-len">' + len + '</span></div>' +
+        versions + phones + descriptionHtml(t) +
         (listen ? '<div class="listen-on">' + listen + '</div>' : '') +
         '<button type="button" class="copy-link" data-id="' + esc(t.id) + '">Copy link</button></article>';
     }).join('');
@@ -485,7 +515,7 @@
   }
   function requestTracks() {
     try {
-      return fetch('/soundscapes/tracks.json?v=3', { cache: 'no-cache' }).then(function (r) {
+      return fetch('/soundscapes/tracks.json?v=4', { cache: 'no-cache' }).then(function (r) {
         if (!r.ok) throw new Error(String(r.status));
         return r.json();
       });
@@ -503,7 +533,7 @@
   }
   function trackSig(list) {
     return list.map(function (t) {
-      return [t.id, t.added, t.title, t.scene, t.system, t.file, t.cover, t.previewLength, JSON.stringify(t.use || []), JSON.stringify(t.links || {})].join('\u0001');
+      return [t.id, t.added, t.title, t.scene, t.description, t.system, t.previewSource, t.file, t.cover, t.previewLength, JSON.stringify(t.use || []), JSON.stringify(t.links || {}), t.formats ? 'dual' : ''].join('\u0001');
     }).join('\u0002');
   }
   var renderedSig = '';
