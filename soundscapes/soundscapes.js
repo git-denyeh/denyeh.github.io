@@ -119,11 +119,16 @@
   function descriptionHtml(t) {
     var d = String(t.description || '').replace(/\s+/g, ' ').trim();
     var scene = String(t.scene || '').replace(/\s+/g, ' ').trim();
-    if (!d || d === scene) return '';
-    if (d.length > 320) {
-      return '<details class="desc-fold" open><summary>Description</summary><p class="desc">' + esc(d) + '</p></details>';
+    var credit = String(t.credit || '').replace(/\s+/g, ' ').trim();
+    if ((!d || d === scene) && !credit) return '';
+    var inner = (d && d !== scene) ? esc(d) : '';
+    if (credit) inner += (inner ? ' ' : '') + '<small>' + esc(credit) + '</small>';
+    var para = '<p class="desc">' + inner + '</p>';
+    // Long copy folds, and so does a credit line, which lives inside that disclosure.
+    if ((d && d !== scene && d.length > 320) || credit) {
+      return '<details class="desc-fold" open><summary>Description</summary>' + para + '</details>';
     }
-    return '<p class="desc">' + esc(d) + '</p>';
+    return para;
   }
   function applyFilters() {
     var shown = 0;
@@ -179,6 +184,8 @@
       var phones = '';
       if (dual || t.previewSource === 'binaural') {
         phones = '<p class="phones">' + phonesIcon + 'Preview: binaural, use headphones</p>';
+      } else if (t.previewSource === 'stereo') {
+        phones = '<p class="phones">' + phonesIcon + 'Preview: stereo downmix.</p>';
       } else if (bin) {
         phones = '<p class="phones">' + phonesIcon + 'Use headphones for the binaural effect</p>';
       }
@@ -515,7 +522,7 @@
   }
   function requestTracks() {
     try {
-      return fetch('/soundscapes/tracks.json?v=4', { cache: 'no-cache' }).then(function (r) {
+      return fetch('/soundscapes/tracks.json?v=5', { cache: 'no-cache' }).then(function (r) {
         if (!r.ok) throw new Error(String(r.status));
         return r.json();
       });
@@ -533,7 +540,7 @@
   }
   function trackSig(list) {
     return list.map(function (t) {
-      return [t.id, t.added, t.title, t.scene, t.description, t.system, t.previewSource, t.file, t.cover, t.previewLength, JSON.stringify(t.use || []), JSON.stringify(t.links || {}), t.formats ? 'dual' : ''].join('\u0001');
+      return [t.id, t.added, t.title, t.scene, t.description, t.credit, t.system, t.previewSource, t.file, t.cover, t.previewLength, JSON.stringify(t.use || []), JSON.stringify(t.links || {}), t.formats ? JSON.stringify(t.formats) : ''].join('\u0001');
     }).join('\u0002');
   }
   var renderedSig = '';

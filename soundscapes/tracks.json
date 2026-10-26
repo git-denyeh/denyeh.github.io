@@ -1,5 +1,35 @@
 [
   {
+    "id": "blue-ridge-gold",
+    "title": "Blue Ridge Gold, Autumn Golden Hour for Calm",
+    "scene": "An East Tennessee autumn drive at golden hour",
+    "use": [
+      "Relax",
+      "Breathe"
+    ],
+    "system": "stereo",
+    "formats": {
+      "5.1": {
+        "file": "5.1-Blue-Ridge-Gold.m4a",
+        "listen": "5.1 speakers",
+        "encoding": "AAC 384k 6ch, isochronic pulses"
+      }
+    },
+    "noMusic": false,
+    "length": 1200,
+    "description": "An East Tennessee autumn drive at golden hour. Real wind circling the surrounds, lake water lapping, soft leaf rustle, warm pads over a low D drone, and a few rare, soft bowl-like tones.",
+    "credit": "Contains field recordings licensed CC BY-SA 4.0.",
+    "artist": "Voice Without Words",
+    "added": "2026-10-26",
+    "aiGenerated": true,
+    "preview": "preview.mp3",
+    "previewSource": "stereo",
+    "previewLength": 60,
+    "links": {},
+    "file": "https://denyeh.com/soundscapes/audio/blue-ridge-gold.mp3",
+    "cover": "https://denyeh.com/soundscapes/covers/blue-ridge-gold.jpg"
+  },
+  {
     "id": "cedar-hollow-at-first-light",
     "title": "Cedar Hollow at First Light, Theta 6 Hz Deep Meditation",
     "scene": "A pine forest at dawn with drifting wind and a distant stream",
