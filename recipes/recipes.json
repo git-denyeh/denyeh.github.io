@@ -1,0 +1,364 @@
+[
+ {
+  "slug": "amatriciana",
+  "title": "Amatriciana",
+  "subtitle": null,
+  "course": "Sauce",
+  "cuisine": [
+   "Italian"
+  ],
+  "protein": "Pork",
+  "diet": [
+   "No seafood"
+  ],
+  "total_min": 45,
+  "search_text": "amatriciana  amatriciana  italian sauce pork sauce work simmer / soup no seafood special occasion high-flavor bucatini guanciale san marzano tomatoes dry white wine pecorino romano dried chili red pepper flakes salt black pepper extra-virgin olive oil guanciale, san marzano tomato, pecorino, chili, white wine"
+ },
+ {
+  "slug": "bacon-ranch-pasta-salad",
+  "title": "Bacon Ranch Chicken Pasta Salad",
+  "subtitle": null,
+  "course": "Main",
+  "cuisine": [
+   "American"
+  ],
+  "protein": "Chicken",
+  "diet": [],
+  "total_min": 30,
+  "search_text": "bacon ranch chicken pasta salad  bacon ranch chicken pasta salad  american main chicken    rigatoni short pasta zucchini yellow squash red bell pepper broccoli shredded carrots olive oil kosher salt pepper bacon chicken ranch dressing green onions "
+ },
+ {
+  "slug": "lebanese-rice",
+  "title": "Brown Basmati Lebanese-Style Rice",
+  "subtitle": null,
+  "course": "Side",
+  "cuisine": [
+   "Lebanese",
+   "Middle Eastern"
+  ],
+  "protein": "Vegetarian",
+  "diet": [
+   "Vegetarian",
+   "Gluten-free",
+   "No seafood"
+  ],
+  "total_min": 65,
+  "search_text": "brown basmati lebanese-style rice  brown basmati lebanese-style rice  lebanese middle eastern side vegetarian simmer / soup vegetarian gluten-free no seafood high-flavor make-ahead brown basmati rice chicken stock samneh ghee salt brown basmati, vermicelli optional, olive oil or butter, salt"
+ },
+ {
+  "slug": "cacio-e-pepe",
+  "title": "Cacio e Pepe",
+  "subtitle": null,
+  "course": "Sauce",
+  "cuisine": [
+   "Italian"
+  ],
+  "protein": "Vegetarian",
+  "diet": [
+   "Vegetarian"
+  ],
+  "total_min": 25,
+  "search_text": "cacio e pepe  cacio e pepe  italian sauce vegetarian emulsion sauce work vegetarian emulsion weeknight high-flavor spaghetti pecorino romano black peppercorns salt pasta water tonnarelli or spaghetti, pecorino, black pepper, pasta water"
+ },
+ {
+  "slug": "chicken-shawarma",
+  "title": "Chicken Shawarma",
+  "subtitle": "Levantine street-style chicken",
+  "course": "Main",
+  "cuisine": [
+   "Middle Eastern",
+   "Lebanese"
+  ],
+  "protein": "Chicken",
+  "diet": [
+   "Gluten-free",
+   "No seafood"
+  ],
+  "total_min": 40,
+  "search_text": "chicken shawarma levantine street-style chicken chicken shawarma levantine street-style chicken middle eastern lebanese main chicken marinate grill roast gluten-free no seafood high-flavor street food make-ahead grilled weeknight chicken thighs yogurt garlic cloves lemon juice olive oil cumin coriander sweet paprika turmeric cinnamon cardamom cayenne chili flakes kosher salt black pepper pita flatbread red onion pickled turnips pickles parsley toum shredded lettuce chicken thighs, cumin, coriander, paprika, garlic, lemon, yogurt optional"
+ },
+ {
+  "slug": "salata",
+  "title": "Cucumber-Tomato Salad",
+  "subtitle": "Israeli-style salata",
+  "course": "Side",
+  "cuisine": [
+   "Middle Eastern",
+   "Mediterranean"
+  ],
+  "protein": "Vegan",
+  "diet": [
+   "Vegan",
+   "Gluten-free",
+   "Dairy-free",
+   "No seafood"
+  ],
+  "total_min": 15,
+  "search_text": "cucumber-tomato salad israeli-style salata israeli-style cucumber-tomato salad (salata) sharp, clean middle eastern classic middle eastern mediterranean side vegan raw / salad vegan gluten-free dairy-free no seafood high-flavor weeknight make-ahead persian cucumbers english cucumbers tomatoes red onion green onions parsley mint lemon juice extra-virgin olive oil kosher salt black pepper sumac cucumber, tomato, lemon, olive oil, parsley, mint"
+ },
+ {
+  "slug": "hummus",
+  "title": "Extra-Garlicky Hummus",
+  "subtitle": "Garlic first, apologies never",
+  "course": "Appetizer",
+  "cuisine": [
+   "Middle Eastern",
+   "Lebanese",
+   "Mediterranean"
+  ],
+  "protein": "Vegan",
+  "diet": [
+   "Vegan",
+   "Gluten-free",
+   "Dairy-free",
+   "No seafood"
+  ],
+  "total_min": 20,
+  "search_text": "extra-garlicky hummus garlic first, apologies never extra-garlicky hummus levantine classic pushed hard toward pure garlic intensity middle eastern lebanese mediterranean appetizer vegan emulsion vegan gluten-free dairy-free no seafood high-flavor make-ahead chickpeas tahini lemon juice kosher salt cumin water garlic cloves garlic extra-virgin olive oil smoked paprika aleppo pepper parsley cilantro chickpeas, tahini, garlic, lemon, ice water"
+ },
+ {
+  "slug": "hoisin-wings",
+  "title": "Hoisin Baked Chicken Wings",
+  "subtitle": null,
+  "course": "Appetizer",
+  "cuisine": [
+   "Chinese"
+  ],
+  "protein": "Chicken",
+  "diet": [],
+  "total_min": null,
+  "search_text": "hoisin baked chicken wings  hoisin baked chicken wings  chinese appetizer chicken    hoisin sauce soy sauce honey sesame oil chicken wings chives white sesame seeds "
+ },
+ {
+  "slug": "hoisin-pork-tenderloin",
+  "title": "Hoisin-Glazed Pork Tenderloin",
+  "subtitle": "With broccoli over basmati rice",
+  "course": "Main",
+  "cuisine": [
+   "Chinese"
+  ],
+  "protein": "Pork",
+  "diet": [],
+  "total_min": 40,
+  "search_text": "hoisin-glazed pork tenderloin with broccoli over basmati rice hoisin-glazed pork tenderloin with broccoli over basmati rice hoisin-glazed pork tenderloin with broccoli over basmati rice chinese main pork stir-fry  weeknight high-flavor pork tenderloin kosher salt black pepper hoisin sauce soy sauce rice vinegar lime juice toasted sesame oil garlic cloves ginger red pepper flakes chili crisp cornstarch broccoli basmati rice neutral oil light stock pork tenderloin, broccoli, hoisin sauce, basmati rice"
+ },
+ {
+  "slug": "beans",
+  "title": "How to Cook & Puree Beans",
+  "subtitle": "Technique",
+  "course": "Technique",
+  "cuisine": [
+   "Other"
+  ],
+  "protein": null,
+  "diet": [],
+  "total_min": null,
+  "search_text": "how to cook & puree beans technique 🫘 how to cook & puree beans (clean method)  other       "
+ },
+ {
+  "slug": "larb-gai",
+  "title": "Larb Gai",
+  "subtitle": "Minced chicken salad",
+  "course": "Main",
+  "cuisine": [
+   "Thai"
+  ],
+  "protein": "Chicken",
+  "diet": [
+   "Gluten-free",
+   "Dairy-free",
+   "Peanut-free",
+   "No seafood"
+  ],
+  "total_min": 25,
+  "search_text": "larb gai minced chicken salad larb gai (clean minced chicken salad)  thai main chicken raw / salad stir-fry gluten-free dairy-free peanut-free no seafood weeknight high-flavor chicken fish sauce lime juice chili flakes thai chilies shallot red onion mint cilantro toasted rice powder cucumber lettuce ground chicken, lime, fish sauce, chili, mint, shallot"
+ },
+ {
+  "slug": "orzo-chicken",
+  "title": "One-Pot Mediterranean Chicken with Orzo & Spinach",
+  "subtitle": null,
+  "course": "Main",
+  "cuisine": [
+   "Mediterranean"
+  ],
+  "protein": "Chicken",
+  "diet": [],
+  "total_min": 30,
+  "search_text": "one-pot mediterranean chicken with orzo & spinach  one pot mediterranean chicken with orzo & spinach  mediterranean main chicken    olive oil chicken breast za'atar kosher salt yellow onion spinach garlic chicken broth orzo lemon juice oregano crumbled feta "
+ },
+ {
+  "slug": "pad-see-ew",
+  "title": "Pad See Ew",
+  "subtitle": "Rice noodles with egg and greens",
+  "course": "Main",
+  "cuisine": [
+   "Thai"
+  ],
+  "protein": "Chicken",
+  "diet": [
+   "Dairy-free",
+   "Peanut-free",
+   "No seafood"
+  ],
+  "total_min": 30,
+  "search_text": "pad see ew rice noodles with egg and greens pad see ew (clean rice noodles with egg & greens)  thai main chicken stir-fry dairy-free peanut-free no seafood weeknight wide rice noodles chicken breast chicken thighs eggs chinese broccoli bok choy garlic neutral oil fish sauce light soy sauce oyster sauce dark soy sauce white pepper lime wedges chili flakes rice noodles, egg, chinese broccoli or greens, garlic, soy"
+ },
+ {
+  "slug": "parmesan-cream-pasta",
+  "title": "Parmesan Cream Pasta",
+  "subtitle": null,
+  "course": "Main",
+  "cuisine": [
+   "Italian"
+  ],
+  "protein": "Vegetarian",
+  "diet": [],
+  "total_min": null,
+  "search_text": "parmesan cream pasta  parmesan cream pasta  italian main vegetarian    heavy cream bay leaves linguine lemon juice salt pepper parmesan cheese chives "
+ },
+ {
+  "slug": "pomodoro-sauce",
+  "title": "Pomodoro Sauce",
+  "subtitle": "Sugo di pomodoro",
+  "course": "Sauce",
+  "cuisine": [
+   "Italian"
+  ],
+  "protein": "Vegan",
+  "diet": [
+   "Vegan",
+   "Dairy-free",
+   "No seafood"
+  ],
+  "total_min": 40,
+  "search_text": "pomodoro sauce sugo di pomodoro pomodoro sauce (sugo di pomodoro)  italian sauce vegan sauce work simmer / soup vegan dairy-free no seafood weeknight high-flavor san marzano tomatoes extra-virgin olive oil garlic cloves shallot red onion red pepper flakes sea salt basil tomatoes, garlic or onion, olive oil, basil"
+ },
+ {
+  "slug": "green-smoothie",
+  "title": "Pure Green Smoothie",
+  "subtitle": "A copycat",
+  "course": "Drink",
+  "cuisine": [
+   "American"
+  ],
+  "protein": null,
+  "diet": [],
+  "total_min": 5,
+  "search_text": "pure green smoothie a copycat pure green smoothie (copycat)  american drink    weeknight coconut water baby spinach lacinato kale mango chunks pineapple chunks banana "
+ },
+ {
+  "slug": "ragu-bolognese",
+  "title": "Ragù alla Bolognese",
+  "subtitle": "The slow, traditional one",
+  "course": "Sauce",
+  "cuisine": [
+   "Italian"
+  ],
+  "protein": "Beef",
+  "diet": [
+   "No seafood"
+  ],
+  "total_min": 200,
+  "search_text": "ragu alla bolognese the slow, traditional one ragu alla bolognese  italian sauce beef braise sauce work no seafood make-ahead special occasion high-flavor ground beef pancetta onion passata tomato paste milk red wine white wine meat broth vegetable broth extra-virgin olive oil salt black pepper carrot celery beef, pancetta, soffritto, tomato, milk, wine"
+ },
+ {
+  "slug": "roasted-vegetable-soup",
+  "title": "Roasted Vegetable Soup",
+  "subtitle": null,
+  "course": "Main",
+  "cuisine": [
+   "French",
+   "Mediterranean"
+  ],
+  "protein": null,
+  "diet": [],
+  "total_min": 25,
+  "search_text": "roasted vegetable soup  roasted vegetable soup  french mediterranean main     red pepper sweet potato red onion carrots garlic tomatoes cherry tomatoes olive oil herbes de provence salt pepper chicken stock coconut milk cream croutons "
+ },
+ {
+  "slug": "shish-tawook",
+  "title": "Shish Tawook",
+  "subtitle": "Lebanese grilled chicken skewers",
+  "course": "Main",
+  "cuisine": [
+   "Middle Eastern",
+   "Lebanese"
+  ],
+  "protein": "Chicken",
+  "diet": [
+   "Gluten-free",
+   "No seafood"
+  ],
+  "total_min": 32,
+  "search_text": "shish tawook lebanese grilled chicken skewers shish tawook lebanese grilled chicken skewers middle eastern lebanese main chicken marinate grill gluten-free no seafood high-flavor street food make-ahead grilled weeknight chicken breasts thighs yogurt lemon juice olive oil garlic cloves tomato paste sweet paprika kosher salt oregano dried thyme cinnamon allspice cayenne aleppo pepper black pepper pita toum lebanese pickles dill pickles shredded lettuce tomato chicken breast or thigh, yogurt, lemon, garlic, tomato paste"
+ },
+ {
+  "slug": "som-tam",
+  "title": "Som Tam",
+  "subtitle": "Green papaya salad, peanut-free",
+  "course": "Side",
+  "cuisine": [
+   "Thai"
+  ],
+  "protein": null,
+  "diet": [
+   "Vegan",
+   "Gluten-free",
+   "Dairy-free",
+   "Peanut-free",
+   "No seafood"
+  ],
+  "total_min": 20,
+  "search_text": "som tam green papaya salad, peanut-free som tam (clean green papaya salad, peanut-free)  thai side none raw / salad vegan gluten-free dairy-free peanut-free no seafood weeknight high-flavor green papaya garlic thai chilies red chili fish sauce lime juice palm sugar honey toasted sesame seeds cherry tomatoes green papaya, lime, fish sauce, chili, garlic"
+ },
+ {
+  "slug": "tom-kha-gai",
+  "title": "Tom Kha Gai",
+  "subtitle": "Coconut chicken soup",
+  "course": "Main",
+  "cuisine": [
+   "Thai"
+  ],
+  "protein": "Chicken",
+  "diet": [
+   "Gluten-free",
+   "Dairy-free",
+   "Peanut-free",
+   "No seafood"
+  ],
+  "total_min": 35,
+  "search_text": "tom kha gai coconut chicken soup tom kha gai (clean coconut chicken soup)  thai main chicken simmer / soup gluten-free dairy-free peanut-free no seafood weeknight high-flavor chicken thighs chicken breast chicken stock coconut milk lemongrass galangal kaffir lime leaves thai chilies red chili fish sauce lime juice mushrooms cilantro chicken, coconut milk, galangal, lemongrass, lime, fish sauce"
+ },
+ {
+  "slug": "toum",
+  "title": "Toum",
+  "subtitle": "Lebanese whipped garlic sauce",
+  "course": "Sauce",
+  "cuisine": [
+   "Middle Eastern",
+   "Lebanese"
+  ],
+  "protein": null,
+  "diet": [
+   "Vegan",
+   "Gluten-free",
+   "Dairy-free",
+   "No seafood"
+  ],
+  "total_min": 15,
+  "search_text": "toum lebanese whipped garlic sauce lebanese toum (emulsified garlic sauce) classic levantine garlic sauce middle eastern lebanese sauce none emulsion sauce work vegan gluten-free dairy-free no seafood high-flavor emulsion make-ahead garlic kosher salt lemon juice neutral oil garlic, lemon, grapeseed or avocado oil"
+ },
+ {
+  "slug": "bolognese-sauce",
+  "title": "Traditional Bolognese Sauce",
+  "subtitle": "The two-hour version",
+  "course": "Main",
+  "cuisine": [
+   "Italian"
+  ],
+  "protein": "Beef",
+  "diet": [],
+  "total_min": 180,
+  "search_text": "traditional bolognese sauce the two-hour version traditional bolognese sauce  italian main beef sauce work simmer / soup   olive oil pancetta carrot celery stalk yellow onion ground beef chuck red wine white wine passata tomato paste chicken stock milk kosher salt black pepper "
+ }
+]

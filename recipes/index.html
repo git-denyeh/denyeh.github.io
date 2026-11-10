@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes — DENYEH</title>
+  <meta name="description" content="What gets cooked here. Recipes without the life story.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0d0b09">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d0b09'/%3E%3Ccircle cx='16' cy='17' r='7' fill='%23c87941'/%3E%3Ccircle cx='16' cy='17' r='12' fill='none' stroke='%23e8a060' stroke-opacity='.35'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="stylesheet" href="recipes.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="ember-glow"></div>
+  <nav aria-label="Recipes">
+    <a href="./" class="nav-logo">DENYEH <span class="nav-sub">Recipes</span></a>
+    
+  </nav>
+  <header class="hero">
+    <p class="eyebrow">The kitchen book</p>
+    <h1><em>Recipes</em></h1>
+    <div class="topic-intro"><p>What actually gets cooked here. No life story, no ads, no pop-ups. Find it, cook it, eat it.</p></div>
+  </header>
+  <main id="main" class="feed">
+    <section class="finder" aria-label="Search and filter" data-js-only hidden>
+      <form id="searchForm" class="search" role="search">
+        <label for="q" class="sr-only">Search recipes by name, ingredient or cuisine</label>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Try garlic, Thai, pancetta…">
+      </form>
+      <div class="filters">
+        <div class="filter-row" role="group" aria-label="Cuisine"><span class="label">Cuisine</span><button type="button" class="chip" data-row="cuisine" data-value="Italian" aria-pressed="false">Italian</button><button type="button" class="chip" data-row="cuisine" data-value="Middle Eastern" aria-pressed="false">Middle Eastern</button><button type="button" class="chip" data-row="cuisine" data-value="Lebanese" aria-pressed="false">Lebanese</button><button type="button" class="chip" data-row="cuisine" data-value="Mediterranean" aria-pressed="false">Mediterranean</button><button type="button" class="chip" data-row="cuisine" data-value="Thai" aria-pressed="false">Thai</button><button type="button" class="chip" data-row="cuisine" data-value="American" aria-pressed="false">American</button><button type="button" class="chip" data-row="cuisine" data-value="Chinese" aria-pressed="false">Chinese</button><button type="button" class="chip" data-row="cuisine" data-value="French" aria-pressed="false">French</button></div>
+        <div class="filter-row" role="group" aria-label="Course"><span class="label">Course</span><button type="button" class="chip" data-row="course" data-value="Main" aria-pressed="false">Main</button><button type="button" class="chip" data-row="course" data-value="Side" aria-pressed="false">Side</button><button type="button" class="chip" data-row="course" data-value="Sauce" aria-pressed="false">Sauce</button><button type="button" class="chip" data-row="course" data-value="Appetizer" aria-pressed="false">Appetizer</button><button type="button" class="chip" data-row="course" data-value="Drink" aria-pressed="false">Drink</button><button type="button" class="chip" data-row="course" data-value="Technique" aria-pressed="false">Technique</button></div>
+        <div class="filter-row" role="group" aria-label="Protein"><span class="label">Protein</span><button type="button" class="chip" data-row="protein" data-value="Chicken" aria-pressed="false">Chicken</button><button type="button" class="chip" data-row="protein" data-value="Beef" aria-pressed="false">Beef</button><button type="button" class="chip" data-row="protein" data-value="Pork" aria-pressed="false">Pork</button></div>
+        <div class="filter-row" role="group" aria-label="Diet"><span class="label">Diet</span><button type="button" class="chip" data-row="diet" data-value="Vegetarian" aria-pressed="false">Vegetarian</button><button type="button" class="chip" data-row="diet" data-value="Vegan" aria-pressed="false">Vegan</button><button type="button" class="chip" data-row="diet" data-value="Gluten-free" aria-pressed="false">Gluten-free</button><button type="button" class="chip" data-row="diet" data-value="Dairy-free" aria-pressed="false">Dairy-free</button></div>
+        <div class="filter-row" role="group" aria-label="Time"><span class="label">Time</span><button type="button" class="chip" data-row="time" data-value="quick" aria-pressed="false">Under 30 min</button></div>
+      </div>
+      <div class="status-row">
+        <p id="count" class="count" aria-live="polite">23 recipes</p>
+        <button type="button" id="reset" class="linkbtn" hidden>Clear search and filters</button>
+      </div>
+    </section>
+    <section aria-labelledby="allTitle">
+      <h2 id="allTitle" class="sr-only">All recipes</h2>
+      <p id="noMatch" class="empty" hidden>Nothing matches that. Try one ingredient, or clear the filters.</p>
+      <div id="grid" class="grid" data-js-only hidden>
+      <article class="card" data-slug="amatriciana">
+        <a href="amatriciana.html">
+          <div class="art" style="--h:16"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="18" y="22" width="28" height="32" rx="5"/><path d="M20 22v-6h24v6"/><path d="M18 34h28"/><path d="M26 44h12"/></svg><span class="art-label">Italian</span></div>
+          <h3>Amatriciana</h3>
+          <p class="card-meta">Italian · Sauce · 45 min</p>
+          <p class="card-desc">Guanciale, tomato, pecorino, a little chili. No onion, no garlic, and Rome would like you to keep it that way.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="bacon-ranch-pasta-salad">
+        <a href="bacon-ranch-pasta-salad.html">
+          <div class="art" style="--h:20"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">American</span></div>
+          <h3>Bacon Ranch Chicken Pasta Salad</h3>
+          <p class="card-meta">American · Main · 30 min</p>
+          <p class="card-desc">A pasta salad that doesn&#x27;t pretend to be health food. Bacon, chicken, a pile of vegetables and ranch.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="lebanese-rice">
+        <a href="lebanese-rice.html">
+          <div class="art" style="--h:24"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M8 32h48a24 18 0 0 1-48 0z"/><path d="M20 50h24"/><path d="M22 26c2-6 8-8 12-4 3-5 10-3 10 4"/></svg><span class="art-label">Lebanese</span></div>
+          <h3>Brown Basmati Lebanese-Style Rice</h3>
+          <p class="card-meta">Lebanese, Middle Eastern · Side · 1 hr 5 min</p>
+          <p class="card-desc">**Plain Lebanese-style rice made with brown basmati for extra fiber and nutty depth.** Cooked in light chicken stock and samneh (clarified butter) so it stays pure white in appearance while carrying real savory flavor—no vermicelli, no visible add-ins.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="cacio-e-pepe">
+        <a href="cacio-e-pepe.html">
+          <div class="art" style="--h:16"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="18" y="22" width="28" height="32" rx="5"/><path d="M20 22v-6h24v6"/><path d="M18 34h28"/><path d="M26 44h12"/></svg><span class="art-label">Italian</span></div>
+          <h3>Cacio e Pepe</h3>
+          <p class="card-meta">Italian · Sauce · 25 min</p>
+          <p class="card-desc">Cheese, pepper, pasta water. Three ingredients and exactly one way to ruin it: too much heat.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="chicken-shawarma">
+        <a href="chicken-shawarma.html">
+          <div class="art" style="--h:27"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Middle Eastern</span></div>
+          <h3>Chicken Shawarma</h3>
+          <p class="card-meta">Middle Eastern, Lebanese · Main · 40 min</p>
+          <p class="card-desc">Spiced and cooked hot so the edges get a little char while the inside stays moist. The marinade is non-negotiable — yogurt + acid + spices is what turns ordinary chicken into proper shawarma.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="salata">
+        <a href="salata.html">
+          <div class="art" style="--h:27"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M8 32h48a24 18 0 0 1-48 0z"/><path d="M20 50h24"/><path d="M22 26c2-6 8-8 12-4 3-5 10-3 10 4"/></svg><span class="art-label">Middle Eastern</span></div>
+          <h3>Cucumber-Tomato Salad</h3>
+          <p class="card-meta">Middle Eastern, Mediterranean · Side · 15 min</p>
+          <p class="card-desc">The high-acid, zero-cooking cucumber-tomato salad that every good falafel shop does right: pure crunch and brightness.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="hummus">
+        <a href="hummus.html">
+          <div class="art" style="--h:27"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M6 58 58 6"/><circle cx="22" cy="42" r="6"/><circle cx="32" cy="32" r="6"/><circle cx="42" cy="22" r="6"/></svg><span class="art-label">Middle Eastern</span></div>
+          <h3>Extra-Garlicky Hummus</h3>
+          <p class="card-meta">Middle Eastern, Lebanese · Appetizer · 20 min</p>
+          <p class="card-desc">Raw cloves for sharp bite, a touch of roasted for depth, and enough lemon and tahini to keep the emulsion silky rather than harsh.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="hoisin-wings">
+        <a href="hoisin-wings.html">
+          <div class="art" style="--h:6"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M6 58 58 6"/><circle cx="22" cy="42" r="6"/><circle cx="32" cy="32" r="6"/><circle cx="42" cy="22" r="6"/></svg><span class="art-label">Chinese</span></div>
+          <h3>Hoisin Baked Chicken Wings</h3>
+          <p class="card-meta">Chinese · Appetizer</p>
+          <p class="card-desc">Wings tossed in hoisin and honey and baked until sticky. The oven does the work. You take the credit.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="hoisin-pork-tenderloin">
+        <a href="hoisin-pork-tenderloin.html">
+          <div class="art" style="--h:6"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Chinese</span></div>
+          <h3>Hoisin-Glazed Pork Tenderloin</h3>
+          <p class="card-meta">Chinese · Main · 40 min</p>
+          <p class="card-desc">High-heat sear builds a savory crust on the tenderloin while the hoisin glaze turns glossy and clinging; quick-steamed broccoli stays bright and crisp-tender, balancing the sauce’s sweetness with clean bitterness.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="beans">
+        <a href="beans.html">
+          <div class="art" style="--h:28"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M14 46c-6-10 2-26 16-28s22 8 18 18-14 6-18 12-10 8-16-2z"/><path d="M28 30c4-2 8 0 9 4"/></svg><span class="art-label">Other</span></div>
+          <h3>How to Cook &amp; Puree Beans</h3>
+          <p class="card-meta">Other · Technique</p>
+          <p class="card-desc">How to cook dried beans soft enough to disappear into sauces, soups and chili. Protein and fiber, no bean texture.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="larb-gai">
+        <a href="larb-gai.html">
+          <div class="art" style="--h:34"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Thai</span></div>
+          <h3>Larb Gai</h3>
+          <p class="card-meta">Thai · Main · 25 min</p>
+          <p class="card-desc">Warm minced chicken hit with lime, fish sauce, chili and a fistful of herbs. Fast, loud and light.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="orzo-chicken">
+        <a href="orzo-chicken.html">
+          <div class="art" style="--h:40"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Mediterranean</span></div>
+          <h3>One-Pot Mediterranean Chicken with Orzo &amp; Spinach</h3>
+          <p class="card-meta">Mediterranean · Main · 30 min</p>
+          <p class="card-desc">Chicken, orzo and spinach in one pan, with za&#x27;atar and lemon doing the heavy lifting. One pan to wash.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="pad-see-ew">
+        <a href="pad-see-ew.html">
+          <div class="art" style="--h:34"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Thai</span></div>
+          <h3>Pad See Ew</h3>
+          <p class="card-meta">Thai · Main · 30 min</p>
+          <p class="card-desc">Wide rice noodles, egg and greens in a very hot pan. The sauce gets made right there. No bottle required.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="parmesan-cream-pasta">
+        <a href="parmesan-cream-pasta.html">
+          <div class="art" style="--h:16"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Italian</span></div>
+          <h3>Parmesan Cream Pasta</h3>
+          <p class="card-meta">Italian · Main</p>
+          <p class="card-desc">Cream, parmesan, lemon, linguine. Not subtle, not trying to be.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="pomodoro-sauce">
+        <a href="pomodoro-sauce.html">
+          <div class="art" style="--h:16"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="18" y="22" width="28" height="32" rx="5"/><path d="M20 22v-6h24v6"/><path d="M18 34h28"/><path d="M26 44h12"/></svg><span class="art-label">Italian</span></div>
+          <h3>Pomodoro Sauce</h3>
+          <p class="card-meta">Italian · Sauce · 40 min</p>
+          <p class="card-desc">The plain red sauce everything else gets measured against. Five ingredients, half an hour, no sugar.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="green-smoothie">
+        <a href="green-smoothie.html">
+          <div class="art" style="--h:20"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M18 10h28l-4 46H22z"/><path d="M19 22h26"/><path d="M40 10l6-6"/></svg><span class="art-label">American</span></div>
+          <h3>Pure Green Smoothie</h3>
+          <p class="card-meta">American · Drink · 5 min</p>
+          <p class="card-desc">A copy of the twelve-dollar green smoothie for about three. Mostly fruit, so it tastes like fruit.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="ragu-bolognese">
+        <a href="ragu-bolognese.html">
+          <div class="art" style="--h:16"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="18" y="22" width="28" height="32" rx="5"/><path d="M20 22v-6h24v6"/><path d="M18 34h28"/><path d="M26 44h12"/></svg><span class="art-label">Italian</span></div>
+          <h3>Ragù alla Bolognese</h3>
+          <p class="card-meta">Italian · Sauce · 3 hr 20 min</p>
+          <p class="card-desc">The slow one. Three hours on low, milk to calm the tomato, and it&#x27;s better tomorrow.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="roasted-vegetable-soup">
+        <a href="roasted-vegetable-soup.html">
+          <div class="art" style="--h:32"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">French</span></div>
+          <h3>Roasted Vegetable Soup</h3>
+          <p class="card-meta">French, Mediterranean · Main · 25 min</p>
+          <p class="card-desc">Roast a sheet pan of vegetables, blend them, call it soup. That&#x27;s honestly all there is to it.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="shish-tawook">
+        <a href="shish-tawook.html">
+          <div class="art" style="--h:27"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Middle Eastern</span></div>
+          <h3>Shish Tawook</h3>
+          <p class="card-meta">Middle Eastern, Lebanese · Main · 32 min</p>
+          <p class="card-desc">Chunks of chicken in a bright yogurt, garlic and lemon marinade, grilled hard for char and still juicy inside. The sandwich version gets garlic sauce and pickles.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="som-tam">
+        <a href="som-tam.html">
+          <div class="art" style="--h:34"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M8 32h48a24 18 0 0 1-48 0z"/><path d="M20 50h24"/><path d="M22 26c2-6 8-8 12-4 3-5 10-3 10 4"/></svg><span class="art-label">Thai</span></div>
+          <h3>Som Tam</h3>
+          <p class="card-meta">Thai · Side · 20 min</p>
+          <p class="card-desc">Green papaya pounded with garlic, chili and lime. Sour, hot and crunchy, with sesame standing in for peanuts.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="tom-kha-gai">
+        <a href="tom-kha-gai.html">
+          <div class="art" style="--h:34"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Thai</span></div>
+          <h3>Tom Kha Gai</h3>
+          <p class="card-meta">Thai · Main · 35 min</p>
+          <p class="card-desc">Chicken in coconut broth with lemongrass, galangal and lime leaves. Sour, salty, fragrant, done in about half an hour.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="toum">
+        <a href="toum.html">
+          <div class="art" style="--h:27"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect x="18" y="22" width="28" height="32" rx="5"/><path d="M20 22v-6h24v6"/><path d="M18 34h28"/><path d="M26 44h12"/></svg><span class="art-label">Middle Eastern</span></div>
+          <h3>Toum</h3>
+          <p class="card-meta">Middle Eastern, Lebanese · Sauce · 15 min</p>
+          <p class="card-desc">The pure garlic intensity held in a stable, fluffy emulsion of oil and acid. Nothing else comes close for pita and shawarma.</p>
+        </a>
+      </article>
+      <article class="card" data-slug="bolognese-sauce">
+        <a href="bolognese-sauce.html">
+          <div class="art" style="--h:16"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="M10 30h44v6a18 18 0 0 1-18 18h-8a18 18 0 0 1-18-18z"/><path d="M6 30h52"/><path d="M24 22c0-4 4-4 4-8M32 22c0-4 4-4 4-8M40 22c0-4 4-4 4-8"/></svg><span class="art-label">Italian</span></div>
+          <h3>Traditional Bolognese Sauce</h3>
+          <p class="card-meta">Italian · Main · 3 hr </p>
+          <p class="card-desc">The classic, a little less fussy. Still two hours, but the stove does most of the work.</p>
+        </a>
+      </article>
+      </div>
+      <div id="byCuisine" class="by-cuisine">
+        <div><h3>Italian</h3><ul><li><a href="amatriciana.html">Amatriciana</a></li><li><a href="cacio-e-pepe.html">Cacio e Pepe</a></li><li><a href="parmesan-cream-pasta.html">Parmesan Cream Pasta</a></li><li><a href="pomodoro-sauce.html">Pomodoro Sauce</a></li><li><a href="ragu-bolognese.html">Ragù alla Bolognese</a></li><li><a href="bolognese-sauce.html">Traditional Bolognese Sauce</a></li></ul></div>
+        <div><h3>Middle Eastern</h3><ul><li><a href="chicken-shawarma.html">Chicken Shawarma</a></li><li><a href="salata.html">Cucumber-Tomato Salad</a></li><li><a href="hummus.html">Extra-Garlicky Hummus</a></li><li><a href="shish-tawook.html">Shish Tawook</a></li><li><a href="toum.html">Toum</a></li></ul></div>
+        <div><h3>Lebanese</h3><ul><li><a href="lebanese-rice.html">Brown Basmati Lebanese-Style Rice</a></li></ul></div>
+        <div><h3>Mediterranean</h3><ul><li><a href="orzo-chicken.html">One-Pot Mediterranean Chicken with Orzo &amp; Spinach</a></li></ul></div>
+        <div><h3>Thai</h3><ul><li><a href="larb-gai.html">Larb Gai</a></li><li><a href="pad-see-ew.html">Pad See Ew</a></li><li><a href="som-tam.html">Som Tam</a></li><li><a href="tom-kha-gai.html">Tom Kha Gai</a></li></ul></div>
+        <div><h3>Chinese</h3><ul><li><a href="hoisin-wings.html">Hoisin Baked Chicken Wings</a></li><li><a href="hoisin-pork-tenderloin.html">Hoisin-Glazed Pork Tenderloin</a></li></ul></div>
+        <div><h3>American</h3><ul><li><a href="bacon-ranch-pasta-salad.html">Bacon Ranch Chicken Pasta Salad</a></li><li><a href="green-smoothie.html">Pure Green Smoothie</a></li></ul></div>
+        <div><h3>French</h3><ul><li><a href="roasted-vegetable-soup.html">Roasted Vegetable Soup</a></li></ul></div>
+        <div><h3>Technique</h3><ul><li><a href="beans.html">How to Cook &amp; Puree Beans</a></li></ul></div>
+      </div>
+    </section>
+  </main>
+  <script id="recipesData" type="application/json">[{"slug": "amatriciana", "title": "Amatriciana", "subtitle": null, "course": "Sauce", "cuisine": ["Italian"], "protein": "Pork", "diet": ["No seafood"], "total_min": 45, "search_text": "amatriciana  amatriciana  italian sauce pork sauce work simmer / soup no seafood special occasion high-flavor bucatini guanciale san marzano tomatoes dry white wine pecorino romano dried chili red pepper flakes salt black pepper extra-virgin olive oil guanciale, san marzano tomato, pecorino, chili, white wine"}, {"slug": "bacon-ranch-pasta-salad", "title": "Bacon Ranch Chicken Pasta Salad", "subtitle": null, "course": "Main", "cuisine": ["American"], "protein": "Chicken", "diet": [], "total_min": 30, "search_text": "bacon ranch chicken pasta salad  bacon ranch chicken pasta salad  american main chicken    rigatoni short pasta zucchini yellow squash red bell pepper broccoli shredded carrots olive oil kosher salt pepper bacon chicken ranch dressing green onions "}, {"slug": "lebanese-rice", "title": "Brown Basmati Lebanese-Style Rice", "subtitle": null, "course": "Side", "cuisine": ["Lebanese", "Middle Eastern"], "protein": "Vegetarian", "diet": ["Vegetarian", "Gluten-free", "No seafood"], "total_min": 65, "search_text": "brown basmati lebanese-style rice  brown basmati lebanese-style rice  lebanese middle eastern side vegetarian simmer / soup vegetarian gluten-free no seafood high-flavor make-ahead brown basmati rice chicken stock samneh ghee salt brown basmati, vermicelli optional, olive oil or butter, salt"}, {"slug": "cacio-e-pepe", "title": "Cacio e Pepe", "subtitle": null, "course": "Sauce", "cuisine": ["Italian"], "protein": "Vegetarian", "diet": ["Vegetarian"], "total_min": 25, "search_text": "cacio e pepe  cacio e pepe  italian sauce vegetarian emulsion sauce work vegetarian emulsion weeknight high-flavor spaghetti pecorino romano black peppercorns salt pasta water tonnarelli or spaghetti, pecorino, black pepper, pasta water"}, {"slug": "chicken-shawarma", "title": "Chicken Shawarma", "subtitle": "Levantine street-style chicken", "course": "Main", "cuisine": ["Middle Eastern", "Lebanese"], "protein": "Chicken", "diet": ["Gluten-free", "No seafood"], "total_min": 40, "search_text": "chicken shawarma levantine street-style chicken chicken shawarma levantine street-style chicken middle eastern lebanese main chicken marinate grill roast gluten-free no seafood high-flavor street food make-ahead grilled weeknight chicken thighs yogurt garlic cloves lemon juice olive oil cumin coriander sweet paprika turmeric cinnamon cardamom cayenne chili flakes kosher salt black pepper pita flatbread red onion pickled turnips pickles parsley toum shredded lettuce chicken thighs, cumin, coriander, paprika, garlic, lemon, yogurt optional"}, {"slug": "salata", "title": "Cucumber-Tomato Salad", "subtitle": "Israeli-style salata", "course": "Side", "cuisine": ["Middle Eastern", "Mediterranean"], "protein": "Vegan", "diet": ["Vegan", "Gluten-free", "Dairy-free", "No seafood"], "total_min": 15, "search_text": "cucumber-tomato salad israeli-style salata israeli-style cucumber-tomato salad (salata) sharp, clean middle eastern classic middle eastern mediterranean side vegan raw / salad vegan gluten-free dairy-free no seafood high-flavor weeknight make-ahead persian cucumbers english cucumbers tomatoes red onion green onions parsley mint lemon juice extra-virgin olive oil kosher salt black pepper sumac cucumber, tomato, lemon, olive oil, parsley, mint"}, {"slug": "hummus", "title": "Extra-Garlicky Hummus", "subtitle": "Garlic first, apologies never", "course": "Appetizer", "cuisine": ["Middle Eastern", "Lebanese", "Mediterranean"], "protein": "Vegan", "diet": ["Vegan", "Gluten-free", "Dairy-free", "No seafood"], "total_min": 20, "search_text": "extra-garlicky hummus garlic first, apologies never extra-garlicky hummus levantine classic pushed hard toward pure garlic intensity middle eastern lebanese mediterranean appetizer vegan emulsion vegan gluten-free dairy-free no seafood high-flavor make-ahead chickpeas tahini lemon juice kosher salt cumin water garlic cloves garlic extra-virgin olive oil smoked paprika aleppo pepper parsley cilantro chickpeas, tahini, garlic, lemon, ice water"}, {"slug": "hoisin-wings", "title": "Hoisin Baked Chicken Wings", "subtitle": null, "course": "Appetizer", "cuisine": ["Chinese"], "protein": "Chicken", "diet": [], "total_min": null, "search_text": "hoisin baked chicken wings  hoisin baked chicken wings  chinese appetizer chicken    hoisin sauce soy sauce honey sesame oil chicken wings chives white sesame seeds "}, {"slug": "hoisin-pork-tenderloin", "title": "Hoisin-Glazed Pork Tenderloin", "subtitle": "With broccoli over basmati rice", "course": "Main", "cuisine": ["Chinese"], "protein": "Pork", "diet": [], "total_min": 40, "search_text": "hoisin-glazed pork tenderloin with broccoli over basmati rice hoisin-glazed pork tenderloin with broccoli over basmati rice hoisin-glazed pork tenderloin with broccoli over basmati rice chinese main pork stir-fry  weeknight high-flavor pork tenderloin kosher salt black pepper hoisin sauce soy sauce rice vinegar lime juice toasted sesame oil garlic cloves ginger red pepper flakes chili crisp cornstarch broccoli basmati rice neutral oil light stock pork tenderloin, broccoli, hoisin sauce, basmati rice"}, {"slug": "beans", "title": "How to Cook & Puree Beans", "subtitle": "Technique", "course": "Technique", "cuisine": ["Other"], "protein": null, "diet": [], "total_min": null, "search_text": "how to cook & puree beans technique 🫘 how to cook & puree beans (clean method)  other       "}, {"slug": "larb-gai", "title": "Larb Gai", "subtitle": "Minced chicken salad", "course": "Main", "cuisine": ["Thai"], "protein": "Chicken", "diet": ["Gluten-free", "Dairy-free", "Peanut-free", "No seafood"], "total_min": 25, "search_text": "larb gai minced chicken salad larb gai (clean minced chicken salad)  thai main chicken raw / salad stir-fry gluten-free dairy-free peanut-free no seafood weeknight high-flavor chicken fish sauce lime juice chili flakes thai chilies shallot red onion mint cilantro toasted rice powder cucumber lettuce ground chicken, lime, fish sauce, chili, mint, shallot"}, {"slug": "orzo-chicken", "title": "One-Pot Mediterranean Chicken with Orzo & Spinach", "subtitle": null, "course": "Main", "cuisine": ["Mediterranean"], "protein": "Chicken", "diet": [], "total_min": 30, "search_text": "one-pot mediterranean chicken with orzo & spinach  one pot mediterranean chicken with orzo & spinach  mediterranean main chicken    olive oil chicken breast za'atar kosher salt yellow onion spinach garlic chicken broth orzo lemon juice oregano crumbled feta "}, {"slug": "pad-see-ew", "title": "Pad See Ew", "subtitle": "Rice noodles with egg and greens", "course": "Main", "cuisine": ["Thai"], "protein": "Chicken", "diet": ["Dairy-free", "Peanut-free", "No seafood"], "total_min": 30, "search_text": "pad see ew rice noodles with egg and greens pad see ew (clean rice noodles with egg & greens)  thai main chicken stir-fry dairy-free peanut-free no seafood weeknight wide rice noodles chicken breast chicken thighs eggs chinese broccoli bok choy garlic neutral oil fish sauce light soy sauce oyster sauce dark soy sauce white pepper lime wedges chili flakes rice noodles, egg, chinese broccoli or greens, garlic, soy"}, {"slug": "parmesan-cream-pasta", "title": "Parmesan Cream Pasta", "subtitle": null, "course": "Main", "cuisine": ["Italian"], "protein": "Vegetarian", "diet": [], "total_min": null, "search_text": "parmesan cream pasta  parmesan cream pasta  italian main vegetarian    heavy cream bay leaves linguine lemon juice salt pepper parmesan cheese chives "}, {"slug": "pomodoro-sauce", "title": "Pomodoro Sauce", "subtitle": "Sugo di pomodoro", "course": "Sauce", "cuisine": ["Italian"], "protein": "Vegan", "diet": ["Vegan", "Dairy-free", "No seafood"], "total_min": 40, "search_text": "pomodoro sauce sugo di pomodoro pomodoro sauce (sugo di pomodoro)  italian sauce vegan sauce work simmer / soup vegan dairy-free no seafood weeknight high-flavor san marzano tomatoes extra-virgin olive oil garlic cloves shallot red onion red pepper flakes sea salt basil tomatoes, garlic or onion, olive oil, basil"}, {"slug": "green-smoothie", "title": "Pure Green Smoothie", "subtitle": "A copycat", "course": "Drink", "cuisine": ["American"], "protein": null, "diet": [], "total_min": 5, "search_text": "pure green smoothie a copycat pure green smoothie (copycat)  american drink    weeknight coconut water baby spinach lacinato kale mango chunks pineapple chunks banana "}, {"slug": "ragu-bolognese", "title": "Ragù alla Bolognese", "subtitle": "The slow, traditional one", "course": "Sauce", "cuisine": ["Italian"], "protein": "Beef", "diet": ["No seafood"], "total_min": 200, "search_text": "ragu alla bolognese the slow, traditional one ragu alla bolognese  italian sauce beef braise sauce work no seafood make-ahead special occasion high-flavor ground beef pancetta onion passata tomato paste milk red wine white wine meat broth vegetable broth extra-virgin olive oil salt black pepper carrot celery beef, pancetta, soffritto, tomato, milk, wine"}, {"slug": "roasted-vegetable-soup", "title": "Roasted Vegetable Soup", "subtitle": null, "course": "Main", "cuisine": ["French", "Mediterranean"], "protein": null, "diet": [], "total_min": 25, "search_text": "roasted vegetable soup  roasted vegetable soup  french mediterranean main     red pepper sweet potato red onion carrots garlic tomatoes cherry tomatoes olive oil herbes de provence salt pepper chicken stock coconut milk cream croutons "}, {"slug": "shish-tawook", "title": "Shish Tawook", "subtitle": "Lebanese grilled chicken skewers", "course": "Main", "cuisine": ["Middle Eastern", "Lebanese"], "protein": "Chicken", "diet": ["Gluten-free", "No seafood"], "total_min": 32, "search_text": "shish tawook lebanese grilled chicken skewers shish tawook lebanese grilled chicken skewers middle eastern lebanese main chicken marinate grill gluten-free no seafood high-flavor street food make-ahead grilled weeknight chicken breasts thighs yogurt lemon juice olive oil garlic cloves tomato paste sweet paprika kosher salt oregano dried thyme cinnamon allspice cayenne aleppo pepper black pepper pita toum lebanese pickles dill pickles shredded lettuce tomato chicken breast or thigh, yogurt, lemon, garlic, tomato paste"}, {"slug": "som-tam", "title": "Som Tam", "subtitle": "Green papaya salad, peanut-free", "course": "Side", "cuisine": ["Thai"], "protein": null, "diet": ["Vegan", "Gluten-free", "Dairy-free", "Peanut-free", "No seafood"], "total_min": 20, "search_text": "som tam green papaya salad, peanut-free som tam (clean green papaya salad, peanut-free)  thai side none raw / salad vegan gluten-free dairy-free peanut-free no seafood weeknight high-flavor green papaya garlic thai chilies red chili fish sauce lime juice palm sugar honey toasted sesame seeds cherry tomatoes green papaya, lime, fish sauce, chili, garlic"}, {"slug": "tom-kha-gai", "title": "Tom Kha Gai", "subtitle": "Coconut chicken soup", "course": "Main", "cuisine": ["Thai"], "protein": "Chicken", "diet": ["Gluten-free", "Dairy-free", "Peanut-free", "No seafood"], "total_min": 35, "search_text": "tom kha gai coconut chicken soup tom kha gai (clean coconut chicken soup)  thai main chicken simmer / soup gluten-free dairy-free peanut-free no seafood weeknight high-flavor chicken thighs chicken breast chicken stock coconut milk lemongrass galangal kaffir lime leaves thai chilies red chili fish sauce lime juice mushrooms cilantro chicken, coconut milk, galangal, lemongrass, lime, fish sauce"}, {"slug": "toum", "title": "Toum", "subtitle": "Lebanese whipped garlic sauce", "course": "Sauce", "cuisine": ["Middle Eastern", "Lebanese"], "protein": null, "diet": ["Vegan", "Gluten-free", "Dairy-free", "No seafood"], "total_min": 15, "search_text": "toum lebanese whipped garlic sauce lebanese toum (emulsified garlic sauce) classic levantine garlic sauce middle eastern lebanese sauce none emulsion sauce work vegan gluten-free dairy-free no seafood high-flavor emulsion make-ahead garlic kosher salt lemon juice neutral oil garlic, lemon, grapeseed or avocado oil"}, {"slug": "bolognese-sauce", "title": "Traditional Bolognese Sauce", "subtitle": "The two-hour version", "course": "Main", "cuisine": ["Italian"], "protein": "Beef", "diet": [], "total_min": 180, "search_text": "traditional bolognese sauce the two-hour version traditional bolognese sauce  italian main beef sauce work simmer / soup   olive oil pancetta carrot celery stalk yellow onion ground beef chuck red wine white wine passata tomato paste chicken stock milk kosher salt black pepper "}]</script>
+  <footer>
+    <span class="footer-copy-text">Cooked, tested, or about to be. No ads, no tracking, no life story.</span>
+    <span class="footer-copy">© 2026 DENYEH</span>
+  </footer>
+  <script src="recipes.js?v=1" defer></script>
+</body>
+</html>
