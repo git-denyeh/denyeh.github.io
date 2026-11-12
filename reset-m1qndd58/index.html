@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Reset — DENYEH</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="A daily reference for coming down, letting go, and burning it off. Breathing, squeeze-and-release, and short hard movement.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0b09">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #0d0b09;
+      --bg2:    #131008;
+      --bg3:    #1a1510;
+      --border: #2e2620;
+      --text:   #e8e0d0;
+      --muted:  #9a8c7a;
+      --accent: #c87941;
+      --accent2:#b07a45;
+      --accent3:#e8a060;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      font-size: 18px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+    .ember-glow {
+      position: fixed;
+      bottom: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 350px;
+      background: radial-gradient(ellipse, rgba(200,121,65,0.07) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,11,9,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--accent);
+      text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 0.1rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 0.65rem; border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent3); background: var(--bg3); }
+    .nav-links a.active { color: var(--accent); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--muted); }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem; gap: 0.25rem;
+      position: relative; z-index: 99;
+    }
+    .mobile-menu a {
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif; font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent3); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      padding: 4rem 2rem 3rem;
+      max-width: 800px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      font-weight: 400; color: var(--text); line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    /* TOPIC INTRO */
+    .topic-intro {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #afa89a;
+      max-width: 65ch;
+    }
+    .topic-intro p { margin-bottom: 1em; }
+    .topic-intro p:last-child { margin-bottom: 0; }
+    .topic-intro em { color: var(--accent3); font-style: italic; }
+
+    /* FEED */
+    .feed {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ============================================================
+       POST BLOCK
+       To add a new post: copy everything between the scissor lines
+       and paste it ABOVE the previous post. Newest always at top.
+       Change: date, title, image src + alt, and body text.
+    ============================================================ */
+    .post {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .post:target {
+      border-left: 2px solid rgba(200,121,65,0.45);
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
+    }
+    .post-meta {
+      display: flex; align-items: center;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .post-date {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 400; color: var(--text);
+      line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .post-title em { font-style: italic; color: var(--accent3); }
+    .post-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border);
+      filter: brightness(0.92) saturate(0.85);
+      transition: filter 0.3s;
+    }
+    .post-img:hover { filter: brightness(1) saturate(1); }
+    .post-body {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #afa89a;
+      max-width: 65ch;
+    }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(200,121,65,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
+    .post-body p { margin-bottom: 1em; }
+    .post-body p:last-child { margin-bottom: 0; }
+    /* ============================================================ */
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
+    }
+    .footer-copy {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    .footer-copy a { color: inherit; text-decoration: none; transition: color .2s; }
+    .footer-copy a:hover, .footer-copy a:focus-visible { color: var(--accent3); }
+    .footer-support {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      line-height: 1.6;
+      color: #9a8c7a;
+    }
+    .footer-support a { color: var(--accent); text-decoration: none; }
+    .footer-support a:hover, .footer-support a:focus { text-decoration: underline; }
+    .footer-support .kofi-cup {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.4em;
+      line-height: 0;
+      vertical-align: middle;
+      text-decoration: none;
+    }
+    .footer-support .kofi-cup img {
+      height: 1.1em;
+      width: auto;
+      display: block;
+    }
+    .footer-support .kofi-cup:hover,
+    .footer-support .kofi-cup:focus { text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-header { padding: 2.5rem 1.5rem 2rem; }
+      .feed { padding: 0 1.5rem 5rem; }
+    }
+    @media (max-width: 480px) {
+      footer { gap: 0.4rem; }
+    }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
+
+    /* ============================================================
+       DAILY RESET GUIDE (page-specific additions)
+    ============================================================ */
+    .guide-hero { margin: 3rem 0 0; }
+    .guide-block { padding: 3rem 0 0; scroll-margin-top: 80px; }
+    .guide-section { border-top: 1px solid var(--border); margin-top: 3rem; }
+    .guide-block > .post-img { margin-top: 0.25rem; }
+    .guide-h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3.4vw, 1.65rem);
+      font-weight: 400; color: var(--accent3);
+      line-height: 1.25; margin-bottom: 1.25rem;
+    }
+    .guide-h3 a, .guide-block .post-title a { color: inherit; text-decoration: none; }
+    .guide-h3 a:hover { color: var(--text); }
+    .post-body a, .callout a, .qp-row a, .day-list a, .plain-list a, .protocol a {
+      color: var(--accent3); text-decoration: none;
+      border-bottom: 1px solid rgba(232,160,96,0.35);
+    }
+    .post-body a:hover, .callout a:hover, .qp-row a:hover, .day-list a:hover { border-bottom-color: var(--accent3); }
+    .post-body + .post-body, .post-body + .callout, .steps + .post-body, .callout + .post-body,
+    .pmr-list + .post-body, .callout + .pmr-list, .post-body + .steps { margin-top: 1.5rem; }
+    .hl { color: var(--text); font-weight: 400; }
+    .hl-em { color: var(--accent3); font-style: italic; }
+
+    /* Quick pick */
+    .quick-pick { margin: 1.75rem 0 2rem; border: 1px solid var(--border); background: var(--bg2); }
+    .qp-row {
+      display: grid; grid-template-columns: 9rem 1fr 1fr; gap: 1.25rem;
+      padding: 1rem 1.25rem; border-top: 1px solid var(--border);
+      font-size: 1.05rem; line-height: 1.5; color: #afa89a;
+    }
+    .qp-row:first-child { border-top: none; }
+    .qp-head span {
+      font-family: 'Barlow', sans-serif; font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+    }
+    .qp-state {
+      font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 0.85rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent3);
+      border-left: 2px solid var(--accent); padding-left: 0.75rem;
+    }
+
+    /* On-page jump links */
+    .guide-toc { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-top: 0.5rem; }
+    .toc-label {
+      font-family: 'Barlow', sans-serif; font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent2); margin-right: 0.4rem;
+    }
+    .guide-toc a {
+      font-family: 'Barlow', sans-serif; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      color: var(--muted); border: 1px solid var(--border); border-radius: 3px;
+      padding: 0.35rem 0.6rem; transition: color .2s, border-color .2s;
+    }
+    .guide-toc a:hover { color: var(--accent3); border-color: var(--accent2); }
+
+    /* Steps */
+    .steps { counter-reset: s; list-style: none; max-width: 65ch; margin: 0 0 0.5rem; }
+    .steps li {
+      counter-increment: s; position: relative;
+      padding: 0.55rem 0 0.55rem 2.75rem;
+      font-size: 1.12rem; line-height: 1.65; color: #afa89a;
+    }
+    .steps li::before {
+      content: counter(s); position: absolute; left: 0; top: 0.6rem;
+      width: 1.8rem; height: 1.8rem; border: 1px solid var(--accent); border-radius: 50%;
+      font-family: 'Barlow', sans-serif; font-size: 0.8rem; font-weight: 500;
+      color: var(--accent3); display: flex; align-items: center; justify-content: center;
+    }
+    .steps li strong { color: var(--text); font-weight: 400; }
+    .steps-tight li { padding-top: 0.35rem; padding-bottom: 0.35rem; }
+
+    /* Callout */
+    .callout {
+      border-left: 2px solid rgba(200,121,65,0.55); background: var(--bg2);
+      padding: 1.25rem 1.5rem; margin: 1.75rem 0; max-width: 65ch;
+      font-size: 1.08rem; line-height: 1.65; color: #afa89a;
+    }
+    .callout-label {
+      display: block; margin-bottom: 0.6rem;
+      font-family: 'Barlow', sans-serif; font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent2);
+    }
+    .callout ul, .plain-list { list-style: none; }
+    .callout ul li, .plain-list li { position: relative; padding: 0.3rem 0 0.3rem 1.25rem; }
+    .callout ul li::before, .plain-list li::before {
+      content: ''; position: absolute; left: 0; top: 0.95em;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+    }
+    .callout-note { margin-top: 0.9rem; font-size: 1rem; color: var(--muted); }
+    .plain-list { max-width: 65ch; font-size: 1.1rem; line-height: 1.65; color: #afa89a; }
+
+    /* PMR list */
+    .pmr-list { counter-reset: p; list-style: none; max-width: 65ch; border-top: 1px solid var(--border); }
+    .pmr-list li {
+      counter-increment: p; display: grid; grid-template-columns: 2.2rem 10rem 1fr; gap: 0.75rem;
+      padding: 0.85rem 0; border-bottom: 1px solid var(--border);
+      font-size: 1.08rem; line-height: 1.55; color: #afa89a;
+    }
+    .pmr-list li::before {
+      content: counter(p, decimal-leading-zero);
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem; font-weight: 500;
+      color: var(--accent2); padding-top: 0.25rem;
+    }
+    .pmr-group { font-family: 'Playfair Display', serif; color: var(--text); }
+
+    /* Protocols */
+    .protocol {
+      border: 1px solid var(--border); background: var(--bg2);
+      padding: 1.1rem 1.35rem; margin: 1rem 0; max-width: 65ch;
+      font-size: 1.08rem; line-height: 1.65; color: #afa89a;
+      scroll-margin-top: 80px;
+    }
+    .protocol-name {
+      font-family: 'Playfair Display', serif; font-weight: 400; font-size: 1.25rem;
+      color: var(--text); margin-bottom: 0.4rem;
+      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    }
+    .protocol-name span {
+      font-family: 'Barlow', sans-serif; font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent2);
+    }
+    .protocol:target, .guide-block:target .guide-h3 { color: var(--accent3); }
+    .protocol:target { border-color: rgba(200,121,65,0.6); }
+
+    /* Day list */
+    .day-list { max-width: 65ch; margin: 1.5rem 0; border-top: 1px solid var(--border); }
+    .day-list dt {
+      font-family: 'Barlow', sans-serif; font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent3);
+      padding-top: 1rem;
+    }
+    .day-list dd {
+      font-size: 1.1rem; line-height: 1.6; color: #afa89a;
+      padding: 0.3rem 0 1rem; border-bottom: 1px solid var(--border);
+    }
+    .fine-print {
+      margin-top: 2.5rem; max-width: 65ch;
+      font-family: 'Barlow', sans-serif; font-size: 0.78rem; letter-spacing: 0.04em;
+      line-height: 1.6; color: var(--muted);
+    }
+    .back-top { margin-top: 1.25rem; }
+    .back-top a {
+      font-family: 'Barlow', sans-serif; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); text-decoration: none;
+    }
+    .back-top a:hover { color: var(--accent3); }
+
+    @media (max-width: 640px) {
+      .qp-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .qp-head { display: none; }
+      .pmr-list li { grid-template-columns: 2rem 1fr; }
+      .pmr-how { grid-column: 2; }
+    }
+    @media print {
+      nav, .mobile-menu, .ember-glow, footer, .guide-toc, .back-top { display: none !important; }
+      body::after { display: none; }
+      body { background: #fff; color: #111; }
+      .post-body, .steps li, .callout, .pmr-list li, .protocol, .day-list dd, .qp-row, .plain-list { color: #222; }
+      .post-img { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ember-glow"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">DENYEH</a>
+    <ul class="nav-links">
+      <li><a href="/oblivious.html">Oblivious</a></li>
+      <li><a href="/think.html">Think</a></li>
+      <li><a href="/machine.html">The Machine</a></li>
+      <li><a href="/words.html">Words</a></li>
+      <li><a href="/breathe.html">Breathe</a></li>
+      <li><a href="/better.html">Better</a></li>
+      <li><a href="/soundscapes/">Soundscapes</a></li>
+      <li><a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/oblivious.html">Bless Your Oblivious Heart</a>
+    <a href="/think.html">Think for Yourself</a>
+    <a href="/machine.html">The Machine</a>
+    <a href="/words.html">Words Worth Keeping</a>
+    <a href="/breathe.html">Just Breathe</a>
+    <a href="/better.html">Better Every Day</a>
+    <a href="/soundscapes/">Soundscapes</a>
+    <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-eyebrow">A daily reference · read it, then go do it</div>
+    <h1>Daily<br><em>Reset</em></h1>
+    <div class="topic-intro">
+      <p>This is the page I come back to. Morning, middle of the day, parked in the truck, ten at night when my head won't shut up.</p>
+      <p>An ADHD brain doesn't run at one speed. It's wired, or it's locked up, or it's fog, sometimes all three before lunch. Willpower doesn't fix any of that. Your body does, if you give it something to do.</p>
+      <p>Three tools. Breathing for when you need to come down fast. Squeeze-and-release for when the tension has moved into your shoulders. Hard, short movement for when the engine's revving and you need to burn some fuel.</p>
+      <p>None of it is magic. All of it is free. <em>Pick one and do it. Reading about it doesn't count.</em></p>
+    </div>
+  </header>
+
+  <main class="feed">
+
+    <img class="post-img guide-hero" src="images/daily-reset-hero.jpg" alt="A low bed of glowing embers with sparks rising slowly into the dark" width="1200" height="800" />
+
+    <section class="guide-block" id="quick-pick" aria-labelledby="quick-pick-title">
+      <h2 class="post-title" id="quick-pick-title"><a href="#quick-pick">What do I need right now?</a></h2>
+      <div class="post-body">
+        <p>Don't think about it too hard. That's the whole problem. Find the row that sounds like you and go.</p>
+      </div>
+      <div class="quick-pick" role="table" aria-label="Quick pick: match how you feel to a practice">
+        <div class="qp-row qp-head" role="row">
+          <span role="columnheader">If you're</span><span role="columnheader">It feels like</span><span role="columnheader">Do this</span>
+        </div>
+        <div class="qp-row" role="row">
+          <span class="qp-state" role="cell">Wired</span>
+          <span role="cell">Heart going. Can't sit. Snapping at people. Ten tabs open, in your head and on the screen.</span>
+          <span role="cell"><a href="#burn-it-off">Burn it off</a> for 2 to 10 minutes, then <a href="#the-sigh">three sighs</a>.</span>
+        </div>
+        <div class="qp-row" role="row">
+          <span class="qp-state" role="cell">Tense</span>
+          <span role="cell">Jaw clamped. Shoulders up by your ears. Back like a fence post.</span>
+          <span role="cell"><a href="#squeeze-and-release">Squeeze and release</a>, head to toe. Short version is fine.</span>
+        </div>
+        <div class="qp-row" role="row">
+          <span class="qp-state" role="cell">Foggy</span>
+          <span role="cell">Flat. Scattered. Staring at the task like it owes you money. Can't start.</span>
+          <span role="cell"><a href="#two-minute-spark">Two-minute spark</a>. Stairs, swings, or burpees. Then start the task.</span>
+        </div>
+        <div class="qp-row" role="row">
+          <span class="qp-state" role="cell">Can't sleep</span>
+          <span role="cell">Body's done. Head's still driving.</span>
+          <span role="cell"><a href="#longer-out">Longer out than in</a>, then <a href="#squeeze-and-release">head to toe</a> lying down.</span>
+        </div>
+        <div class="qp-row" role="row">
+          <span class="qp-state" role="cell">Jolted</span>
+          <span role="cell">Bad email. Somebody cut you off. Phone rang and it was that number.</span>
+          <span role="cell"><a href="#the-sigh">Physiological sigh</a>, one to three. Right now, wherever you are.</span>
+        </div>
+      </div>
+      <img class="post-img" src="images/daily-reset-quick-pick.jpg" alt="Chart titled What do I need right now: Wired, burn it off then sigh. Tense, squeeze and let go. Foggy, move hard for two minutes. Can't sleep, long exhale plus head-to-toe." width="1200" height="800" loading="lazy" />
+      <nav class="guide-toc" aria-label="On this page">
+        <span class="toc-label">On this page</span>
+        <a href="#breathing">1 · Breathing</a>
+        <a href="#the-sigh">The sigh</a>
+        <a href="#longer-out">Longer out</a>
+        <a href="#box">Box</a>
+        <a href="#release">2 · Release</a>
+        <a href="#squeeze-and-release">Head to toe</a>
+        <a href="#stretch-set">Stretch set</a>
+        <a href="#burn-it-off">3 · Burn it off</a>
+        <a href="#protocols">Protocols</a>
+        <a href="#safety">Safety</a>
+        <a href="#a-day">A day of it</a>
+      </nav>
+    </section>
+
+    <!-- ============ 1. BREATHING ============ -->
+    <section class="guide-block guide-section" id="breathing" aria-labelledby="breathing-title">
+      <div class="post-meta"><span class="post-date">Section 1</span><a class="post-anchor" href="#breathing" aria-label="Link to this section">#</a></div>
+      <h2 class="post-title" id="breathing-title"><a href="#breathing">Breathing. <em>The fastest brake you've got.</em></a></h2>
+      <div class="post-body">
+        <p>You can't think your way out of a racing heart. You can breathe your way down from one. The breath is the one part of the nervous system you can grab with both hands.</p>
+        <p>The rule that matters most is simple. Inhales speed you up. Exhales slow you down. Make the out longer than the in and you're pressing the brake.</p>
+      </div>
+    </section>
+
+    <article class="guide-block" id="the-sigh" aria-labelledby="sigh-title">
+      <h3 class="guide-h3" id="sigh-title"><a href="#the-sigh">The physiological sigh</a></h3>
+      <img class="post-img" src="images/physiological-sigh-timing.jpg" alt="Breath timing diagram: a big quick nose inhale, a short second nose inhale that tops the lungs off, then a long slow exhale through the mouth lasting about five to eight seconds" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Your body already does this. You do it in your sleep. Kids do it at the end of a hard cry. You're just doing it on purpose.</p>
+        <p>It's the quickest thing on this page. One round takes about ten seconds. Most of the time, one to three rounds is the whole job.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Inhale through your nose.</strong> A big, quick one. Fill up most of the way.</li>
+        <li><strong>Inhale again through your nose.</strong> Short and sharp, right on top of the first. Top off the tank. It'll feel like there's no room. There's a little.</li>
+        <li><strong>Exhale through your mouth, slow.</strong> Let it run as long as it'll go without forcing it. Five to eight seconds is good. Lips loose, like you're cooling coffee.</li>
+        <li><strong>Repeat one to three times.</strong> Then just breathe normal. Don't chain twenty of them together. You'll get lightheaded and annoyed.</li>
+      </ol>
+      <div class="post-body">
+        <p>If you've got more time, do it for five minutes straight, easy pace, nothing forced. One small study out of Stanford had people do five minutes of this a day, and it moved mood more than the same five minutes of meditation. Small study. I'll take it.</p>
+      </div>
+      <div class="callout">
+        <span class="callout-label">When to use it</span>
+        <ul>
+          <li>Before a hard task. The call you don't want to make. The email you've been dodging for three days.</li>
+          <li>Right after a jolt. Somebody cuts you off, the boss says "got a minute?", the bank app loads.</li>
+          <li>In the truck at a red light. Eyes open. Nobody can tell. You look like a man who's had it, which you are.</li>
+          <li>Before sleep, a few rounds on your back. Then switch to <a href="#longer-out">longer out than in</a>.</li>
+          <li>When you notice you've been holding your breath. You have. Check right now.</li>
+        </ul>
+      </div>
+      <div class="post-body">
+        <p><strong class="hl">If it goes wrong:</strong> lightheaded means you're pushing the inhales too hard. Ease off. Nose stuffed? Two quick sips through the mouth works. The exhale is the part that counts.</p>
+      </div>
+    </article>
+
+    <article class="guide-block" id="longer-out" aria-labelledby="longer-title">
+      <h3 class="guide-h3" id="longer-title"><a href="#longer-out">Longer out than in</a></h3>
+      <img class="post-img" src="images/box-and-long-exhale.jpg" alt="Two breathing diagrams side by side: a square with in 4, hold 4, out 4, hold 4 on its sides, and a bar showing a short four-count inhale followed by an eight-count exhale" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>The slow version. For winding down, not for emergencies. Good for the drive home, on hold with the insurance company, or lying in bed.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>In through your nose for 4.</strong> Belly moves first, not your shoulders.</li>
+        <li><strong>Out for 6 to 8.</strong> Through your nose, or through pursed lips like a slow leak.</li>
+        <li><strong>No hold.</strong> Just roll from one into the next.</li>
+        <li><strong>Two to five minutes.</strong> Or ten breaths if you're counting. Counting is fine. Losing count is fine too.</li>
+      </ol>
+      <div class="post-body">
+        <p>If 4-and-8 feels like a fight, do 3-and-5. The ratio matters more than the number. You're not trying to win anything.</p>
+      </div>
+    </article>
+
+    <article class="guide-block" id="box" aria-labelledby="box-title">
+      <h3 class="guide-h3" id="box-title"><a href="#box">Box breathing</a></h3>
+      <div class="post-body">
+        <p>Four sides, same length. This one doesn't slow you way down. It steadies you. It's for when you have to stay sharp and not blow up. Hard conversation. Merging onto the interstate in the rain. Waiting for test results.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>In for 4.</strong> Through the nose.</li>
+        <li><strong>Hold for 4.</strong> Easy hold. Throat soft, not clamped.</li>
+        <li><strong>Out for 4.</strong> Slow and even.</li>
+        <li><strong>Hold for 4.</strong> Empty. Then start again.</li>
+        <li><strong>Four rounds</strong> is about a minute. Do more if you need it.</li>
+      </ol>
+      <div class="post-body">
+        <p>The holds give a busy brain something to track. That's half the value. If holding makes you more anxious, skip the holds and go back to <a href="#longer-out">longer out than in</a>.</p>
+      </div>
+    </article>
+
+    <!-- ============ 2. RELEASE ============ -->
+    <section class="guide-block guide-section" id="release" aria-labelledby="release-title">
+      <div class="post-meta"><span class="post-date">Section 2</span><a class="post-anchor" href="#release" aria-label="Link to this section">#</a></div>
+      <h2 class="post-title" id="release-title"><a href="#release">Squeeze, then <em>let it go.</em></a></h2>
+      <img class="post-img" src="images/release-vs-stretch.jpg" alt="Illustrative line graph of muscle tension over time: stretching alone dips slightly and creeps back to baseline, while a hard squeeze followed by a release drops tension well below where it started" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Here's the part nobody tells you. Most of us don't know we're tense. We've been carrying it so long it feels like posture.</p>
+        <p>Stretching pulls on a tight muscle. Fine. But a muscle that's been guarding all day often just guards harder when you pull on it. You ease it an inch and it creeps right back.</p>
+        <p>A squeeze does something different. You crank the muscle on purpose, hold it, then drop it. Now you can feel the difference between on and off. That contrast is the lesson. Your body learns where "off" is, and the release usually lands lower than where you started.</p>
+        <p>So the release matters more than the lengthening. <strong class="hl">You're not trying to get longer. You're trying to quit holding.</strong></p>
+      </div>
+    </section>
+
+    <article class="guide-block" id="squeeze-and-release" aria-labelledby="pmr-title">
+      <h3 class="guide-h3" id="pmr-title"><a href="#squeeze-and-release">Head to toe</a></h3>
+      <img class="post-img" src="images/pmr-head-to-toe.jpg" alt="Line drawing of a standing figure with eleven numbered points from forehead down to feet, beside a small graph showing a five-second squeeze followed by a longer let-go" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>The proper name is progressive muscle relaxation. Sounds like something from a pamphlet in a waiting room. It works anyway.</p>
+        <p>Sitting, lying down, or in a parked truck. About ten minutes for the full run. Three minutes if you just hit the top half.</p>
+      </div>
+      <div class="callout">
+        <span class="callout-label">The rhythm, every group</span>
+        <ol class="steps steps-tight">
+          <li><strong>Breathe in and squeeze</strong> about 70 percent. Hard, not a cramp.</li>
+          <li><strong>Hold about 5 seconds.</strong> Notice what tight feels like.</li>
+          <li><strong>Breathe out and drop it.</strong> All at once, like setting down a bag of feed.</li>
+          <li><strong>Stay loose 10 to 15 seconds.</strong> Notice what loose feels like. This is the actual work.</li>
+        </ol>
+      </div>
+      <ol class="pmr-list">
+        <li><span class="pmr-group">Forehead</span><span class="pmr-how">Raise your eyebrows high, wrinkle it up. Then let it go smooth.</span></li>
+        <li><span class="pmr-group">Jaw</span><span class="pmr-how">Clench your back teeth. Let the jaw hang, teeth apart, tongue resting. Most of us live clenched.</span></li>
+        <li><span class="pmr-group">Neck and shoulders</span><span class="pmr-how">Shrug up toward your ears and hold. Drop them. Then drop them again, because they didn't go all the way.</span></li>
+        <li><span class="pmr-group">Arms and hands</span><span class="pmr-how">Make fists, bend the elbows, tighten the whole arm. Let the hands open and go heavy.</span></li>
+        <li><span class="pmr-group">Chest</span><span class="pmr-how">Big breath in and hold it, chest tight. Let it fall out.</span></li>
+        <li><span class="pmr-group">Belly</span><span class="pmr-how">Pull it in hard, like bracing for a punch. Let it go soft. Yes, soft. Nobody's looking.</span></li>
+        <li><span class="pmr-group">Lower back</span><span class="pmr-how">Gently arch, just a little. Skip it if your back is already cranky. Settle down flat.</span></li>
+        <li><span class="pmr-group">Glutes</span><span class="pmr-how">Squeeze. Release. You'll find out you've been clenching these too.</span></li>
+        <li><span class="pmr-group">Thighs</span><span class="pmr-how">Press your knees together or push your heels down. Let the legs roll out.</span></li>
+        <li><span class="pmr-group">Calves</span><span class="pmr-how">Pull your toes up toward your shins. Go easy here, calves cramp. Release.</span></li>
+        <li><span class="pmr-group">Feet</span><span class="pmr-how">Curl the toes under. Let them spread. Then one long exhale for the whole body.</span></li>
+      </ol>
+      <div class="post-body">
+        <p><strong class="hl">Short version:</strong> forehead, jaw, shoulders, hands, belly. Five groups, under two minutes. Do it at a desk and people will just think you're thinking.</p>
+        <p><strong class="hl">At night:</strong> do the full run lying down, slower, with longer releases. If you fall asleep before your feet, that counts as finishing.</p>
+        <p>Something hurts or is injured? Skip that group, or just notice it without squeezing. Squeezing a bad shoulder to relax it is how you end up with a worse shoulder.</p>
+      </div>
+    </article>
+
+    <article class="guide-block" id="stretch-set" aria-labelledby="stretch-title">
+      <h3 class="guide-h3" id="stretch-title"><a href="#stretch-set">The short stretch set</a></h3>
+      <div class="post-body">
+        <p>About five minutes. Do it after the squeeze-and-release, not instead of it. Slow. Breathe out as you go into each one. Nothing should hurt. If it hurts, back off half.</p>
+      </div>
+      <ol class="steps">
+        <li><strong>Neck side bend.</strong> Ear toward shoulder, opposite hand reaching for the floor. 30 seconds a side. Don't crank it.</li>
+        <li><strong>Doorway chest opener.</strong> Forearm on the door frame at shoulder height, step through until the chest opens. 30 seconds a side. Undoes a day of steering wheel.</li>
+        <li><strong>Seated twist.</strong> Sit tall, turn from the ribs, hand on the back of the chair. Five slow breaths a side.</li>
+        <li><strong>Hip flexor lunge.</strong> One knee down, tuck your tailbone, shift forward until the front of the hip pulls. 30 seconds a side. Sitting all day shortens these.</li>
+        <li><strong>Standing forward fold.</strong> Knees soft, let your head and arms hang heavy. Shake the head yes and no a little. Roll up slow.</li>
+        <li><strong>Calf on a step.</strong> Heel off the edge, let it sink. 30 seconds a side.</li>
+        <li><strong>Hang or lie flat.</strong> Hang from a bar if you have one. If not, lie on the floor for a couple minutes. Let the floor hold you up for once.</li>
+      </ol>
+    </article>
+
+    <!-- ============ 3. BURN IT OFF ============ -->
+    <section class="guide-block guide-section" id="burn-it-off" aria-labelledby="burn-title">
+      <div class="post-meta"><span class="post-date">Section 3</span><a class="post-anchor" href="#burn-it-off" aria-label="Link to this section">#</a></div>
+      <h2 class="post-title" id="burn-title"><a href="#burn-it-off">Burn it off. <em>Don't argue with it.</em></a></h2>
+      <img class="post-img" src="images/burn-it-off-intervals.jpg" alt="Six tall ember-orange bars separated by short low gaps, labeled six efforts of ten to twenty seconds with sixty to ninety seconds of rest, against a dark background full of flying sparks" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Sometimes calm isn't on the menu. The adrenaline is already in your blood. Your body got ready for a fight. Sitting still and breathing politely at it is like idling a truck with the gas pedal stuck. It's going to burn that fuel one way or another.</p>
+        <p>So burn it on purpose. Short, hard, done. You're giving the body the fight it got ready for, then letting it come down on its own.</p>
+        <p>Stretching a muscle that's braced for a fight just argues with it. Using it ends the argument. The tension that's left afterward usually lets go without much help.</p>
+        <p>It works for the fog too. Different problem, same fix. When you're flat and can't start, a couple minutes of hard work kicks the engine over.</p>
+      </div>
+      <div class="callout">
+        <span class="callout-label">Choose this over breathing when</span>
+        <ul>
+          <li>You tried three sighs and you're still vibrating.</li>
+          <li>You're angry, not anxious. Anger wants to move.</li>
+          <li>You're restless and can't sit long enough to breathe on purpose.</li>
+          <li>You're foggy and the task won't start no matter how long you stare at it.</li>
+          <li>It's late in the day and the energy has nowhere to go but your jaw.</li>
+        </ul>
+        <p class="callout-note">Pick breathing instead when you're in a meeting, behind the wheel, injured, or it's close to bedtime. Hard efforts within an hour or two of sleep can keep some people up.</p>
+      </div>
+    </section>
+
+    <article class="guide-block" id="protocols" aria-labelledby="protocols-title">
+      <h3 class="guide-h3" id="protocols-title"><a href="#protocols">Protocols</a></h3>
+      <div class="post-body">
+        <p>Pick one. Warm up two or three minutes first: march in place, arm circles, a few easy squats. "Hard" means about eight out of ten, not falling over. Stop each effort while you could still do a little more.</p>
+      </div>
+
+      <div class="protocol" id="sprints">
+        <h4 class="protocol-name">Sprints or hill sprints <span>about 10 min</span></h4>
+        <p>6 efforts of 10 to 20 seconds. Walk back slowly, 60 to 90 seconds between. Uphill is easier on the hamstrings and knees than flat ground. Start at three-quarter speed for the first two.</p>
+      </div>
+      <div class="protocol" id="heavy-bag">
+        <h4 class="protocol-name">Heavy bag <span>about 10 min</span></h4>
+        <p>3 to 5 rounds of 1 minute. Straight punches, hooks, whatever's honest. Last 15 seconds of each round go all out. One minute rest. Wrap your hands or wear gloves. Breathe out on every punch, short and sharp. No bag? Shadowbox, or slam a pillow onto the bed.</p>
+      </div>
+      <div class="protocol" id="swings">
+        <h4 class="protocol-name">Kettlebell swings <span>about 8 min</span></h4>
+        <p>6 to 10 sets of 10 to 15 swings. Rest until your breathing settles, about a minute. It's a hip snap, not an arm lift: hinge back, drive the hips, let the bell float. If you've never been shown, learn it from someone before you load it heavy. A bad swing is a back injury on a timer.</p>
+      </div>
+      <div class="protocol" id="burpees">
+        <h4 class="protocol-name">Burpees <span>about 6 min</span></h4>
+        <p>6 rounds of 20 seconds work, 40 seconds rest. Step back and step in instead of jumping if your knees or back say so. Nobody is grading you.</p>
+      </div>
+      <div class="protocol" id="stairs">
+        <h4 class="protocol-name">Stairs <span>about 8 min</span></h4>
+        <p>Up fast, down slow. 5 to 8 trips. Hand near the rail on the way down. Works at home, at work, in a parking garage.</p>
+      </div>
+      <div class="protocol" id="two-minute-spark">
+        <h4 class="protocol-name">Two-minute spark <span>for the fog</span></h4>
+        <p>No gear, no warm-up drama. 30 seconds of fast squats or stair climbing, 30 seconds easy, twice. Then sit down and start the task immediately, while the engine's warm. Don't check your phone first. You know what happens.</p>
+      </div>
+
+      <div class="callout">
+        <span class="callout-label">Afterward</span>
+        <ul>
+          <li>Walk around for two or three minutes. Don't drop straight onto the couch.</li>
+          <li>Finish with three <a href="#the-sigh">sighs</a> or a minute of <a href="#longer-out">longer out</a>. This is where it lands.</li>
+          <li>Drink some water.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="guide-block" id="safety" aria-labelledby="safety-title">
+      <h3 class="guide-h3" id="safety-title"><a href="#safety">Safety, the short list</a></h3>
+      <ul class="plain-list">
+        <li>Heart condition, high blood pressure, pregnancy, a recent injury, or you've been sitting still for years? Check with a doctor before the hard stuff. Then start with stairs and walking.</li>
+        <li>Chest pain, pressure, or dizziness that doesn't feel like normal winded: stop. That's not adrenaline, that's a phone call.</li>
+        <li>Go hard for seconds, not minutes. The goal is to burn off the surge, not to punish yourself for having one.</li>
+        <li>Warm up. Cold hamstrings and sprints have a long, ugly history together.</li>
+        <li>Pain in a joint means stop that movement. Muscle burn is fine. Joint pain isn't.</li>
+        <li>Lightheaded during breathing work: sit down and breathe normally. It passes.</li>
+      </ul>
+    </article>
+
+    <!-- ============ A DAY OF IT ============ -->
+    <section class="guide-block guide-section" id="a-day" aria-labelledby="day-title">
+      <div class="post-meta"><span class="post-date">Putting it together</span><a class="post-anchor" href="#a-day" aria-label="Link to this section">#</a></div>
+      <h2 class="post-title" id="day-title"><a href="#a-day">A day of it</a></h2>
+      <div class="post-body">
+        <p>Not a schedule. Just the spots where these fit. Use what you need and skip the rest.</p>
+      </div>
+      <dl class="day-list">
+        <dt>Waking up</dt><dd>Five slow <a href="#the-sigh">sighs</a> before the phone. Or the <a href="#two-minute-spark">two-minute spark</a> if it's a fog morning.</dd>
+        <dt>Before the hard thing</dt><dd>One to three <a href="#the-sigh">sighs</a>. Then do the hard thing before your brain finds a reason not to.</dd>
+        <dt>Driving</dt><dd>Sigh at red lights. <a href="#longer-out">Longer out</a> in traffic. Unclench your hands off the wheel every so often.</dd>
+        <dt>Midday slump</dt><dd><a href="#stairs">Stairs</a> or the <a href="#two-minute-spark">spark</a>. Not more coffee. Okay, maybe also coffee.</dd>
+        <dt>After a blowup</dt><dd><a href="#protocols">Burn it off</a> if you can. Sigh if you can't. Apologize later if you need to.</dd>
+        <dt>Getting home</dt><dd>The <a href="#stretch-set">stretch set</a>, or just the doorway chest opener. Leave the day at the door.</dd>
+        <dt>Bed</dt><dd><a href="#longer-out">Longer out than in</a> for a few minutes, then <a href="#squeeze-and-release">head to toe</a>. Fall asleep partway. That's the goal.</dd>
+      </dl>
+      <div class="post-body">
+        <p>Some days you'll do all of it. Most days you'll do one thing. Some days you'll forget you have lungs until about nine at night.</p>
+        <p>That's fine. Come back here. It'll still be here. <em class="hl-em">Mostly quiet. Still burning.</em></p>
+      </div>
+      <p class="fine-print">Not medical advice. Just what helps. If you're struggling past what breathing and sweat can touch, talk to someone qualified.</p>
+      <p class="back-top"><a href="#quick-pick">↑ Back to what do I need right now</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-support">If something here stayed with you, you can <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">support the writing</a>.<a class="kofi-cup" href="https://ko-fi.com/denyeh" target="_blank" rel="noopener"><img src="/images/kofi-cup.png" alt="Ko-fi" width="161" height="130"></a></span>
+    <span class="footer-copy">© 2026 <a href="/">DENYEH</a>. All rights reserved.</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
