@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Thread — DENYEH</title>
+  <meta name="description" content="The Thread: one running journal from DENYEH. Nature, the night sky, and a head learning to get quiet. Newest first.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DENYEH">
+  <meta property="og:title" content="The Thread — DENYEH">
+  <meta property="og:description" content="The Thread: one running journal from DENYEH. Nature, the night sky, and a head learning to get quiet. Newest first.">
+  <meta property="og:url" content="https://denyeh.com/thread/">
+  <meta property="og:image" content="https://denyeh.com/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DENYEH. Chasing quiet.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Thread — DENYEH">
+  <meta name="twitter:description" content="The Thread: one running journal from DENYEH. Nature, the night sky, and a head learning to get quiet. Newest first.">
+  <meta name="twitter:image" content="https://denyeh.com/og.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://denyeh.com/thread/">
+  <meta name="theme-color" content="#12163a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #12163a;
+      --bg2:    #171a44;
+      --bg3:    #1f1e50;
+      --border: #343066;
+      --text:   #d6d6fa;
+      --muted:  #9c9cc8;
+      --accent: #f0be8c;
+      --accent2:#d2a47e;
+      --accent3:#f8d6b2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 300;
+      font-size: 18px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+    .ember-glow {
+      position: fixed;
+      bottom: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 350px;
+      background: radial-gradient(ellipse, rgba(240,190,140,0.09) 0%, rgba(120,100,200,0.05) 40%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(18,22,58,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--accent);
+      text-decoration: none; letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 0.1rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 0.65rem; border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent3); background: var(--bg3); }
+    .nav-links a.active { color: var(--accent); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--muted); }
+    .mobile-menu {
+      display: none; flex-direction: column;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem; gap: 0.25rem;
+      position: relative; z-index: 99;
+    }
+    .mobile-menu a {
+      color: var(--muted); text-decoration: none;
+      font-family: 'Barlow', sans-serif; font-size: 0.78rem;
+      font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent3); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* PAGE HEADER */
+    .page-header {
+      position: relative; z-index: 1;
+      padding: 4rem 2rem 3rem;
+      max-width: 800px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    /* NIGHT SKY BACKDROP (theme only: faint, pseudo-element, no new markup) */
+    .page-header::before {
+      content: ''; position: absolute; z-index: -1;
+      top: 0; left: 50%; width: 100vw; height: min(100%, 440px);
+      transform: translateX(-50%);
+      background:
+        linear-gradient(180deg, rgba(18,22,58,0.45) 0%, rgba(18,22,58,0.75) 55%, var(--bg) 100%),
+        url("/images/night-sky-banner.jpg") center 30% / cover no-repeat;
+      opacity: 0.9; pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .page-header::before {
+        background:
+          linear-gradient(180deg, rgba(18,22,58,0.5) 0%, rgba(18,22,58,0.78) 55%, var(--bg) 100%),
+          url("/images/night-sky-banner-900.jpg") 62% 30% / cover no-repeat;
+      }
+    }
+    .page-header-eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      font-weight: 400; color: var(--text); line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+    .page-header h1 em { font-style: italic; color: var(--accent); }
+
+    /* TOPIC INTRO */
+    .topic-intro {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #b4b4dc;
+      max-width: 65ch;
+    }
+    .topic-intro p { margin-bottom: 1em; }
+    .topic-intro p:last-child { margin-bottom: 0; }
+    .topic-intro em { color: var(--accent3); font-style: italic; }
+
+    /* FEED */
+    .feed {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ============================================================
+       POST BLOCK
+       To add a new post: copy everything between the scissor lines
+       and paste it ABOVE the previous post. Newest always at top.
+       Change: date, title, image src + alt, and body text.
+    ============================================================ */
+    .post {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 90px;
+    }
+    .post:target {
+      border-left: 2px solid rgba(240,190,140,0.45);
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
+    }
+    .post-meta {
+      display: flex; align-items: center;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .post-date {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent2);
+    }
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 400; color: var(--text);
+      line-height: 1.2; margin-bottom: 1.5rem;
+    }
+    .post-title em { font-style: italic; color: var(--accent3); }
+    .post-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border);
+      filter: brightness(0.92) saturate(0.85);
+      transition: filter 0.3s;
+    }
+    .post-img:hover { filter: brightness(1) saturate(1); }
+    .post-body {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #b4b4dc;
+      max-width: 65ch;
+    }
+
+    .post-anchor {
+      font-family: 'Barlow', sans-serif; font-size: 0.75rem;
+      color: var(--muted); text-decoration: none;
+      opacity: 0.55; transition: opacity .2s, color .2s;
+      padding: 0.1rem 0.3rem;
+    }
+    .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(240,190,140,0.35), transparent); }
+    .post-meta { gap: 0.6rem; }
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { color: var(--accent3); }
+    .post-body p { margin-bottom: 1em; }
+    .post-body p:last-child { margin-bottom: 0; }
+    /* ============================================================ */
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      text-align: center;
+    }
+    .footer-copy {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    .footer-copy a { color: inherit; text-decoration: none; transition: color .2s; }
+    .footer-copy a:hover, .footer-copy a:focus-visible { color: var(--accent3); }
+    .footer-support {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      line-height: 1.6;
+      color: #9c9cc8;
+    }
+    .footer-support a { color: var(--accent); text-decoration: none; }
+    .footer-support a:hover, .footer-support a:focus { text-decoration: underline; }
+    .footer-support .kofi-cup {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.4em;
+      line-height: 0;
+      vertical-align: middle;
+      text-decoration: none;
+    }
+    .footer-support .kofi-cup img {
+      height: 1.1em;
+      width: auto;
+      display: block;
+    }
+    .footer-support .kofi-cup:hover,
+    .footer-support .kofi-cup:focus { text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .page-header { padding: 2.5rem 1.5rem 2rem; }
+      .feed { padding: 0 1.5rem 5rem; }
+    }
+    @media (max-width: 480px) {
+      footer { gap: 0.4rem; }
+    }
+
+    /* ACCESSIBILITY + POLISH */
+    :focus-visible { outline: 2px solid var(--accent3); outline-offset: 3px; border-radius: 3px; }
+    .hamburger:focus-visible { outline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+  <div class="ember-glow"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">DENYEH</a>
+    <ul class="nav-links">
+      <li><a href="/thread/" class="active" aria-current="page">The Thread</a></li>
+      <li><a href="/reset-m1qndd58/">Daily Reset</a></li>
+      <li><a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/thread/">The Thread</a>
+    <a href="/reset-m1qndd58/">Daily Reset</a>
+    <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a>
+  </div>
+
+  <header class="page-header">
+    <div class="page-header-eyebrow">One running journal · newest first</div>
+    <h1>The<br><em>Thread</em></h1>
+    <div class="topic-intro">
+      <p>Rooted in nature. Wondering at the universe. Curious about the mind. I believe they are one thread, and I follow it here.</p>
+      <p><em>Chasing quiet.</em></p>
+    </div>
+  </header>
+
+  <main class="feed">
+
+    <article class="post" id="lie-on-the-floor">
+      <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#lie-on-the-floor" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#lie-on-the-floor">Lie on the floor</a></h2>
+      <img class="post-img" src="/images/lie-on-the-floor.jpg" alt="A soft, still violet glow in the dark, barely any sparks" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Somebody posted this week that the best recovery trick for your nervous system might be the least impressive one. Lie on the floor for ten minutes.</p>
+        <p>No phone. No music. No guru charging you a hundred bucks to tell you to breathe.</p>
+        <p>Tried it on the living room floor after supper.</p>
+        <p>First two minutes I was making a grocery list. Minute three I noticed the ceiling needs paint. Somewhere around minute five my back let go of something it had been holding since about 2009.</p>
+        <p>The floor does a thing a bed doesn't. It doesn't give. You quit holding yourself up because there's nothing left to hold. The breath drops lower on its own.</p>
+        <p>I got up slower than I got down. That's how you know it worked.</p>
+        <p>Ten minutes. Free. The hardest part is feeling stupid for the first two. Get past that and it's the best deal in the house.</p>
+      </div>
+    </article>
+
+    <article class="post" id="week-three">
+      <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#week-three" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#week-three">Week three</a></h2>
+      <img class="post-img" src="/images/week-three.jpg" alt="A steady violet glow with pale sparks climbing slowly upward" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>A list went around this week. An AI chatbot's advice for the next ten years. Two million people saw it. Seventeen thousand liked it. Sleep eight hours. Lift weights three times a week. Walk every day.</p>
+        <p>It's a good list. It's also the same list your doctor gave you, your grandmother gave you, and you gave yourself last New Year's.</p>
+        <p>Nobody's short on the list.</p>
+        <p>A coach who quoted it said the part that matters. Week three is the hard part. That's when the plan runs into a deadline or a cold.</p>
+        <p>Week one you're excited. Week two you're proud. Week three it rains, you sleep bad, somebody at work sets your afternoon on fire, and the walk just doesn't happen. Then you're a guy who used to walk.</p>
+        <p>The trick isn't a better list. It's deciding ahead of time what you'll do on the bad day. Not the full walk, just around the block. Not the workout, just ten pushups in the kitchen.</p>
+        <p>Small enough that week three can't talk you out of it.</p>
+      </div>
+    </article>
+
+    <article class="post" id="dont-carry-whats-not-yours">
+      <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#dont-carry-whats-not-yours" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#dont-carry-whats-not-yours">Don't carry what's not yours</a></h2>
+      <img class="post-img" src="/images/dont-carry-whats-not-yours.jpg" alt="A soft violet glow in the dark, with a low drift of pale sparks along the bottom" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Somebody posted the best advice they ever got this week. It came from a cab driver.</p>
+        <p>“Don't carry what's not yours.”</p>
+        <p>Five words. I've been chewing on them for days.</p>
+        <p>Other people's moods. The thing your boss said in a meeting he forgot by lunch. A grudge somebody handed you twenty years ago that you're still lugging around like a family heirloom. The news out of a city you'll never visit.</p>
+        <p>None of it's yours. You picked it up because it was sitting there and nobody told you to put it down.</p>
+        <p>Some things are yours. Your kids. Your word. The mess you made. Carry those all the way home.</p>
+        <p>The rest, set it on the curb. A cab driver figured that out sitting in traffic all day. Probably had to.</p>
+      </div>
+    </article>
+
+    <article class="post" id="think-for-yourself-dummy">
+      <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#think-for-yourself-dummy" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#think-for-yourself-dummy">Think for yourself, dummy</a></h2>
+      <img class="post-img" src="/images/think-for-yourself-dummy.jpg" alt="A faint violet glow in the dark, a few pale sparks hanging in it" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>I went looking this week for people telling other people to think for themselves. It wasn't hard. It might be the most popular insult on the internet.</p>
+        <p>“Do your own research and think for yourself.” Usually followed by a word I can't print and a link to somebody else's video.</p>
+        <p>Here's the funny part. Both sides say it. Word for word. Each one is sure the other side is the sheep.</p>
+        <p>Nobody ever says it to themselves. That's the tell.</p>
+        <p>Thinking for yourself doesn't look like winning an argument. It looks like going quiet for a minute. Saying “I don't know.” Changing your mind in front of people, which almost nobody does, because it feels like losing.</p>
+        <p>One guy put it better than most this week. Popular doesn't mean correct.</p>
+        <p>That goes for your side too.</p>
+      </div>
+    </article>
+
+    <article class="post" id="longer-out-than-in">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#longer-out-than-in" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#longer-out-than-in">Longer out than in</a></h2>
+      <img class="post-img" src="/images/longer-out-than-in.jpg" alt="A compact violet glow fading into a dark blue field, a few pale sparks drifting" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Somebody writing about fighters said something this week that stuck. Between rounds, most fighters just stand there heaving. The smart ones breathe in through the nose and let it out longer than it came in. A free tool, he said, and most never use it on purpose.</p>
+        <p>I'm not a fighter. But I've had days that felt like twelve rounds by lunch.</p>
+        <p>Here's what I do now, and it's almost embarrassing how simple it is. In through the nose for four. Out slow for six or eight. That's it. Red lights. On hold. Right before I open an email I already know is going to be bad.</p>
+        <p>The in-breath is the gas. The out-breath is the brakes. Most of us ride the gas all day and then wonder why we can't stop.</p>
+        <p>You don't need an app. You don't need a class. You need a nose and about thirty seconds.</p>
+        <p>Try three right now. Nobody's looking.</p>
+      </div>
+    </article>
+
+    <article class="post" id="it-compounds-both-ways">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#it-compounds-both-ways" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#it-compounds-both-ways">It compounds both ways</a></h2>
+      <img class="post-img" src="/images/it-compounds-both-ways.jpg" alt="A soft violet glow high in a dark blue field, a few pale sparks drifting" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Everybody's heard the one about getting one percent better every day. I've heard it so many times it quit meaning anything.</p>
+        <p>Then somebody flipped it this week. One percent worse every day doesn't sound like much either. Both of them compound.</p>
+        <p>That one landed.</p>
+        <p>Because I never decided to get out of shape. I never sat down and planned to sleep worse, drink a little more, walk a little less. It was one percent. One skipped walk. One more episode. One “I'll start Monday.” Nothing you'd notice in a day. Plenty you'd notice in ten years.</p>
+        <p>That's the bad news. The good news is the math doesn't care which way you point it.</p>
+        <p>I'm in my fifties. I'm not turning into a new man by Christmas. But I can take the walk tonight instead of skipping it. That's one. Tomorrow's another.</p>
+        <p>Small enough to do. Big enough to add up. Pick a direction.</p>
+      </div>
+    </article>
+
+    <article class="post" id="dont-wrestle-the-pig">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#dont-wrestle-the-pig" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#dont-wrestle-the-pig">Don't wrestle the pig</a></h2>
+      <img class="post-img" src="/images/dont-wrestle-the-pig.jpg" alt="A soft violet glow in the dark, pale sparks lifting through it" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>An old line made the rounds again this week. Fourteen thousand people liked it, which tells me a lot of folks have been in the mud lately.</p>
+        <p>There's no point fighting with a pig. You both get dirty, and the pig enjoys it.</p>
+        <p>I've wrestled more pigs than I care to count. Comment sections. A holiday table. A guy in a parking lot over a space neither of us really wanted.</p>
+        <p>Every time, I walked away filthy and he walked away happy. That's the part people miss. The pig isn't losing. The pig is home.</p>
+        <p>Some people don't want to be right. They want company down there. If you show up, they already won.</p>
+        <p>Hardest thing in the world is to look at the mud, look at the pig, and keep walking.</p>
+        <p>Somebody else posted the best advice they ever got this week. Never miss a chance to keep your mouth shut. Same lesson, cleaner boots.</p>
+      </div>
+    </article>
+
+    <article class="post" id="you-just-changed-the-channel">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#you-just-changed-the-channel" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#you-just-changed-the-channel">You just changed the channel</a></h2>
+      <img class="post-img" src="/images/you-just-changed-the-channel.jpg" alt="A faint violet glow in a dark blue field, soft orbs and a few pale sparks" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>A post went around this week saying some fools still think the legacy news is real. Twenty-five million people saw it. A lot of them nodded.</p>
+        <p>I nodded too. I quit trusting the evening news a long time ago.</p>
+        <p>But here's the part I keep chewing on. Quitting the news is easy. Plenty of people did it and then just changed the channel. Now it's a guy with a podcast, or an account with a lot of followers, and they believe every word he says the same way their parents believed the anchorman.</p>
+        <p>That's not thinking for yourself. That's a new remote.</p>
+        <p>The questions don't change no matter who's talking. Who's paying for this? What do they want me to do when it's over? Would I believe it if the other side said it?</p>
+        <p>If your source has never once told you something you didn't want to hear, it isn't a source. It's a mirror with a microphone.</p>
+        <p>Turn it all off for a day. See what you actually think when nobody's telling you.</p>
+      </div>
+    </article>
+
+    <article class="post" id="slow-on-purpose">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#slow-on-purpose" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#slow-on-purpose">Slow on purpose</a></h2>
+      <img class="post-img" src="/images/slow-on-purpose.jpg" alt="A low violet glow with pale sparks gathered along the bottom of a dark frame" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>A post going around this week said going slowly is the secret to a calm nervous system. Four thousand people liked it. I'd bet most of them liked it fast and kept scrolling.</p>
+        <p>I'm guilty. I eat fast. I drive like the road owes me money. I walk through the grocery store like somebody's timing me. Then I lie down at night and wonder why my head won't shut off.</p>
+        <p>Here's what I've noticed. Your body doesn't listen to what you tell it. It watches what you do. Rush all day and it figures something's chasing you. Then you tell it to relax at ten o'clock and it doesn't believe a word.</p>
+        <p>So I've started doing one thing slow on purpose. Not everything. One thing. Coffee in the morning, standing outside, barefoot if the grass isn't frosted, no phone. A long breath out. Watching the light come up over the trees before the day gets its hands on me.</p>
+        <p>It feels like nothing. Five minutes. But that's the thing about slow. It doesn't announce itself. It just shows up later, at ten o'clock, when your head finally goes quiet and you can't figure out why.</p>
+      </div>
+    </article>
+
+    <article class="post" id="it-doesnt-know-its-saturday">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#it-doesnt-know-its-saturday" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#it-doesnt-know-its-saturday">It doesn't know it's Saturday</a></h2>
+      <img class="post-img" src="/images/it-doesnt-know-its-saturday.jpg" alt="A faint violet glow in the dark, scattered pale sparks and soft orbs" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>I read a list of ways to sleep better this week. Magnesium, a cool room, no caffeine after noon, the usual. The one they said had the best evidence was the most boring thing on there.</p>
+        <p>Get up at the same time every day. Weekends too.</p>
+        <p>Then this line, which I've been chewing on ever since: your body clock doesn't know it's Saturday.</p>
+        <p>That got me, because Saturday is exactly when I blow it. Stay up late because I can. Sleep in because I earned it. Then Sunday night I'm staring at the ceiling, and Monday morning feels like a hangover I didn't even get to enjoy.</p>
+        <p>I always figured sleeping in was catching up. Turns out it's more like flying to another time zone every weekend and wondering why I'm tired.</p>
+        <p>So I'm trying it. Same alarm, seven days. Not to be tough. Just to quit jet-lagging myself in my own house.</p>
+        <p>Ask me in a month. If I'm cranky, it's not working. If I'm less cranky, don't tell me. I'll ruin it.</p>
+      </div>
+    </article>
+
+    <article class="post" id="your-work-is-your-signature">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#your-work-is-your-signature" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#your-work-is-your-signature">Your work is your signature</a></h2>
+      <img class="post-img" src="/images/your-work-is-your-signature.jpg" alt="A soft violet glow in the dark, pale sparks scattered through it" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Somebody's grandpa used to tell them, your work is your signature.</p>
+        <p>I read that and thought about every job I ever did halfway and then stood around explaining. The weather. The parts. The guy before me. I had a whole speech.</p>
+        <p>The point of the line is that nobody hears the speech. They see the work. The crooked fence post is still crooked after you drive off. The patch job still leaks. Your name's on it whether you wrote it there or not.</p>
+        <p>It cuts the other way too, and that's the part I like. You don't have to sell good work. You don't have to post about it. Somebody runs a hand along the joint you took your time on, and they already know.</p>
+        <p>Old men used to say things like that and never explain them. They said it once and went back to work.</p>
+        <p>I'm trying to sign better.</p>
+      </div>
+    </article>
+
+    <article class="post" id="your-own-research">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#your-own-research" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#your-own-research">Your own research</a></h2>
+      <img class="post-img" src="/images/your-own-research.jpg" alt="A faint violet glow in the dark, pale sparks drifting through it" width="1200" height="800" loading="lazy" />
+      <div class="post-body">
+        <p>Everybody does their own research now. You can tell, because they all come back with the same answer they left with.</p>
+        <p>That's the part nobody puts on the bumper sticker. Research isn't going out to find backup. Anybody can do that. Type in what you already think and the internet will hand you a stack of people who agree, sorted by how loud they are.</p>
+        <p>Real research costs something. Somewhere in there you have to be willing to come back wrong. Not a little wrong. Wrong enough that you have to tell somebody.</p>
+        <p>I've done it. It's no fun. There's a particular kind of quiet in the truck when you realize the thing you've been saying for three years doesn't hold up. You want to argue with the radio about it. There's nobody to argue with but you.</p>
+        <p>So here's my test, and I use it on myself first. When's the last time your research changed your mind?</p>
+        <p>If you can't remember, you weren't researching. You were shopping.</p>
+      </div>
+    </article>
+
+    <article class="post" id="cold-water">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#cold-water" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#cold-water">Cold water</a></h2>
+      <div class="post-body">
+        <p>I read that cold water on your face can calm you down in a few seconds. Meanwhile most of the advice out there wants ten quiet minutes of meditation.</p>
+        <p>I'm not against meditation. Good for the folks who can do it. But when I'm really worked up, being told to sit still for ten minutes sounds like being told to hold my breath underwater. My mind isn't going anywhere quiet. It's pacing.</p>
+        <p>A splash at the kitchen sink, though. That I can manage. No app, no timer, no getting it right.</p>
+        <p>There's something to be said for help that meets you where you are instead of where you ought to be. A lot of advice is written for a calm person who wants to be calmer. The rest of us need something that works mid-boil.</p>
+        <p>Sometimes calm is a big practice you build over years. Sometimes it's just cold water and a dish towel.</p>
+      </div>
+    </article>
+
+    <article class="post" id="manage-expectations">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#manage-expectations" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#manage-expectations">Manage expectations</a></h2>
+      <div class="post-body">
+        <p>I saw somebody announce they were taking a little walk after dinner. Very little, they said. Let's manage expectations.</p>
+        <p>That's the most honest health plan I've heard in a while.</p>
+        <p>Everybody wants the big transformation. Ten thousand steps, up at five, a new person by spring. Then February shows up and the whole thing quietly goes in the drawer with the ab roller.</p>
+        <p>I'd rather hear from the folks walking to the end of the road and back and calling it a win. No announcement, no before picture. They're the ones still doing it in a month, because there was never anything to fail at.</p>
+        <p>Low expectations get a bad name. But a promise small enough to keep beats a big one you only plan.</p>
+        <p>A short walk you actually take is a walk. A long one you're going to start Monday is just a nice thought.</p>
+      </div>
+    </article>
+
+    <article class="post" id="chicken-or-feather">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#chicken-or-feather" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#chicken-or-feather">Chicken or feather</a></h2>
+      <div class="post-body">
+        <p>There's an old saying, a grandmother kind of saying. Some days chicken, some days feather.</p>
+        <p>I don't need anybody to explain it. Some days you get the whole bird. Some days all you get is what's left blowing around the yard. Both are part of the deal, and neither one lasts.</p>
+        <p>What I like is that it doesn't tell you what to do about it. No five steps. No silver lining. It just tells you the truth and trusts you to handle it.</p>
+        <p>That's the kind of wisdom that came from people who didn't have time for long speeches. They had work to do. Five words and it covers about everything: the good years, the lean ones, the week the truck won't start.</p>
+        <p>I think about how much paper gets spent these days trying to say what that line says.</p>
+        <p>I'm writing it down for the feather days. And for the chicken days, so I remember.</p>
+      </div>
+    </article>
+
+    <article class="post" id="the-line-that-ends-the-talk">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-12">October 12, 2026</time><a class="post-anchor" href="#the-line-that-ends-the-talk" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#the-line-that-ends-the-talk">The line that ends the talk</a></h2>
+      <div class="post-body">
+        <p>There's a name for something I've noticed for years. A thought-terminating cliché. Robert Jay Lifton came up with the term. It's a ready-made line you say when you don't want to answer the point.</p>
+        <p>"It is what it is." "Do your own research." "Everything happens for a reason." "That's just how it's always been."</p>
+        <p>They sound like an answer. They're really a door closing. Nobody can argue with them, which is exactly the trouble. Nothing comes after them.</p>
+        <p>I've caught myself doing it. Somebody makes a point I can't knock down, and out comes a little saying that sounds wise and gets me off the hook. I nod like I settled something. I didn't. I left.</p>
+        <p>So I'm trying a new habit. When I hear one, from me or anybody else, I stop and ask what question it just shut down.</p>
+        <p>Usually that's the one worth going back to.</p>
+      </div>
+    </article>
+
+    <article class="post" id="cash-flow-and-calm">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#cash-flow-and-calm" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#cash-flow-and-calm">Cash flow and calm</a></h2>
+      <div class="post-body">
+        <p>I saw somebody say nothing regulates the nervous system like consistent cash flow. I laughed, and then I stopped laughing because it's just true.</p>
+        <p>You can breathe in for four and out for eight all you want. If the electric bill is sitting on the counter and the account is thin, your shoulders are going to stay right up by your ears.</p>
+        <p>I'm not knocking breathing. I'm for it. But a lot of what gets called nerves is just arithmetic. Some calm comes from the inside. Some comes from knowing the mortgage cleared.</p>
+        <p>Both count. Nobody should feel bad for needing the second kind.</p>
+      </div>
+    </article>
+
+    <article class="post" id="take-a-deep-breath">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#take-a-deep-breath" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#take-a-deep-breath">Take a deep breath</a></h2>
+      <div class="post-body">
+        <p>Somebody pointed out that telling a kid in a full meltdown to take a deep breath is like telling a man who's drowning to swim better. They'd do it if they could. That's the whole problem.</p>
+        <p>I've been on the grown-up side of that. Probably on the kid side too, at fifty-something, more times than I'd admit.</p>
+        <p>When I'm really wound up, "just breathe" doesn't land. What helps is somebody sitting there, not hurrying me, not fixing it. The breath comes back on its own once I'm not alone with it.</p>
+        <p>Maybe that's the instruction. Not take a breath. Wait with them till they can.</p>
+      </div>
+    </article>
+
+    <article class="post" id="sugar-in-the-coffee">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#sugar-in-the-coffee" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#sugar-in-the-coffee">Sugar in the coffee</a></h2>
+      <div class="post-body">
+        <p>Everybody's talking about how much better you look once you cut out sugar. Clearer skin, less puffy, the whole before and after.</p>
+        <p>I believe it. I also saw somebody take the sugar out of their coffee and report that it tasted awful. I believe that too.</p>
+        <p>That's the honest version nobody puts on the poster. Getting better doesn't feel better at first. It tastes like plain black coffee and regret.</p>
+        <p>I hear it gets easier. Your taste changes and one day the sweet stuff tastes like too much. I'm somewhere in the middle of that, holding the cup, making a face, drinking it anyway.</p>
+      </div>
+    </article>
+
+    <article class="post" id="one-rule-would-do">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#one-rule-would-do" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#one-rule-would-do">One rule would do</a></h2>
+      <div class="post-body">
+        <p>I saw a list of twenty health rules for October. Twenty. For one month.</p>
+        <p>I read about six of them before I lost track. Drink this, skip that, sleep at this hour, walk this many steps, stretch, journal, stand in the sun.</p>
+        <p>None of it was wrong, exactly. It's just that nobody I know has ever gotten better by doing twenty things at once. You do one thing until it's boring, then you add another.</p>
+        <p>So I picked one. Walk after supper. That's my October. If I'm still doing it come November, I'll go look at the list again and see what number seven was.</p>
+      </div>
+    </article>
+
+    <article class="post" id="a-little-kinder">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#a-little-kinder" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#a-little-kinder">A little kinder</a></h2>
+      <div class="post-body">
+        <p>Aldous Huxley spent some forty-five years studying people, and he said, roughly, that it was a bit embarrassing to have worked on the problem that long and find the best answer he had was to try to be a little kinder to each other.</p>
+        <p>I like that he called it embarrassing. A smart man expects a smart answer.</p>
+        <p>But I think that's the one that holds up. Not the theories. Not the arguments. Just being a little kinder than you strictly have to be, to whoever's in front of you.</p>
+        <p>Took him forty-some years. I figure I can get started this afternoon.</p>
+      </div>
+    </article>
+
+    <article class="post" id="he-needed-his-hands">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#he-needed-his-hands" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#he-needed-his-hands">He needed his hands</a></h2>
+      <div class="post-body">
+        <p>I came across a line I can't shake. A woman remembering that her grandpa couldn't hold her hand on a walk because he needed his hands to talk.</p>
+        <p>I knew that man the second I read it. Every family down here seems to have one. The story doesn't come out right unless the hands are going. Point at the field, show how big the fish was, wave off the part he doesn't want to get into.</p>
+        <p>She wasn't complaining about it. You can tell. That's the kind of thing you carry around because it was so much him.</p>
+        <p>Funny what sticks. Not the advice. The hands.</p>
+      </div>
+    </article>
+
+    <article class="post" id="tired-from-nothing">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#tired-from-nothing" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#tired-from-nothing">Tired from nothing</a></h2>
+      <div class="post-body">
+        <p>An hour of hard work and you feel fine. Sore, maybe, but fine. An hour of scrolling on your phone and you feel like somebody let the air out of you.</p>
+        <p>Seems backwards. One of those I did nothing at all.</p>
+        <p>I've seen folks say they deleted the apps and got their attention span back, like finding your keys in the coat you already checked. I believe it. Whatever that hour of scrolling is doing, it isn't rest. Rest doesn't leave you wanting to lie down after.</p>
+        <p>I'm not throwing my phone in the creek. But I've started noticing which kind of tired I am at the end of the day. The hard work kind is a lot better company.</p>
+      </div>
+    </article>
+
+    <article class="post" id="yesterdays-bill">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-05">October 5, 2026</time><a class="post-anchor" href="#yesterdays-bill" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#yesterdays-bill">The pile</a></h2>
+      <div class="post-body">
+        <p>Here's a story I keep hearing in one form or another. Fella ignores the insurance agent for a month. Calls go unanswered, letters go in the pile. Then he gets hit by a car and suddenly he's real interested in getting covered. Starting yesterday, if possible.</p>
+        <p>I don't laugh at the getting hit part. Nobody deserves that. But the timing is something.</p>
+        <p>I've got my own pile. Letters I'll open when I feel up to it. The car doesn't wait for that.</p>
+        <p>Insurance is about the only thing in life you have to buy before you know you need it. That's the whole deal. The agent wasn't bothering you. He was trying to get there before the car did.</p>
+      </div>
+    </article>
+
+    <article class="post" id="instead-of-the-cigarette">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#instead-of-the-cigarette" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#instead-of-the-cigarette">Instead of the cigarette</a></h2>
+      <div class="post-body">
+        <p>Someone felt it all coming up on them and did box breathing instead of lighting a cigarette. That's the whole story, and it's enough. I'm not going to turn it into a lesson.</p>
+        <p>Four counts in, four holding, four out, four holding. Or don't count at all. Just notice you reached for air instead of the thing that makes the next hour worse.</p>
+        <p>Some days I remember. Some days someone cuts me off and I forget I have lungs. The practice is the remembering.</p>
+      </div>
+    </article>
+
+    <article class="post" id="bare-feet">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#bare-feet" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#bare-feet">Bare feet</a></h2>
+      <div class="post-body">
+        <p>The useful list is short and cheap. Sleep. Bone broth. One Brazil nut. Bare feet on grass. Morning sun on your face. None of that has a commercial. That's why it doesn't trend for long.</p>
+        <p>I'm in my 50s and the bill for the other diet is already here. I'm not overhauling Tuesday. I'm putting my feet in the yard and calling that a win if I actually do it.</p>
+      </div>
+    </article>
+
+    <article class="post" id="someone-who-loves-you">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#someone-who-loves-you" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#someone-who-loves-you">Someone who loves you</a></h2>
+      <div class="post-body">
+        <p>A line stopped me this week.</p>
+        <p>When you're happy, you go to the person you love. When you're sad, you go to someone who loves you.</p>
+        <p>Read it twice. Happy is a choice of company. Sad is a test of it. Most of us know which door we use. Fewer of us know who's on the other side of the second one.</p>
+      </div>
+    </article>
+
+    <article class="post" id="bless-your-heart-but-make-it-think">
+      <div class="post-meta"><time class="post-date" datetime="2026-10-03">October 3, 2026</time><a class="post-anchor" href="#bless-your-heart-but-make-it-think" aria-label="Link to this piece">#</a></div>
+      <h2 class="post-title"><a href="#bless-your-heart-but-make-it-think">Turn the noise down</a></h2>
+      <div class="post-body">
+        <p>This week "think for yourself" is mostly an insult. People throw it the way a Southerner says bless your heart. It isn't an invitation. It's a door closing.</p>
+        <p>If the phrase only shows up when someone wants you quiet, it doesn't mean anything anymore. The practice is quieter than the slogan. Turn the noise down. Read the thing. Sit with it until you're uncomfortable. Then disagree, if you still disagree.</p>
+      </div>
+    </article>
+
+
+  </main>
+
+  <footer>
+    <span class="footer-support">If something here stayed with you, you can <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">support the writing</a>.<a class="kofi-cup" href="https://ko-fi.com/denyeh" target="_blank" rel="noopener"><img src="/images/kofi-cup.png" alt="Ko-fi" width="161" height="130"></a></span>
+    <span class="footer-copy">© 2026 <a href="/">DENYEH</a>. All rights reserved.</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

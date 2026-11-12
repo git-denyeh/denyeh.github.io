@@ -4,38 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DENYEH</title>
-  <meta name="description" content="Mostly quiet. Still burning. Short, honest writing from DENYEH on six topics.">
+  <meta name="description" content="Chasing quiet. Writing by DENYEH: rooted in nature, wondering at the universe, curious about the mind.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DENYEH">
   <meta property="og:title" content="DENYEH">
-  <meta property="og:description" content="Mostly quiet. Still burning. Short, honest writing from DENYEH on six topics.">
+  <meta property="og:description" content="Chasing quiet. Writing by DENYEH: rooted in nature, wondering at the universe, curious about the mind.">
   <meta property="og:url" content="https://denyeh.com/">
   <meta property="og:image" content="https://denyeh.com/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="DENYEH — Mostly quiet. Still burning.">
+  <meta property="og:image:alt" content="DENYEH. Chasing quiet.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DENYEH">
-  <meta name="twitter:description" content="Mostly quiet. Still burning. Short, honest writing from DENYEH on six topics.">
+  <meta name="twitter:description" content="Chasing quiet. Writing by DENYEH: rooted in nature, wondering at the universe, curious about the mind.">
   <meta name="twitter:image" content="https://denyeh.com/og.png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#0d0b09">
+  <meta name="theme-color" content="#12163a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:     #0d0b09;
-      --bg2:    #131008;
-      --bg3:    #1a1510;
-      --border: #2e2620;
-      --text:   #e8e0d0;
-      --muted:  #9a8c7a;
-      --accent: #c87941;
-      --accent2:#b07a45;
-      --accent3:#e8a060;
+      --bg:     #12163a;
+      --bg2:    #171a44;
+      --bg3:    #1f1e50;
+      --border: #343066;
+      --text:   #d6d6fa;
+      --muted:  #9c9cc8;
+      --accent: #f0be8c;
+      --accent2:#d2a47e;
+      --accent3:#f8d6b2;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -58,14 +58,14 @@
       position: fixed; bottom: -120px; left: 50%;
       transform: translateX(-50%);
       width: 700px; height: 350px;
-      background: radial-gradient(ellipse, rgba(200,121,65,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(240,190,140,0.09) 0%, rgba(120,100,200,0.05) 40%, transparent 70%);
       pointer-events: none; z-index: 0;
     }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,11,9,0.96);
+      background: rgba(18,22,58,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
@@ -123,6 +123,24 @@
       max-width: 760px; margin: 0 auto;
       text-align: center;
     }
+    /* NIGHT SKY BACKDROP (theme only: pseudo-element, no new markup) */
+    .hero::before {
+      content: ''; position: absolute; z-index: -1;
+      top: 0; bottom: 0; left: 50%; width: 100vw;
+      transform: translateX(-50%);
+      background:
+        linear-gradient(180deg, rgba(18,22,58,0.30) 0%, rgba(18,22,58,0.62) 30%, rgba(18,22,58,0.76) 50%, rgba(18,22,58,0.84) 75%, var(--bg) 100%),
+        url("/images/night-sky-banner.jpg") center 38% / cover no-repeat;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(18,22,58,0.35) 0%, rgba(18,22,58,0.62) 30%, rgba(18,22,58,0.78) 50%, rgba(18,22,58,0.86) 75%, var(--bg) 100%),
+          url("/images/night-sky-banner-900.jpg") 62% 30% / cover no-repeat;
+      }
+    }
+    .hero h1, .hero-tagline, .about p { text-shadow: 0 1px 14px rgba(18,22,58,0.85); }
     .hero-rule {
       width: 36px; height: 1px;
       background: var(--accent2);
@@ -147,45 +165,48 @@
       max-width: 560px; margin: 0 auto 1.6rem;
       animation: fadeUp 0.9s ease 0.2s both;
     }
-    .about p { font-size: 1.1rem; line-height: 1.7; color: #afa89a; }
+    .about p { font-size: 1.1rem; line-height: 1.7; color: #b4b4dc; }
     .about p + p { margin-top: 1em; }
     .about em { color: var(--accent3); font-style: italic; }
 
-    /* LATEST PIECE (static; update when a newer piece is published) */
-    .start-here {
-      position: relative; z-index: 1;
-      max-width: 560px; margin: 0 auto 1.35rem; padding: 0 2rem;
-      text-align: center;
-      font-size: 1.02rem; line-height: 1.6; color: #9a8c7a;
-    }
-    .start-here a { color: var(--accent); text-decoration: none; }
-    .start-here a:hover, .start-here a:focus-visible { color: var(--accent3); text-decoration: underline; }
-
+    /* LATEST ENTRIES (static; update when a new entry is added to /thread/) */
     .latest {
       position: relative; z-index: 1;
-      max-width: 560px; margin: 0 auto 3.5rem; padding: 0 2rem;
-      text-align: center;
+      max-width: 620px; margin: 0 auto 2rem; padding: 0 2rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
     }
     .latest > a {
       display: block; text-decoration: none;
       border: 1px solid var(--border); background: var(--bg2);
-      padding: 1.25rem 1.5rem; transition: border-color .25s, background .25s;
+      padding: 1.1rem 1.4rem; transition: border-color .25s, background .25s;
     }
-    .latest > a:hover { border-color: rgba(200,121,65,0.5); background: var(--bg3); }
-    .latest-label {
-      display: block; font-family: 'Barlow', sans-serif;
-      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--accent2); margin-bottom: 0.5rem;
-    }
+    .latest > a:hover, .latest > a:focus-visible { border-color: rgba(240,190,140,0.5); background: var(--bg3); }
     .latest-title {
       display: block; font-family: 'Playfair Display', serif;
-      font-size: 1.35rem; color: var(--text); line-height: 1.25;
+      font-size: 1.3rem; color: var(--text); line-height: 1.25;
     }
     .latest > a:hover .latest-title { color: var(--accent3); }
-    .latest-meta {
-      display: block; margin-top: 0.5rem; font-family: 'Barlow', sans-serif;
-      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    .latest-first {
+      display: block; margin-top: 0.4rem;
+      font-size: 1.02rem; line-height: 1.55; color: #b4b4dc;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
+    .latest-meta {
+      display: block; margin-top: 0.55rem; font-family: 'Barlow', sans-serif;
+      font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2);
+    }
+    .read-thread {
+      position: relative; z-index: 1; text-align: center;
+      margin: 0 auto 4.5rem; padding: 0 2rem;
+    }
+    .read-thread a {
+      display: inline-block; font-family: 'Barlow', sans-serif;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+      border: 1px solid rgba(240,190,140,0.45); padding: 0.85rem 1.6rem;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .read-thread a:hover, .read-thread a:focus-visible { color: var(--accent3); border-color: var(--accent3); background: var(--bg3); }
 
     /* DIVIDER */
     .divider {
@@ -202,47 +223,6 @@
       font-size: 0.62rem; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--accent2); white-space: nowrap;
     }
-
-    /* TOPIC GRID — 2 columns, icon left, title right, no numbers */
-    .topics {
-      max-width: 860px; margin: 0 auto;
-      padding: 0 2rem 4rem;
-      position: relative; z-index: 1;
-    }
-    .topic-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .topic-card {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 1.1rem;
-      padding: 1.3rem 1.5rem;
-      background: var(--bg2);
-      text-decoration: none;
-      transition: background 0.25s;
-    }
-    .topic-card:hover { background: var(--bg3); }
-    .topic-card:hover .topic-icon { color: var(--accent3); }
-    .topic-card:hover .topic-name { color: var(--accent3); }
-    .topic-icon {
-      flex-shrink: 0;
-      width: 38px; height: 38px;
-      color: var(--accent);
-      transition: color 0.25s;
-    }
-    .topic-icon svg { width: 38px; height: 38px; display: block; }
-    .topic-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 400;
-      color: var(--text); line-height: 1.3;
-      transition: color 0.25s;
-    }
-    .topic-name em { font-style: italic; color: var(--accent3); }
 
     /* FOOTER */
     footer {
@@ -276,7 +256,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       line-height: 1.6;
-      color: #9a8c7a;
+      color: #9c9cc8;
       margin-bottom: 0.35rem;
     }
     .footer-support a { color: var(--accent); text-decoration: none; }
@@ -308,9 +288,7 @@
     }
     @media (max-width: 768px) {
       .hero { padding: 3rem 1.5rem 2rem; }
-      .start-here, .latest { padding: 0 1.5rem; }
-      .topics { padding: 0 1.5rem 3rem; }
-      .topic-grid { grid-template-columns: 1fr; }
+      .latest, .read-thread { padding: 0 1.5rem; }
     }
     @media (max-width: 480px) {
       footer { gap: 0.4rem; }
@@ -327,16 +305,10 @@
   <div class="ember-glow"></div>
 
   <nav>
-    <a href="index.html" class="nav-logo">
-      DENYEH <span>a work in progress</span>
-    </a>
+    <a href="/" class="nav-logo">DENYEH</a>
     <ul class="nav-links">
-      <li><a href="oblivious.html">Oblivious</a></li>
-      <li><a href="think.html">Think</a></li>
-      <li><a href="machine.html">The Machine</a></li>
-      <li><a href="words.html">Words</a></li>
-      <li><a href="breathe.html">Breathe</a></li>
-      <li><a href="better.html">Better</a></li>
+      <li><a href="/thread/">The Thread</a></li>
+      <li><a href="/reset-m1qndd58/">Daily Reset</a></li>
       <li><a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -345,143 +317,52 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="oblivious.html">Bless Your Oblivious Heart</a>
-    <a href="think.html">Think for Yourself</a>
-    <a href="machine.html">The Machine</a>
-    <a href="words.html">Words Worth Keeping</a>
-    <a href="breathe.html">Just Breathe</a>
-    <a href="better.html">Better Every Day</a>
+    <a href="/thread/">The Thread</a>
+    <a href="/reset-m1qndd58/">Daily Reset</a>
     <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a>
   </div>
 
   <section class="hero">
     <div class="hero-rule"></div>
-    <h1>Mostly quiet.<br><em>Still burning.</em></h1>
-    <p class="hero-tagline">DENYEH.com &nbsp;·&nbsp; a work in progress</p>
+    <h1>DENYEH</h1>
+    <p class="hero-tagline">Chasing quiet.</p>
     <div class="about">
-      <p>I'm a work in progress. Some days I'm grounded, grateful, and at peace with the universe. Other days, someone sits in the left lane doing 55 and I lose my mind.</p>
-      <p>This site is <em>both</em> of those people — and everything in between. Six topics. One honest voice. Pull up a chair.</p>
+      <p>Rooted in nature. Wondering at the universe. Curious about the mind. I believe they are one thread, and I follow it here.</p>
     </div>
   </section>
 
-  <p class="start-here">New here? Start with a piece from <a href="breathe.html#lie-on-the-floor">Latest</a>.</p>
+  <div class="divider"><span>Latest from The Thread</span></div>
 
-  <!-- LATEST PIECE: static. When a newer piece is published, update title, topic, date and link here. -->
-  <section class="latest" aria-label="Latest piece">
-    <a href="breathe.html#lie-on-the-floor">
-      <span class="latest-label">Latest</span>
+  <!-- LATEST: newest entries first. When a new entry is added to /thread/, add it here and drop the oldest. -->
+  <section class="latest" aria-label="Latest entries">
+    <a href="/thread/#lie-on-the-floor">
       <span class="latest-title">Lie on the floor</span>
-      <span class="latest-meta">Just Breathe &nbsp;·&nbsp; <time datetime="2026-11-02">November 2, 2026</time></span>
+      <span class="latest-first">Somebody posted this week that the best recovery trick for your nervous system might be the least impressive one. Lie on the floor for ten minutes.</span>
+      <span class="latest-meta"><time datetime="2026-11-02">November 2, 2026</time></span>
+    </a>
+    <a href="/thread/#week-three">
+      <span class="latest-title">Week three</span>
+      <span class="latest-first">A list went around this week. An AI chatbot&#x27;s advice for the next ten years. Two million people saw it. Seventeen thousand liked it. Sleep eight hours. Lift weights three times a week. Walk every day.</span>
+      <span class="latest-meta"><time datetime="2026-11-02">November 2, 2026</time></span>
+    </a>
+    <a href="/thread/#dont-carry-whats-not-yours">
+      <span class="latest-title">Don&#x27;t carry what&#x27;s not yours</span>
+      <span class="latest-first">Somebody posted the best advice they ever got this week. It came from a cab driver.</span>
+      <span class="latest-meta"><time datetime="2026-11-02">November 2, 2026</time></span>
+    </a>
+    <a href="/thread/#think-for-yourself-dummy">
+      <span class="latest-title">Think for yourself, dummy</span>
+      <span class="latest-first">I went looking this week for people telling other people to think for themselves. It wasn&#x27;t hard. It might be the most popular insult on the internet.</span>
+      <span class="latest-meta"><time datetime="2026-11-02">November 2, 2026</time></span>
+    </a>
+    <a href="/thread/#longer-out-than-in">
+      <span class="latest-title">Longer out than in</span>
+      <span class="latest-first">Somebody writing about fighters said something this week that stuck. Between rounds, most fighters just stand there heaving. The smart ones breathe in through the nose and let it out longer than it came in. A free tool, he said, and most never use it on purpose.</span>
+      <span class="latest-meta"><time datetime="2026-10-26">October 26, 2026</time></span>
     </a>
   </section>
 
-  <div class="divider"><span>Browse by topic</span></div>
-
-  <section class="topics">
-    <div class="topic-grid">
-
-      <!-- 01 Bless Your Oblivious Heart — proper steering wheel -->
-      <a href="oblivious.html" class="topic-card">
-        <div class="topic-icon">
-          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- outer ring -->
-            <circle cx="19" cy="19" r="15" stroke="currentColor" stroke-width="2.5"/>
-            <!-- inner hub -->
-            <circle cx="19" cy="19" r="3.5" stroke="currentColor" stroke-width="2.2"/>
-            <circle cx="19" cy="19" r="1.2" fill="currentColor"/>
-            <!-- 3 spokes -->
-            <line x1="19" y1="15.5" x2="19" y2="4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="16.1" y1="21.6" x2="6.1" y2="27.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="21.9" y1="21.6" x2="31.9" y2="27.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="topic-name">Bless Your <em>Oblivious</em> Heart</span>
-      </a>
-
-      <!-- 02 Think for Yourself — lit lightbulb -->
-      <a href="think.html" class="topic-card">
-        <div class="topic-icon">
-          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- bulb dome -->
-            <path d="M12 17 C12 11.5 15.1 7 19 7 C22.9 7 26 11.5 26 17 C26 20.5 24.2 23.5 22 25.5 L22 28 L16 28 L16 25.5 C13.8 23.5 12 20.5 12 17Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
-            <!-- base bands -->
-            <line x1="16" y1="28" x2="22" y2="28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="16.5" y1="30.5" x2="21.5" y2="30.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- filament glow lines -->
-            <line x1="19" y1="13" x2="19" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-            <line x1="16" y1="15" x2="22" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-          </svg>
-        </div>
-        <span class="topic-name">Think for <em>Yourself</em></span>
-      </a>
-
-      <!-- 03 The Machine — two proper interlocking gears -->
-      <a href="machine.html" class="topic-card">
-        <div class="topic-icon">
-          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- large gear teeth (top-left) -->
-            <path d="M8 13.5 L9.5 11 L11.5 12 C12.5 11 13.7 10.3 15 9.9 L15.2 7.5 L18.2 7 L18.8 9.4 C20.1 9.7 21.3 10.3 22.3 11.2 L24.5 10.5 L26 13 L24.2 14.5 C24.4 15.3 24.5 16.1 24.5 17 C24.5 17.9 24.4 18.7 24.2 19.5 L26 21 L24.5 23.5 L22.3 22.8 C21.3 23.7 20.1 24.3 18.8 24.6 L18.2 27 L15.2 26.5 L15 24.1 C13.7 23.7 12.5 23 11.5 22 L9.5 23 L8 20.5 L9.8 19 C9.6 18.1 9.5 17.5 9.5 17 C9.5 16.5 9.6 15.9 9.8 15 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <!-- large gear hole -->
-            <circle cx="17" cy="17" r="3.5" stroke="currentColor" stroke-width="2"/>
-            <!-- small gear (bottom-right, interlocking) -->
-            <path d="M25 27 L25.8 25.5 L27.2 26.2 C27.8 25.6 28.5 25.2 29.3 25 L29.4 23.5 L31.2 23.2 L31.5 24.7 C32.3 24.9 33 25.3 33.6 25.9 L35 25.4 L35.8 26.9 L34.7 27.9 C34.8 28.4 34.9 28.9 34.9 29.4 C34.9 29.9 34.8 30.4 34.7 30.9 L35.8 31.9 L35 33.4 L33.6 32.9 C33 33.5 32.3 33.9 31.5 34.1 L31.2 35.6 L29.4 35.3 L29.3 33.8 C28.5 33.6 27.8 33.2 27.2 32.6 L25.8 33.3 L25 31.8 L26.1 30.8 C26 30.3 25.9 29.85 25.9 29.4 C25.9 28.95 26 28.5 26.1 28 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-            <circle cx="30.4" cy="29.4" r="2.2" stroke="currentColor" stroke-width="1.8"/>
-          </svg>
-        </div>
-        <span class="topic-name">The <em>Machine</em></span>
-      </a>
-
-      <!-- 04 Words Worth Keeping — quotation marks -->
-      <a href="words.html" class="topic-card">
-        <div class="topic-icon">
-          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- left quote mark -->
-            <path d="M7 22 C7 17 9.5 13 13 11 L14.5 13.5 C12.5 14.8 11.5 16.5 11.5 18 L11.5 18.2 C12.2 18 13 18 13.8 18.3 C15.5 19 16.5 20.8 16 22.8 C15.5 24.8 13.5 26 11.5 25.5 C9 24.8 7 23.5 7 22 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/>
-            <!-- right quote mark -->
-            <path d="M21 22 C21 17 23.5 13 27 11 L28.5 13.5 C26.5 14.8 25.5 16.5 25.5 18 L25.5 18.2 C26.2 18 27 18 27.8 18.3 C29.5 19 30.5 20.8 30 22.8 C29.5 24.8 27.5 26 25.5 25.5 C23 24.8 21 23.5 21 22 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/>
-          </svg>
-        </div>
-        <span class="topic-name">Words Worth <em>Keeping</em></span>
-      </a>
-
-      <!-- 05 Just Breathe — breath/wind wave -->
-      <a href="breathe.html" class="topic-card">
-        <div class="topic-icon">
-          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- rising breath lines — three arcs suggesting inhale/exhale -->
-            <path d="M5 24 C8 24 8 16 13 16 C18 16 18 24 23 24 C28 24 28 16 33 16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9 29 C11.5 29 11.5 24 15 24 C18.5 24 18.5 29 22 29 C25.5 29 25.5 24 29 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-            <!-- upward breath dot -->
-            <circle cx="19" cy="10" r="1.8" fill="currentColor" opacity="0.6"/>
-            <path d="M16.5 13 Q19 9.5 21.5 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.4"/>
-          </svg>
-        </div>
-        <span class="topic-name">Just <em>Breathe</em></span>
-      </a>
-
-      <!-- 06 Better Every Day — clean rising sun -->
-      <a href="better.html" class="topic-card">
-        <div class="topic-icon">
-          <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- horizon line -->
-            <line x1="4" y1="28" x2="34" y2="28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- sun semicircle rising from horizon -->
-            <path d="M10 28 A9 9 0 0 1 28 28" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-            <!-- sun center dot -->
-            <circle cx="19" cy="28" r="2.2" fill="currentColor"/>
-            <!-- rays above horizon -->
-            <line x1="19" y1="15" x2="19" y2="12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="26.5" y1="17.5" x2="28.5" y2="15.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="11.5" y1="17.5" x2="9.5" y2="15.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="29.5" y1="23" x2="32" y2="22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="8.5" y1="23" x2="6" y2="22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="topic-name">Better <em>Every Day</em></span>
-      </a>
-
-    </div>
-  </section>
+  <p class="read-thread"><a href="/thread/">Read The Thread <span aria-hidden="true">&rarr;</span></a></p>
 
   <footer>
     <span class="footer-support">If something here stayed with you, you can <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">support the writing</a>.<a class="kofi-cup" href="https://ko-fi.com/denyeh" target="_blank" rel="noopener"><img src="/images/kofi-cup.png" alt="Ko-fi" width="161" height="130"></a></span>
