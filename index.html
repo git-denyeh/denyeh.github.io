@@ -95,15 +95,16 @@
     }
     .nav-links a:hover { color: var(--accent3); background: var(--bg3); }
     .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; background: none; border: none; padding: 4px;
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; background: none; border: none;
+      padding: 0; width: 44px; height: 44px; margin-right: -10px;
     }
     .hamburger span { display: block; width: 22px; height: 1px; background: var(--muted); }
     .mobile-menu {
       display: none; flex-direction: column;
       background: var(--bg2); border-bottom: 1px solid var(--border);
       padding: 1.25rem 2rem; gap: 0.25rem;
-      position: relative; z-index: 99;
+      position: fixed; top: 58px; left: 0; right: 0; z-index: 150;
     }
     .mobile-menu a {
       color: var(--muted); text-decoration: none;
@@ -311,7 +312,7 @@
       <li><a href="/reset-m1qndd58/">Daily Reset</a></li>
       <li><a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a></li>
     </ul>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <button type="button" class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -373,7 +374,10 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('open');
+      var menu = document.getElementById('mobileMenu');
+      var btn = document.querySelector('button.hamburger');
+      var open = menu.classList.toggle('open');
+      if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
   </script>
 
