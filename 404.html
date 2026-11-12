@@ -10,20 +10,20 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#0d0b09">
+  <meta name="theme-color" content="#12163a">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:     #0d0b09;
-      --bg2:    #131008;
-      --bg3:    #1a1510;
-      --border: #2e2620;
-      --text:   #e8e0d0;
-      --muted:  #9a8c7a;
-      --accent: #c87941;
-      --accent2:#b07a45;
-      --accent3:#e8a060;
+      --bg:     #12163a;
+      --bg2:    #171a44;
+      --bg3:    #1f1e50;
+      --border: #343066;
+      --text:   #d6d6fa;
+      --muted:  #9c9cc8;
+      --accent: #f0be8c;
+      --accent2:#d2a47e;
+      --accent3:#f8d6b2;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -50,14 +50,14 @@
       bottom: -120px; left: 50%;
       transform: translateX(-50%);
       width: 700px; height: 350px;
-      background: radial-gradient(ellipse, rgba(200,121,65,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(240,190,140,0.09) 0%, rgba(120,100,200,0.05) 40%, transparent 70%);
       pointer-events: none; z-index: 0;
     }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(13,11,9,0.96);
+      background: rgba(18,22,58,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
@@ -109,7 +109,7 @@
     .nf-code { font-family: 'Barlow', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1.25rem; }
     .nf h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.1; margin-bottom: 1.25rem; }
     .nf h1 em { font-style: italic; color: var(--accent); }
-    .nf p { font-size: 1.15rem; line-height: 1.7; color: #afa89a; margin-bottom: 2.5rem; }
+    .nf p { font-size: 1.15rem; line-height: 1.7; color: #b4b4dc; margin-bottom: 2.5rem; }
     .nf-links { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); text-align: left; }
     .nf-links a { display: block; padding: 1rem 1.25rem; background: var(--bg2); color: var(--text); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1rem; transition: background .25s, color .25s; }
     .nf-links a:hover { background: var(--bg3); color: var(--accent3); }
@@ -138,7 +138,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       line-height: 1.6;
-      color: #9a8c7a;
+      color: #9c9cc8;
     }
     .footer-support a { color: var(--accent); text-decoration: none; }
     .footer-support a:hover, .footer-support a:focus { text-decoration: underline; }
@@ -181,12 +181,8 @@
   <nav>
     <a href="/" class="nav-logo">DENYEH</a>
     <ul class="nav-links">
-      <li><a href="/oblivious.html">Oblivious</a></li>
-      <li><a href="/think.html">Think</a></li>
-      <li><a href="/machine.html">The Machine</a></li>
-      <li><a href="/words.html">Words</a></li>
-      <li><a href="/breathe.html">Breathe</a></li>
-      <li><a href="/better.html">Better</a></li>
+      <li><a href="/thread/">The Thread</a></li>
+      <li><a href="/reset-m1qndd58/">Daily Reset</a></li>
       <li><a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -195,26 +191,18 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="/oblivious.html">Bless Your Oblivious Heart</a>
-    <a href="/think.html">Think for Yourself</a>
-    <a href="/machine.html">The Machine</a>
-    <a href="/words.html">Words Worth Keeping</a>
-    <a href="/breathe.html">Just Breathe</a>
-    <a href="/better.html">Better Every Day</a>
+    <a href="/thread/">The Thread</a>
+    <a href="/reset-m1qndd58/">Daily Reset</a>
     <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a>
   </div>
 
   <main class="nf">
     <div class="nf-code">404 &nbsp;·&nbsp; Not found</div>
-    <h1>Nothing here.<br><em>Still burning.</em></h1>
+    <h1>Nothing here.<br><em>Just quiet.</em></h1>
     <p>This page has moved or never was. Pick up wherever you like.</p>
     <ul class="nf-links">
-      <li><a href="/oblivious.html">Bless Your <em>Oblivious</em> Heart</a></li>
-      <li><a href="/think.html">Think for <em>Yourself</em></a></li>
-      <li><a href="/machine.html">The <em>Machine</em></a></li>
-      <li><a href="/words.html">Words Worth <em>Keeping</em></a></li>
-      <li><a href="/breathe.html">Just <em>Breathe</em></a></li>
-      <li><a href="/better.html">Better <em>Every Day</em></a></li>
+      <li><a href="/thread/">The <em>Thread</em></a></li>
+      <li><a href="/reset-m1qndd58/">Daily <em>Reset</em></a></li>
     </ul>
     <a class="nf-home" href="/">Back to DENYEH</a>
   </main>
