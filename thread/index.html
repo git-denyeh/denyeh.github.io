@@ -23,20 +23,20 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="canonical" href="https://denyeh.com/thread/">
-  <meta name="theme-color" content="#12163a">
+  <meta name="theme-color" content="#141414">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:     #12163a;
-      --bg2:    #171a44;
-      --bg3:    #1f1e50;
-      --border: #343066;
-      --text:   #d6d6fa;
-      --muted:  #9c9cc8;
-      --accent: #f0be8c;
-      --accent2:#d2a47e;
-      --accent3:#f8d6b2;
+      --bg:     #141414;
+      --bg2:    #1a1916;
+      --bg3:    #262420;
+      --border: #3a3630;
+      --text:   #e6e1d6;
+      --muted:  #aaa59a;
+      --accent: #b98a5e;
+      --accent2:#c4a07a;
+      --accent3:#d4b896;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -63,14 +63,14 @@
       bottom: -120px; left: 50%;
       transform: translateX(-50%);
       width: 700px; height: 350px;
-      background: radial-gradient(ellipse, rgba(240,190,140,0.09) 0%, rgba(120,100,200,0.05) 40%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(185,138,94,0.09) 0%, rgba(185,138,94,0.05) 40%, transparent 70%);
       pointer-events: none; z-index: 0;
     }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(18,22,58,0.92);
+      background: rgba(20,20,20,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
@@ -125,20 +125,20 @@
       max-width: 800px; margin: 0 auto;
       border-bottom: 1px solid var(--border);
     }
-    /* NIGHT SKY BACKDROP (theme only: faint, pseudo-element, no new markup) */
+    /* RIVERSTONE BACKDROP (theme only: faint, pseudo-element, no new markup) */
     .page-header::before {
       content: ''; position: absolute; z-index: -1;
       top: 0; left: 50%; width: 100vw; height: min(100%, 440px);
       transform: translateX(-50%);
       background:
-        linear-gradient(180deg, rgba(18,22,58,0.45) 0%, rgba(18,22,58,0.75) 55%, var(--bg) 100%),
+        linear-gradient(180deg, rgba(20,20,20,0.45) 0%, rgba(20,20,20,0.75) 55%, var(--bg) 100%),
         url("/images/night-sky-banner.jpg") center 30% / cover no-repeat;
       opacity: 0.9; pointer-events: none;
     }
     @media (max-width: 768px) {
       .page-header::before {
         background:
-          linear-gradient(180deg, rgba(18,22,58,0.5) 0%, rgba(18,22,58,0.78) 55%, var(--bg) 100%),
+          linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(20,20,20,0.78) 55%, var(--bg) 100%),
           url("/images/night-sky-banner-900.jpg") 62% 30% / cover no-repeat;
       }
     }
@@ -160,7 +160,7 @@
     .topic-intro {
       font-size: 1.2rem;
       line-height: 1.7;
-      color: #b4b4dc;
+      color: #c4bfb4;
       max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
@@ -187,7 +187,7 @@
       scroll-margin-top: 90px;
     }
     .post:target {
-      border-left: 2px solid rgba(240,190,140,0.45);
+      border-left: 2px solid rgba(185,138,94,0.45);
       padding-left: 1.25rem;
       margin-left: -1.25rem;
     }
@@ -223,7 +223,7 @@
     .post-body {
       font-size: 1.15rem;
       line-height: 1.7;
-      color: #b4b4dc;
+      color: #c4bfb4;
       max-width: 65ch;
     }
 
@@ -234,7 +234,7 @@
       padding: 0.1rem 0.3rem;
     }
     .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
-    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(240,190,140,0.35), transparent); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(185,138,94,0.35), transparent); }
     .post-meta { gap: 0.6rem; }
     .post-title a { color: inherit; text-decoration: none; }
     .post-title a:hover { color: var(--accent3); }
@@ -264,7 +264,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       line-height: 1.6;
-      color: #9c9cc8;
+      color: #aaa59a;
     }
     .footer-support a { color: var(--accent); text-decoration: none; }
     .footer-support a:hover, .footer-support a:focus { text-decoration: underline; }
@@ -335,7 +335,7 @@
     <article class="post" id="lie-on-the-floor">
       <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#lie-on-the-floor" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#lie-on-the-floor">Lie on the floor</a></h2>
-      <img class="post-img" src="/images/lie-on-the-floor.jpg" alt="A soft, still violet glow in the dark, barely any sparks" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/lie-on-the-floor.jpg" alt="A soft, still copper glow in the dark, barely any sparks" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Somebody posted this week that the best recovery trick for your nervous system might be the least impressive one. Lie on the floor for ten minutes.</p>
         <p>No phone. No music. No guru charging you a hundred bucks to tell you to breathe.</p>
@@ -350,7 +350,7 @@
     <article class="post" id="week-three">
       <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#week-three" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#week-three">Week three</a></h2>
-      <img class="post-img" src="/images/week-three.jpg" alt="A steady violet glow with pale sparks climbing slowly upward" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/week-three.jpg" alt="A steady copper glow with pale sparks climbing slowly upward" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>A list went around this week. An AI chatbot's advice for the next ten years. Two million people saw it. Seventeen thousand liked it. Sleep eight hours. Lift weights three times a week. Walk every day.</p>
         <p>It's a good list. It's also the same list your doctor gave you, your grandmother gave you, and you gave yourself last New Year's.</p>
@@ -365,7 +365,7 @@
     <article class="post" id="dont-carry-whats-not-yours">
       <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#dont-carry-whats-not-yours" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#dont-carry-whats-not-yours">Don't carry what's not yours</a></h2>
-      <img class="post-img" src="/images/dont-carry-whats-not-yours.jpg" alt="A soft violet glow in the dark, with a low drift of pale sparks along the bottom" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/dont-carry-whats-not-yours.jpg" alt="A soft copper glow in the dark, with a low drift of pale sparks along the bottom" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Somebody posted the best advice they ever got this week. It came from a cab driver.</p>
         <p>“Don't carry what's not yours.”</p>
@@ -380,7 +380,7 @@
     <article class="post" id="think-for-yourself-dummy">
       <div class="post-meta"><time class="post-date" datetime="2026-11-02">November 2, 2026</time><a class="post-anchor" href="#think-for-yourself-dummy" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#think-for-yourself-dummy">Think for yourself, dummy</a></h2>
-      <img class="post-img" src="/images/think-for-yourself-dummy.jpg" alt="A faint violet glow in the dark, a few pale sparks hanging in it" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/think-for-yourself-dummy.jpg" alt="A faint copper glow in the dark, a few pale sparks hanging in it" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>I went looking this week for people telling other people to think for themselves. It wasn't hard. It might be the most popular insult on the internet.</p>
         <p>“Do your own research and think for yourself.” Usually followed by a word I can't print and a link to somebody else's video.</p>
@@ -395,7 +395,7 @@
     <article class="post" id="longer-out-than-in">
       <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#longer-out-than-in" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#longer-out-than-in">Longer out than in</a></h2>
-      <img class="post-img" src="/images/longer-out-than-in.jpg" alt="A compact violet glow fading into a dark blue field, a few pale sparks drifting" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/longer-out-than-in.jpg" alt="A compact copper glow fading into a dark field, a few pale sparks drifting" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Somebody writing about fighters said something this week that stuck. Between rounds, most fighters just stand there heaving. The smart ones breathe in through the nose and let it out longer than it came in. A free tool, he said, and most never use it on purpose.</p>
         <p>I'm not a fighter. But I've had days that felt like twelve rounds by lunch.</p>
@@ -409,7 +409,7 @@
     <article class="post" id="it-compounds-both-ways">
       <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#it-compounds-both-ways" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#it-compounds-both-ways">It compounds both ways</a></h2>
-      <img class="post-img" src="/images/it-compounds-both-ways.jpg" alt="A soft violet glow high in a dark blue field, a few pale sparks drifting" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/it-compounds-both-ways.jpg" alt="A soft copper glow high in a dark field, a few pale sparks drifting" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Everybody's heard the one about getting one percent better every day. I've heard it so many times it quit meaning anything.</p>
         <p>Then somebody flipped it this week. One percent worse every day doesn't sound like much either. Both of them compound.</p>
@@ -424,7 +424,7 @@
     <article class="post" id="dont-wrestle-the-pig">
       <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#dont-wrestle-the-pig" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#dont-wrestle-the-pig">Don't wrestle the pig</a></h2>
-      <img class="post-img" src="/images/dont-wrestle-the-pig.jpg" alt="A soft violet glow in the dark, pale sparks lifting through it" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/dont-wrestle-the-pig.jpg" alt="A soft copper glow in the dark, pale sparks lifting through it" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>An old line made the rounds again this week. Fourteen thousand people liked it, which tells me a lot of folks have been in the mud lately.</p>
         <p>There's no point fighting with a pig. You both get dirty, and the pig enjoys it.</p>
@@ -439,7 +439,7 @@
     <article class="post" id="you-just-changed-the-channel">
       <div class="post-meta"><time class="post-date" datetime="2026-10-26">October 26, 2026</time><a class="post-anchor" href="#you-just-changed-the-channel" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#you-just-changed-the-channel">You just changed the channel</a></h2>
-      <img class="post-img" src="/images/you-just-changed-the-channel.jpg" alt="A faint violet glow in a dark blue field, soft orbs and a few pale sparks" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/you-just-changed-the-channel.jpg" alt="A faint copper glow in a dark field, soft orbs and a few pale sparks" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>A post went around this week saying some fools still think the legacy news is real. Twenty-five million people saw it. A lot of them nodded.</p>
         <p>I nodded too. I quit trusting the evening news a long time ago.</p>
@@ -454,7 +454,7 @@
     <article class="post" id="slow-on-purpose">
       <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#slow-on-purpose" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#slow-on-purpose">Slow on purpose</a></h2>
-      <img class="post-img" src="/images/slow-on-purpose.jpg" alt="A low violet glow with pale sparks gathered along the bottom of a dark frame" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/slow-on-purpose.jpg" alt="A low copper glow with pale sparks gathered along the bottom of a dark frame" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>A post going around this week said going slowly is the secret to a calm nervous system. Four thousand people liked it. I'd bet most of them liked it fast and kept scrolling.</p>
         <p>I'm guilty. I eat fast. I drive like the road owes me money. I walk through the grocery store like somebody's timing me. Then I lie down at night and wonder why my head won't shut off.</p>
@@ -467,7 +467,7 @@
     <article class="post" id="it-doesnt-know-its-saturday">
       <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#it-doesnt-know-its-saturday" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#it-doesnt-know-its-saturday">It doesn't know it's Saturday</a></h2>
-      <img class="post-img" src="/images/it-doesnt-know-its-saturday.jpg" alt="A faint violet glow in the dark, scattered pale sparks and soft orbs" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/it-doesnt-know-its-saturday.jpg" alt="A faint copper glow in the dark, scattered pale sparks and soft orbs" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>I read a list of ways to sleep better this week. Magnesium, a cool room, no caffeine after noon, the usual. The one they said had the best evidence was the most boring thing on there.</p>
         <p>Get up at the same time every day. Weekends too.</p>
@@ -482,7 +482,7 @@
     <article class="post" id="your-work-is-your-signature">
       <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#your-work-is-your-signature" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#your-work-is-your-signature">Your work is your signature</a></h2>
-      <img class="post-img" src="/images/your-work-is-your-signature.jpg" alt="A soft violet glow in the dark, pale sparks scattered through it" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/your-work-is-your-signature.jpg" alt="A soft copper glow in the dark, pale sparks scattered through it" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Somebody's grandpa used to tell them, your work is your signature.</p>
         <p>I read that and thought about every job I ever did halfway and then stood around explaining. The weather. The parts. The guy before me. I had a whole speech.</p>
@@ -496,7 +496,7 @@
     <article class="post" id="your-own-research">
       <div class="post-meta"><time class="post-date" datetime="2026-10-19">October 19, 2026</time><a class="post-anchor" href="#your-own-research" aria-label="Link to this piece">#</a></div>
       <h2 class="post-title"><a href="#your-own-research">Your own research</a></h2>
-      <img class="post-img" src="/images/your-own-research.jpg" alt="A faint violet glow in the dark, pale sparks drifting through it" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="/images/your-own-research.jpg" alt="A faint copper glow in the dark, pale sparks drifting through it" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Everybody does their own research now. You can tell, because they all come back with the same answer they left with.</p>
         <p>That's the part nobody puts on the bumper sticker. Research isn't going out to find backup. Anybody can do that. Type in what you already think and the internet will hand you a stack of people who agree, sorted by how loud they are.</p>
