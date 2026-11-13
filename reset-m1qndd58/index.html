@@ -23,20 +23,20 @@
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#12163a">
+  <meta name="theme-color" content="#141414">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:     #12163a;
-      --bg2:    #171a44;
-      --bg3:    #1f1e50;
-      --border: #343066;
-      --text:   #d6d6fa;
-      --muted:  #9c9cc8;
-      --accent: #f0be8c;
-      --accent2:#d2a47e;
-      --accent3:#f8d6b2;
+      --bg:     #141414;
+      --bg2:    #1a1916;
+      --bg3:    #262420;
+      --border: #3a3630;
+      --text:   #e6e1d6;
+      --muted:  #aaa59a;
+      --accent: #b98a5e;
+      --accent2:#c4a07a;
+      --accent3:#d4b896;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -63,14 +63,14 @@
       bottom: -120px; left: 50%;
       transform: translateX(-50%);
       width: 700px; height: 350px;
-      background: radial-gradient(ellipse, rgba(240,190,140,0.09) 0%, rgba(120,100,200,0.05) 40%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(185,138,94,0.09) 0%, rgba(185,138,94,0.05) 40%, transparent 70%);
       pointer-events: none; z-index: 0;
     }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(18,22,58,0.92);
+      background: rgba(20,20,20,0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
@@ -143,7 +143,7 @@
     .topic-intro {
       font-size: 1.2rem;
       line-height: 1.7;
-      color: #b4b4dc;
+      color: #c4bfb4;
       max-width: 65ch;
     }
     .topic-intro p { margin-bottom: 1em; }
@@ -170,7 +170,7 @@
       scroll-margin-top: 90px;
     }
     .post:target {
-      border-left: 2px solid rgba(240,190,140,0.45);
+      border-left: 2px solid rgba(185,138,94,0.45);
       padding-left: 1.25rem;
       margin-left: -1.25rem;
     }
@@ -206,7 +206,7 @@
     .post-body {
       font-size: 1.15rem;
       line-height: 1.7;
-      color: #b4b4dc;
+      color: #c4bfb4;
       max-width: 65ch;
     }
 
@@ -217,7 +217,7 @@
       padding: 0.1rem 0.3rem;
     }
     .post:hover .post-anchor, .post-anchor:focus-visible { opacity: 1; color: var(--accent3); }
-    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(240,190,140,0.35), transparent); }
+    .post-meta::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(185,138,94,0.35), transparent); }
     .post-meta { gap: 0.6rem; }
     .post-title a { color: inherit; text-decoration: none; }
     .post-title a:hover { color: var(--accent3); }
@@ -247,7 +247,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       line-height: 1.6;
-      color: #9c9cc8;
+      color: #aaa59a;
     }
     .footer-support a { color: var(--accent); text-decoration: none; }
     .footer-support a:hover, .footer-support a:focus { text-decoration: underline; }
@@ -298,7 +298,7 @@
     .guide-h3 a:hover { color: var(--text); }
     .post-body a, .callout a, .qp-row a, .day-list a, .plain-list a, .protocol a {
       color: var(--accent3); text-decoration: none;
-      border-bottom: 1px solid rgba(214,214,250,0.35);
+      border-bottom: 1px solid rgba(230,225,214,0.35);
     }
     .post-body a:hover, .callout a:hover, .qp-row a:hover, .day-list a:hover { border-bottom-color: var(--accent3); }
     .post-body + .post-body, .post-body + .callout, .steps + .post-body, .callout + .post-body,
@@ -311,7 +311,7 @@
     .qp-row {
       display: grid; grid-template-columns: 9rem 1fr 1fr; gap: 1.25rem;
       padding: 1rem 1.25rem; border-top: 1px solid var(--border);
-      font-size: 1.05rem; line-height: 1.5; color: #b4b4dc;
+      font-size: 1.05rem; line-height: 1.5; color: #c4bfb4;
     }
     .qp-row:first-child { border-top: none; }
     .qp-head span {
@@ -343,7 +343,7 @@
     .steps li {
       counter-increment: s; position: relative;
       padding: 0.55rem 0 0.55rem 2.75rem;
-      font-size: 1.12rem; line-height: 1.65; color: #b4b4dc;
+      font-size: 1.12rem; line-height: 1.65; color: #c4bfb4;
     }
     .steps li::before {
       content: counter(s); position: absolute; left: 0; top: 0.6rem;
@@ -356,9 +356,9 @@
 
     /* Callout */
     .callout {
-      border-left: 2px solid rgba(240,190,140,0.55); background: var(--bg2);
+      border-left: 2px solid rgba(185,138,94,0.55); background: var(--bg2);
       padding: 1.25rem 1.5rem; margin: 1.75rem 0; max-width: 65ch;
-      font-size: 1.08rem; line-height: 1.65; color: #b4b4dc;
+      font-size: 1.08rem; line-height: 1.65; color: #c4bfb4;
     }
     .callout-label {
       display: block; margin-bottom: 0.6rem;
@@ -372,14 +372,14 @@
       width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
     }
     .callout-note { margin-top: 0.9rem; font-size: 1rem; color: var(--muted); }
-    .plain-list { max-width: 65ch; font-size: 1.1rem; line-height: 1.65; color: #b4b4dc; }
+    .plain-list { max-width: 65ch; font-size: 1.1rem; line-height: 1.65; color: #c4bfb4; }
 
     /* PMR list */
     .pmr-list { counter-reset: p; list-style: none; max-width: 65ch; border-top: 1px solid var(--border); }
     .pmr-list li {
       counter-increment: p; display: grid; grid-template-columns: 2.2rem 10rem 1fr; gap: 0.75rem;
       padding: 0.85rem 0; border-bottom: 1px solid var(--border);
-      font-size: 1.08rem; line-height: 1.55; color: #b4b4dc;
+      font-size: 1.08rem; line-height: 1.55; color: #c4bfb4;
     }
     .pmr-list li::before {
       content: counter(p, decimal-leading-zero);
@@ -392,7 +392,7 @@
     .protocol {
       border: 1px solid var(--border); background: var(--bg2);
       padding: 1.1rem 1.35rem; margin: 1rem 0; max-width: 65ch;
-      font-size: 1.08rem; line-height: 1.65; color: #b4b4dc;
+      font-size: 1.08rem; line-height: 1.65; color: #c4bfb4;
       scroll-margin-top: 80px;
     }
     .protocol-name {
@@ -405,7 +405,7 @@
       letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent2);
     }
     .protocol:target, .guide-block:target .guide-h3 { color: var(--accent3); }
-    .protocol:target { border-color: rgba(240,190,140,0.6); }
+    .protocol:target { border-color: rgba(185,138,94,0.6); }
 
     /* Day list */
     .day-list { max-width: 65ch; margin: 1.5rem 0; border-top: 1px solid var(--border); }
@@ -415,7 +415,7 @@
       padding-top: 1rem;
     }
     .day-list dd {
-      font-size: 1.1rem; line-height: 1.6; color: #b4b4dc;
+      font-size: 1.1rem; line-height: 1.6; color: #c4bfb4;
       padding: 0.3rem 0 1rem; border-bottom: 1px solid var(--border);
     }
     .fine-print {
@@ -480,7 +480,7 @@
 
   <main class="feed">
 
-    <img class="post-img guide-hero" src="images/daily-reset-hero.jpg" alt="A low violet glow with pale sparks rising from the bottom of a dark frame" width="1200" height="800" />
+    <img class="post-img guide-hero" src="images/daily-reset-hero.jpg" alt="A low copper glow with pale sparks rising from the bottom of a dark frame" width="1200" height="800" />
 
     <section class="guide-block" id="quick-pick" aria-labelledby="quick-pick-title">
       <h2 class="post-title" id="quick-pick-title"><a href="#quick-pick">What do I need right now?</a></h2>
@@ -678,7 +678,7 @@
     <section class="guide-block guide-section" id="burn-it-off" aria-labelledby="burn-title">
       <div class="post-meta"><span class="post-date">Section 3</span><a class="post-anchor" href="#burn-it-off" aria-label="Link to this section">#</a></div>
       <h2 class="post-title" id="burn-title"><a href="#burn-it-off">Burn it off. <em>Don't argue with it.</em></a></h2>
-      <img class="post-img" src="images/burn-it-off-intervals.jpg" alt="Six tall pale-violet bars separated by short low gaps, labeled six efforts of ten to twenty seconds with sixty to ninety seconds of rest, against a dark field of pale sparks" width="1200" height="800" loading="lazy" />
+      <img class="post-img" src="images/burn-it-off-intervals.jpg" alt="Six tall pale-copper bars separated by short low gaps, labeled six efforts of ten to twenty seconds with sixty to ninety seconds of rest, against a dark field of pale sparks" width="1200" height="800" loading="lazy" />
       <div class="post-body">
         <p>Sometimes calm isn't on the menu. The adrenaline is already in your blood. Your body got ready for a fight. Sitting still and breathing politely at it is like idling a truck with the gas pedal stuck. It's going to burn that fuel one way or another.</p>
         <p>So burn it on purpose. Short, hard, done. You're giving the body the fight it got ready for, then letting it come down on its own.</p>
