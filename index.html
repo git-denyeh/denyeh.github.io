@@ -170,7 +170,7 @@
     .about p + p { margin-top: 1em; }
     .about em { color: var(--accent3); font-style: italic; }
 
-    /* LATEST ENTRIES (static; update when a new entry is added to /thread/) */
+    /* LATEST ENTRIES (static; update when a new entry is added to /restless-mind/ or /thread/) */
     .latest {
       position: relative; z-index: 1;
       max-width: 620px; margin: 0 auto 2rem; padding: 0 2rem;
@@ -198,7 +198,10 @@
     }
     .read-thread {
       position: relative; z-index: 1; text-align: center;
-      margin: 0 auto 4.5rem; padding: 0 2rem;
+      margin: 0 auto 3.25rem; padding: 0 2rem;
+    }
+    .read-thread.last {
+      margin-bottom: 4.5rem;
     }
     .read-thread a {
       display: inline-block; font-family: 'Barlow', sans-serif;
@@ -308,6 +311,7 @@
   <nav>
     <a href="/" class="nav-logo">DENYEH</a>
     <ul class="nav-links">
+      <li><a href="/restless-mind/">The Restless Mind</a></li>
       <li><a href="/thread/">The Thread</a></li>
       <li><a href="/reset-m1qndd58/">Daily Reset</a></li>
       <li><a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a></li>
@@ -318,6 +322,7 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
+    <a href="/restless-mind/">The Restless Mind</a>
     <a href="/thread/">The Thread</a>
     <a href="/reset-m1qndd58/">Daily Reset</a>
     <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">Support</a>
@@ -332,10 +337,23 @@
     </div>
   </section>
 
+  <div class="divider"><span>The Restless Mind</span></div>
+
+  <!-- LATEST from /restless-mind/: newest entries first. -->
+  <section class="latest" aria-label="The Restless Mind">
+    <a href="/restless-mind/#forty-seven-tabs">
+      <span class="latest-title">Forty-seven tabs</span>
+      <span class="latest-first">My brain keeps 47 tabs open, and one of them is playing music I can&#x27;t find. But when the right tab comes up, I disappear for six hours. Nobody has ever been this productive by accident.</span>
+      <span class="latest-meta"><time datetime="2026-11-13">November 13, 2026</time></span>
+    </a>
+  </section>
+
+  <p class="read-thread"><a href="/restless-mind/">Read The Restless Mind <span aria-hidden="true">&rarr;</span></a></p>
+
   <div class="divider"><span>Latest from The Thread</span></div>
 
   <!-- LATEST: newest entries first. When a new entry is added to /thread/, add it here and drop the oldest. -->
-  <section class="latest" aria-label="Latest entries">
+  <section class="latest" aria-label="Latest from The Thread">
     <a href="/thread/#lie-on-the-floor">
       <span class="latest-title">Lie on the floor</span>
       <span class="latest-first">Somebody posted this week that the best recovery trick for your nervous system might be the least impressive one. Lie on the floor for ten minutes.</span>
@@ -363,7 +381,7 @@
     </a>
   </section>
 
-  <p class="read-thread"><a href="/thread/">Read The Thread <span aria-hidden="true">&rarr;</span></a></p>
+  <p class="read-thread last"><a href="/thread/">Read The Thread <span aria-hidden="true">&rarr;</span></a></p>
 
   <footer>
     <span class="footer-support">If something here stayed with you, you can <a href="https://ko-fi.com/denyeh" target="_blank" rel="noopener">support the writing</a>.<a class="kofi-cup" href="https://ko-fi.com/denyeh" target="_blank" rel="noopener"><img src="/images/kofi-cup.png" alt="Ko-fi" width="161" height="130"></a></span>
