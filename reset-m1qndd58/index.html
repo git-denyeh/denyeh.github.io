@@ -326,19 +326,49 @@
       border-left: 2px solid var(--accent); padding-left: 0.75rem;
     }
 
-    /* On-page jump links */
-    .guide-toc { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-top: 0.5rem; }
+    /* On-page jump links (scoped reset: the site header's bare `nav {}` rule
+       made this sticky, 58px tall, space-between, with a border-bottom) */
+    .guide-toc {
+      position: static; height: auto; padding: 1.5rem 0 0; z-index: auto;
+      display: block; background: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+      border: 0; border-top: 1px solid var(--border); margin-top: 0.5rem;
+    }
     .toc-label {
       font-family: 'Barlow', sans-serif; font-size: 0.62rem; font-weight: 500;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent2); margin-right: 0.4rem;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent2);
+      margin-bottom: 1.1rem;
     }
-    .guide-toc a {
-      font-family: 'Barlow', sans-serif; font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-      color: var(--muted); border: 1px solid var(--border); border-radius: 3px;
-      padding: 0.35rem 0.6rem; transition: color .2s, border-color .2s;
+    .toc-groups {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem 1.5rem;
     }
-    .guide-toc a:hover { color: var(--accent3); border-color: var(--accent2); }
+    .toc-sec {
+      display: inline-block;
+      font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem;
+      color: var(--accent3); text-decoration: none; line-height: 1.3;
+      margin-bottom: 0.45rem; transition: color .2s;
+    }
+    .toc-sec:hover { color: var(--text); }
+    .toc-subs { list-style: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+    .toc-subs a {
+      display: inline-block;
+      font-family: 'Barlow', sans-serif; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      color: var(--muted); padding: 0.15rem 0; border-bottom: 1px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .toc-subs a:hover { color: var(--accent3); border-bottom-color: var(--accent2); }
+    @media (max-width: 640px) {
+      .toc-groups { grid-template-columns: 1fr; gap: 0; }
+      .toc-group {
+        display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.75rem;
+        align-items: baseline; padding: 0.8rem 0; border-top: 1px solid rgba(58,54,48,0.6);
+      }
+      .toc-group:first-child { border-top: 0; padding-top: 0; }
+      .toc-sec { margin-bottom: 0; font-size: 1.05rem; }
+      .toc-subs { flex-direction: row; flex-wrap: wrap; gap: 0.35rem 1.1rem; }
+      .toc-subs a { padding: 0.3rem 0; }
+    }
 
     /* Steps */
     .steps { counter-reset: s; list-style: none; max-width: 65ch; margin: 0 0 0.5rem; }
@@ -523,24 +553,39 @@
       </div>
       <img class="post-img" src="images/daily-reset-quick-pick.jpg" alt="Chart titled What do I need right now: Wired, burn it off then sigh. Tense, squeeze and let go. Foggy, move hard for two minutes. Can't sleep, long exhale plus head-to-toe." width="1200" height="800" loading="lazy" />
       <nav class="guide-toc" aria-label="On this page">
-        <span class="toc-label">On this page</span>
-        <a href="#breathing">1 · Breathing</a>
-        <a href="#the-sigh">The sigh</a>
-        <a href="#longer-out">Longer out</a>
-        <a href="#box">Box</a>
-        <a href="#release">2 · Release</a>
-        <a href="#squeeze-and-release">Head to toe</a>
-        <a href="#stretch-set">Stretch set</a>
-        <a href="#burn-it-off">3 · Burn it off</a>
-        <a href="#protocols">Protocols</a>
-        <a href="#safety">Safety</a>
-        <a href="#a-day">A day of it</a>
+        <p class="toc-label">On this page</p>
+        <ul class="toc-groups">
+          <li class="toc-group">
+            <a class="toc-sec" href="#breathing">Breathing</a>
+            <ul class="toc-subs">
+              <li><a href="#the-sigh">The sigh</a></li>
+              <li><a href="#longer-out">Longer out</a></li>
+              <li><a href="#box">Box</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <a class="toc-sec" href="#release">Release</a>
+            <ul class="toc-subs">
+              <li><a href="#squeeze-and-release">Head to toe</a></li>
+              <li><a href="#stretch-set">Stretch set</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <a class="toc-sec" href="#burn-it-off">Burn it off</a>
+            <ul class="toc-subs">
+              <li><a href="#protocols">Protocols</a></li>
+              <li><a href="#safety">Safety</a></li>
+            </ul>
+          </li>
+          <li class="toc-group">
+            <a class="toc-sec" href="#a-day">A day of it</a>
+          </li>
+        </ul>
       </nav>
     </section>
 
     <!-- ============ 1. BREATHING ============ -->
     <section class="guide-block guide-section" id="breathing" aria-labelledby="breathing-title">
-      <div class="post-meta"><span class="post-date">Section 1</span><a class="post-anchor" href="#breathing" aria-label="Link to this section">#</a></div>
       <h2 class="post-title" id="breathing-title"><a href="#breathing">Breathing. <em>The fastest brake you've got.</em></a></h2>
       <div class="post-body">
         <p>You can't think your way out of a racing heart. You can breathe your way down from one. The breath is the one part of the nervous system you can grab with both hands.</p>
@@ -615,7 +660,6 @@
 
     <!-- ============ 2. RELEASE ============ -->
     <section class="guide-block guide-section" id="release" aria-labelledby="release-title">
-      <div class="post-meta"><span class="post-date">Section 2</span><a class="post-anchor" href="#release" aria-label="Link to this section">#</a></div>
       <h2 class="post-title" id="release-title"><a href="#release">Squeeze, then <em>let it go.</em></a></h2>
       <img class="post-img" src="images/release-vs-stretch.jpg" alt="Illustrative line graph of muscle tension over time: stretching alone dips slightly and creeps back to baseline, while a hard squeeze followed by a release drops tension well below where it started" width="1200" height="800" loading="lazy" />
       <div class="post-body">
@@ -680,7 +724,6 @@
 
     <!-- ============ 3. BURN IT OFF ============ -->
     <section class="guide-block guide-section" id="burn-it-off" aria-labelledby="burn-title">
-      <div class="post-meta"><span class="post-date">Section 3</span><a class="post-anchor" href="#burn-it-off" aria-label="Link to this section">#</a></div>
       <h2 class="post-title" id="burn-title"><a href="#burn-it-off">Burn it off. <em>Don't argue with it.</em></a></h2>
       <img class="post-img" src="images/burn-it-off-intervals.jpg" alt="Six tall pale-copper bars separated by short low gaps, labeled six efforts of ten to twenty seconds with sixty to ninety seconds of rest, against a dark field of pale sparks" width="1200" height="800" loading="lazy" />
       <div class="post-body">
@@ -757,7 +800,6 @@
 
     <!-- ============ A DAY OF IT ============ -->
     <section class="guide-block guide-section" id="a-day" aria-labelledby="day-title">
-      <div class="post-meta"><span class="post-date">Putting it together</span><a class="post-anchor" href="#a-day" aria-label="Link to this section">#</a></div>
       <h2 class="post-title" id="day-title"><a href="#a-day">A day of it</a></h2>
       <div class="post-body">
         <p>Not a schedule. Just the spots where these fit. Use what you need and skip the rest.</p>
